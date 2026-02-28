@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303ade9c1e9e0a84fb085915525637f1, type: 3}
+  m_Name: CommonChest
+  m_EditorClassIdentifier: 
+  <Price>k__BackingField: 50
+  <Icon>k__BackingField: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  <UseDonatMoney>k__BackingField: 1
+  ChestRarity: 0
+  MinItems: 1
+  MaxItems: 4
+  RarityRollWeigth:
+  - Rarity: 0
+    Weigth: 100
+  - Rarity: 1
+    Weigth: 25
+  - Rarity: 2
+    Weigth: 5

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ef355510e8d97439cf6a5957db4b65, type: 3}
+  m_Name: AllLootPool
+  m_EditorClassIdentifier: 
+  DropedLoots:
+  - {fileID: 11400000, guid: 3f01d5b04b332a041b4bf2fd05dac12d, type: 2}
+  - {fileID: 11400000, guid: 4f1b0252f6d654a4aaa6155220ed9d63, type: 2}
+  - {fileID: 11400000, guid: 494261b0d84d8e644a7af69e963d0916, type: 2}
+  - {fileID: 11400000, guid: 2c5a043155e3e2948a00b7f4d0b534fe, type: 2}
+  - {fileID: 11400000, guid: 6fa3a67ab10f09e458ffa770950cb7bd, type: 2}
+  - {fileID: 11400000, guid: 3edc4efd3a822d5499f952fab7fee295, type: 2}
+  - {fileID: 11400000, guid: 46ac86a2329305e4fb6d2b6533f451bf, type: 2}

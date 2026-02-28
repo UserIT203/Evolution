@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10a491e6d585a843856d670fb14ff2a, type: 3}
+  m_Name: BombAbility
+  m_EditorClassIdentifier: 
+  <CardID>k__BackingField: -13762
+  CardName: Bomb
+  Sprite: {fileID: 0}
+  Description: 
+  Rarity: 0
+  <MaxLevel>k__BackingField: 5
+  CardsRequiredPerLevel: 0200000003000000040000000500000006000000
+  _enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _bombDamage:
+    _baseValue: 60
+    _modifiers: []
+  _levelUpIncrease: 0.5
