@@ -42,6 +42,11 @@ public class FortunaMenu : Menu
         _spinButton.onClick.RemoveListener(OnSpinButton);
     }
 
+    protected override void Initialized()
+    {
+        CloseMenu();
+    }
+
     public override void CloseMenu()
     {
         _canvasGroup.alpha = 0f;

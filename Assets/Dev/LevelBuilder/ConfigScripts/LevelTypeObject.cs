@@ -6,5 +6,6 @@ public enum LevelTypeObject
     PlayerTower,
     EnemyTower,
     Props,
-    Road
+    Road,
+    Empty
 }

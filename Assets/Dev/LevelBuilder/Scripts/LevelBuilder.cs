@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 using Zenject;
 
 public class LevelBuilder : MonoBehaviour
@@ -55,7 +54,6 @@ public class LevelBuilder : MonoBehaviour
         if (_levelsRoots.Count > 0)
             ClearAll();
 
-
         for (int i = 0; i < levelsConfigs.Count; i++)
         {
             LevelOptions newOption = new LevelOptions
@@ -76,7 +74,8 @@ public class LevelBuilder : MonoBehaviour
 
         foreach (var levelRoot in _levelsRoots)
         {
-            DestroyImmediate(transform.GetChild(0).gameObject, false);
+            if(transform.GetChild(0).gameObject != null)
+                DestroyImmediate(transform.GetChild(0).gameObject, false);
         }
 
         _currentLevelOrder = int.MaxValue;
@@ -173,6 +172,7 @@ public class LevelBuilder : MonoBehaviour
 
     private void SpawnLevelObjects(LevelOptions levelOptions, LevelRoot levelRoot)
     {
+        Debug.Log(_gridConfig);
         var cell = _gridConfig.GetCellObjects();
         var objectByType = levelOptions.Config.TypeObjects;
         _cellSize = _gridConfig.CellSize;
@@ -246,6 +246,12 @@ public class LevelBuilder : MonoBehaviour
         meshModifier.overrideArea = true;
         meshModifier.area = 1;
 
+        planeObject.transform.localPosition = new Vector3(
+            planeObject.transform.localPosition.x,
+            planeObject.transform.localPosition.y - localSize.y,
+            planeObject.transform.localPosition.z
+            );
+
         planeObject.transform.localScale = new Vector3(scaleX, localSize.y, scaleZ);
     }
 
@@ -280,7 +286,7 @@ public class LevelBuilder : MonoBehaviour
         meshModifier.overrideArea = true;
         meshModifier.area = 0;
 
-        roadObject.transform.localScale = new Vector3(scaleX, localSize.y, scaleZ);
+        roadObject.transform.localScale = new Vector3(scaleX, roadObject.transform.localScale.y, scaleZ);
     }
 
     private Transform SpawnTower(
@@ -294,17 +300,26 @@ public class LevelBuilder : MonoBehaviour
         bool roadOnRight = grid[index + 1] == LevelTypeObject.Road;
 
         float halfCell = _cellSize / 2f;
+
         Vector3 towerPosition = cellCenter;
         Vector3 extents = tower.GetComponent<Renderer>().bounds.extents;
 
-        if (roadOnLeft) towerPosition.x -= halfCell - extents.x;
-        if (roadOnRight) towerPosition.x += halfCell - extents.x;
+        Quaternion towerRotation = Quaternion.identity;
 
-        towerPosition.y += extents.y;
+        if (roadOnLeft)
+        {
+            towerRotation.y = 180f;
+            towerPosition.x -= halfCell - extents.x;
+        }
+
+        if (roadOnRight) 
+        {
+            towerPosition.x += halfCell - extents.x; 
+        }
 
         Debug.Log($"Tower root {root}");
 
-        GameObject towerObject = Instantiate(tower, towerPosition, Quaternion.identity, root);
+        GameObject towerObject = Instantiate(tower, towerPosition, towerRotation, root);
         _DIContainer?.Inject(towerObject.GetComponent<Tower>());
 
         return towerObject.transform;

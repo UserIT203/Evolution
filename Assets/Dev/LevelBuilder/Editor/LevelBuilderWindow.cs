@@ -1,6 +1,8 @@
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using static UnityEngine.Rendering.STP;
 
 public class LevelBuilderWindow : EditorWindow
 {
@@ -45,6 +47,16 @@ public class LevelBuilderWindow : EditorWindow
     private void OnEnable()
     {
         Initialized();
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("Close Level Build Window");
+
+        if (_gridConfig == null) return;
+
+        EditorUtility.SetDirty(_gridConfig);
+        AssetDatabase.SaveAssets();
     }
 
     private void OnGUI()
@@ -117,7 +129,7 @@ public class LevelBuilderWindow : EditorWindow
             for (int col = 0; col < _gridConfig.Col; col++)
             {
                 int index = row * _gridConfig.Col + col;
-                Color currentColor = _gridConfig.CellColor[index];
+                Color currentColor = _gridConfig.GetColor(index);
 
                 _cellButtonStyle = new GUIStyle(GUI.skin.button)
                 {
@@ -128,7 +140,7 @@ public class LevelBuilderWindow : EditorWindow
 
                 if(GUILayout.Button(GUIContent.none, _cellButtonStyle))
                 {
-                    _gridConfig.CellColor[index] = _selectedColor;
+                    _gridConfig.SetColor(index, _selectedColor);
                 }
 
                 if (col < _gridConfig.Col - 1)
