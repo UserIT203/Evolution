@@ -9,24 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedd8e70dd97ff74fbcc21b823057541, type: 3}
-  m_Name: Ranged
+  m_Script: {fileID: 11500000, guid: a79d9f4fbd6db1a45b482a664b5493b9, type: 3}
+  m_Name: EnemyHeavy
   m_EditorClassIdentifier: 
   <UnitName>k__BackingField: 
-  <Cost>k__BackingField: 3
-  <UnitType>k__BackingField: 1
-  <Maxhealth>k__BackingField: 20
+  <Cost>k__BackingField: 0
+  <UnitType>k__BackingField: 0
+  <Maxhealth>k__BackingField: 50
   <Armor>k__BackingField: 0
   <Speed>k__BackingField: 0.6
-  <VictimTag>k__BackingField: Enemy
+  <VictimTag>k__BackingField: Player
   <AttackMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 64
-  <AttackDelay>k__BackingField: 1
-  <AttackRange>k__BackingField: 5
-  <Damage>k__BackingField: 8
-  <DetectedRange>k__BackingField: 7
+    m_Bits: 128
+  <AttackDelay>k__BackingField: 1.5
+  <AttackRange>k__BackingField: 3
+  <Damage>k__BackingField: 10
+  <DetectedRange>k__BackingField: 4
   <Icon>k__BackingField: {fileID: 0}
   <IsUnlock>k__BackingField: 0
-  <UnlockCosts>k__BackingField: 5
-  <BulletConfig>k__BackingField: {fileID: 11400000, guid: bc3adb71c23a9f847847773033dedb62, type: 2}
+  <UnlockCosts>k__BackingField: 0

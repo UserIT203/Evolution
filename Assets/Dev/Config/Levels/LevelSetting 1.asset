@@ -23,6 +23,7 @@ MonoBehaviour:
   PlayerUnits:
   - {fileID: 4589907965028871516, guid: 9deff5be79a2f0e43858ce7c8024a9bc, type: 3}
   - {fileID: 4411722504567029211, guid: bdfdc644140dd0a4581c22888b6f0f35, type: 3}
+  - {fileID: 23580588558624143, guid: 441b9e8eb70424e44aa92c1d7eb646d4, type: 3}
   EnemyUnits:
   - {fileID: 8437068924828531486, guid: a46c2cd2680e26f46be9a004fcd6e03b, type: 3}
   WavesConfig: {fileID: 11400000, guid: c03f54b66aae0b84ca47f22b1b3d81ac, type: 2}

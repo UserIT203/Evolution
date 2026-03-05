@@ -32,5 +32,6 @@ public class UnitStatsConfig : ScriptableObject
 public enum UnitType
 {
     Melee, 
-    Ranged
+    Ranged,
+    Heavy
 }
