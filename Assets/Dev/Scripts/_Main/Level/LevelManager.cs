@@ -19,6 +19,16 @@ public class LevelManager : MonoBehaviour
 
     public List<LevelSetting> LevelsSettings { get; set; }
 
+    public int CurrentOpenLevels => _maxOpenLevels;
+    public int MaxLevel => LevelsSettings.Count;
+    public Sprite CurentLevelIcon
+    {
+        get 
+        {
+            return LevelsSettings[_currentSelectLevel].LevelIcon;
+        }
+    }
+
     public event Action onEraCompleted;
 
     [Inject]

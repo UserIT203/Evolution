@@ -1,0 +1,1558 @@
+fileFormatVersion: 2
+guid: 3757f873ab1a809459f2ff87ce65be64
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270506
+  packageName: Universal Stylized UI
+  packageVersion: 1.0
+  assetPath: Assets/Universal Stylized UI/Atlas_Textures/Complete_Stylized_UI_elements_buttons.png
+  uploadId: 630075
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1862
+        width: 485
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162c63897385060499a3e3b1c3e70eb4
+      internalID: 1245534259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_1
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1871
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409354a9ac9a78a4f9ecf1c1217e8871
+      internalID: 695526327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_2
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1871
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76658d1d3942aab4b96120a99c52a78c
+      internalID: 524947774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_3
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 714
+        width: 167
+        height: 1310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b668eeb6d6eb044a83dd8d1fb99825
+      internalID: -184193518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_4
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 1936
+        width: 270
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48e1900f89f5c743beaeb9975c7f81a
+      internalID: -1208975803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_5
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1671
+        width: 485
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf6e25037033284db22e6ad9eea7cbf
+      internalID: -585413587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_6
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1680
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ecbf02f87e139344991b328f0b854f8
+      internalID: -264622638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_7
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1680
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f64cf5a60b3d7446b5829ebc67f9fb4
+      internalID: 645782798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_8
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 1816
+        width: 270
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6a8061d83855049a8a1f7149ab2593
+      internalID: 612475708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_9
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 1696
+        width: 270
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db66f98ae1d0ed4c9d15b15b61904e7
+      internalID: -2144140877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_10
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1480
+        width: 485
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664f620c61537d04fb43d5c4ce10dd13
+      internalID: -645353129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_11
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1489
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70dd89654cca43f47b58da7958b47c17
+      internalID: 1688508369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_12
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1489
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d53c389ded33b4448bd1f87458f4597
+      internalID: 1011624138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_13
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 1576
+        width: 270
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860b3066f432cbc40a845ad495fa7540
+      internalID: 1062192614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_14
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1289
+        width: 485
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d8e68cc1c86cd47922d034599379dc
+      internalID: 733787097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_15
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1298
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb02b2fc60860194291c6a701242f3ac
+      internalID: 1706211302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_16
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1298
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2e5105401fae448bcac81c72f5e181
+      internalID: -1494424808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_17
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 1456
+        width: 232
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54dd584b847c93b40acd61eb62818602
+      internalID: -1816779977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_18
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 1336
+        width: 232
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ca54c50fc4e3e4b8d214523a92d186
+      internalID: -2096251044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_19
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1100
+        width: 474
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c10b151a7277074ab8110ecd6e9f221
+      internalID: 825820529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_20
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1107
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6b96ac1164a5944a6db0c58da88c84
+      internalID: -321398676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_21
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1107
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fde017168036f40842a7b38719259c
+      internalID: 1312581320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_22
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 1216
+        width: 232
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c91cc959ded80a468495ceabfc7a961
+      internalID: -1560952547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_23
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 1096
+        width: 232
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d5250bde9ea6741a8d5f356382fb77
+      internalID: 76910910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_24
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 907
+        width: 485
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80a65d056000d242ae47d763585eff5
+      internalID: 1029923522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_25
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 916
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c33582313b116f43a24960a7075cf95
+      internalID: 982222218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_26
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 918
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 240293cd16420ab449f84d0778088b64
+      internalID: -846414104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_27
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 971
+        width: 232
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530435fb61909d14b9f74b67892c43ad
+      internalID: 1700605432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_28
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 716
+        width: 485
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4d6abf3be32b2489f91a5a09c0852b
+      internalID: 131342445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_29
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 725
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48fb44b79368e4438be1f10ad1e1a4d
+      internalID: -524683280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_30
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 725
+        width: 485
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2907f1a3edf2b48891f84aa86730eb
+      internalID: -911636653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_31
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 851
+        width: 232
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e24995fcbe92449beac30ce1f57002
+      internalID: -183805975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_32
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 731
+        width: 232
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e56fdc9e1442744b78be76efa173f4
+      internalID: 1729518860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_33
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 400
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3121c922d15f6459ba828d1c8b220d
+      internalID: 228462903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_34
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 400
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816da317b75c28e418a431af751a20b0
+      internalID: -1474498439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_35
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 400
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5593ae5319387f7498f537719cb961f9
+      internalID: 1475869564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_36
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 400
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe69de0597308f498b1067d23417690
+      internalID: 228961949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_37
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 595
+        width: 287
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e8949f4e1bc71649b41f2ac52977038
+      internalID: 1101180507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_38
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 590
+        width: 150
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2691c920a410cd64ab6c470c882e456d
+      internalID: 359323466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_39
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 611
+        width: 232
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd13d1f114e85de4db0dd9eca5a1a20a
+      internalID: -1204186053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_40
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 465
+        width: 277
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eff9585987395f4fbd78214d7bf20a9
+      internalID: -1309066443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_41
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 471
+        width: 227
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fef9cb3b90ef84194c73bbfb144cef
+      internalID: 1654314529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_42
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 485
+        width: 111
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23493d36d1b48b4caf90839a9ef6267
+      internalID: -437161757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_43
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 386
+        width: 105
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538ff0fca91f5774cb3e269793994835
+      internalID: 286747598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_44
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 349
+        width: 222
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4fdd1da83893c4ebb4b13597f0c745
+      internalID: -892327676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_45
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 367
+        width: 111
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b38bb5895e2b0049a098d60864ae35f
+      internalID: -1358024783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_46
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 80
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f807d22f1ca8b1647847890f209afba6
+      internalID: -902742917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_47
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 80
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aac111414d81f84996a4725886e748f
+      internalID: 1459653088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_48
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 80
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350264120e39d1241be1efcc652b8671
+      internalID: 694845636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_49
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 80
+        width: 297
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 67, z: 20, w: 38}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01fd5ac706c79db4a87fafbf933b4338
+      internalID: 1569827339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_50
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 89
+        width: 278
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6120f0e16e0c24cb48589480ae391c
+      internalID: 125256141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_51
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 239
+        width: 165
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1a7c141f732f54bb7ba5d585235e0a
+      internalID: 1116110323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_52
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 279
+        width: 104
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9fc3e8d1e169c4682febfbb098cffb
+      internalID: -1816475246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_53
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 249
+        width: 111
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b39ac6533babd409b68076a6f57b4a
+      internalID: -1396406595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_54
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 141
+        width: 81
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7ad17c1ef651245b4efdaf282eab2b
+      internalID: 810927965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_55
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 206
+        width: 104
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738749d891a71904d9dac9d7ae549070
+      internalID: 1253585697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_56
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 131
+        width: 111
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e006498beab35e40b8e2b55b582d2cc
+      internalID: -1974373808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_57
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 128
+        width: 104
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f44070e78996d45a1f4e44778fde78
+      internalID: -818350198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_58
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 23
+        width: 155
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f7efaea463cd24180ad40675eb4414
+      internalID: 146763771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Complete_Stylized_UI_elements_buttons_59
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 13
+        width: 111
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624cf0ef91de3954f9f8254a811eade0
+      internalID: -997827684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Complete_Stylized_UI_elements_buttons_0: 1245534259
+      Complete_Stylized_UI_elements_buttons_1: 695526327
+      Complete_Stylized_UI_elements_buttons_10: -645353129
+      Complete_Stylized_UI_elements_buttons_11: 1688508369
+      Complete_Stylized_UI_elements_buttons_12: 1011624138
+      Complete_Stylized_UI_elements_buttons_13: 1062192614
+      Complete_Stylized_UI_elements_buttons_14: 733787097
+      Complete_Stylized_UI_elements_buttons_15: 1706211302
+      Complete_Stylized_UI_elements_buttons_16: -1494424808
+      Complete_Stylized_UI_elements_buttons_17: -1816779977
+      Complete_Stylized_UI_elements_buttons_18: -2096251044
+      Complete_Stylized_UI_elements_buttons_19: 825820529
+      Complete_Stylized_UI_elements_buttons_2: 524947774
+      Complete_Stylized_UI_elements_buttons_20: -321398676
+      Complete_Stylized_UI_elements_buttons_21: 1312581320
+      Complete_Stylized_UI_elements_buttons_22: -1560952547
+      Complete_Stylized_UI_elements_buttons_23: 76910910
+      Complete_Stylized_UI_elements_buttons_24: 1029923522
+      Complete_Stylized_UI_elements_buttons_25: 982222218
+      Complete_Stylized_UI_elements_buttons_26: -846414104
+      Complete_Stylized_UI_elements_buttons_27: 1700605432
+      Complete_Stylized_UI_elements_buttons_28: 131342445
+      Complete_Stylized_UI_elements_buttons_29: -524683280
+      Complete_Stylized_UI_elements_buttons_3: -184193518
+      Complete_Stylized_UI_elements_buttons_30: -911636653
+      Complete_Stylized_UI_elements_buttons_31: -183805975
+      Complete_Stylized_UI_elements_buttons_32: 1729518860
+      Complete_Stylized_UI_elements_buttons_33: 228462903
+      Complete_Stylized_UI_elements_buttons_34: -1474498439
+      Complete_Stylized_UI_elements_buttons_35: 1475869564
+      Complete_Stylized_UI_elements_buttons_36: 228961949
+      Complete_Stylized_UI_elements_buttons_37: 1101180507
+      Complete_Stylized_UI_elements_buttons_38: 359323466
+      Complete_Stylized_UI_elements_buttons_39: -1204186053
+      Complete_Stylized_UI_elements_buttons_4: -1208975803
+      Complete_Stylized_UI_elements_buttons_40: -1309066443
+      Complete_Stylized_UI_elements_buttons_41: 1654314529
+      Complete_Stylized_UI_elements_buttons_42: -437161757
+      Complete_Stylized_UI_elements_buttons_43: 286747598
+      Complete_Stylized_UI_elements_buttons_44: -892327676
+      Complete_Stylized_UI_elements_buttons_45: -1358024783
+      Complete_Stylized_UI_elements_buttons_46: -902742917
+      Complete_Stylized_UI_elements_buttons_47: 1459653088
+      Complete_Stylized_UI_elements_buttons_48: 694845636
+      Complete_Stylized_UI_elements_buttons_49: 1569827339
+      Complete_Stylized_UI_elements_buttons_5: -585413587
+      Complete_Stylized_UI_elements_buttons_50: 125256141
+      Complete_Stylized_UI_elements_buttons_51: 1116110323
+      Complete_Stylized_UI_elements_buttons_52: -1816475246
+      Complete_Stylized_UI_elements_buttons_53: -1396406595
+      Complete_Stylized_UI_elements_buttons_54: 810927965
+      Complete_Stylized_UI_elements_buttons_55: 1253585697
+      Complete_Stylized_UI_elements_buttons_56: -1974373808
+      Complete_Stylized_UI_elements_buttons_57: -818350198
+      Complete_Stylized_UI_elements_buttons_58: 146763771
+      Complete_Stylized_UI_elements_buttons_59: -997827684
+      Complete_Stylized_UI_elements_buttons_6: -264622638
+      Complete_Stylized_UI_elements_buttons_7: 645782798
+      Complete_Stylized_UI_elements_buttons_8: 612475708
+      Complete_Stylized_UI_elements_buttons_9: -2144140877
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

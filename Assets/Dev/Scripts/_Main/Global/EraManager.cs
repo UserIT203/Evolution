@@ -13,7 +13,7 @@ public class EraManager : MonoBehaviour
     private LevelManager _levelManager;
     private LevelBuilder _levelBuilder;
 
-    private Dictionary<EraSettings, bool> _levelCompleted;
+    public int CurrentEra => _currentEra;
 
     [Inject]
     public void Construct(LevelManager levelManager, LevelBuilder levelBuilder)

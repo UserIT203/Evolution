@@ -7,6 +7,8 @@ public class ChestShopItem : ShopItem
 
     private Rarity _chestRarity;
 
+    public string NameItem => _chestRarity.ToString();
+
     public ChestShopItem(IPurchasedItem item, Rarity chestRarity)
     {
         Icon = item.Icon;

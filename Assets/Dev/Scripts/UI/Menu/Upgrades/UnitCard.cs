@@ -7,6 +7,8 @@ public class UnitCard : MonoBehaviour
 {
     [Inject] private LevelUpgrade _levelUpgrade;
 
+    [SerializeField] private Image _unitIcon;
+
     [Header("Unlock Objects")]
     [SerializeField] private GameObject _unlockObjects;
     [SerializeField] private TMP_Text _unitNameText;
@@ -27,7 +29,7 @@ public class UnitCard : MonoBehaviour
 
     public void UpdateInfo(UnitBase unit)
     {
-        if(unit.UnitConfig.IsUnlock == false)
+        if (unit.UnitConfig.IsUnlock == false)
         {
             _unlockObjects.SetActive(false);
             _lockObjects.SetActive(true);
@@ -45,12 +47,14 @@ public class UnitCard : MonoBehaviour
         _unitCostText.text = unit.UnitConfig.UnlockCosts.ToString();
 
         _unitConfig = unit.UnitConfig;
+        //_unitIcon.sprite = _unitConfig.Icon;
     }
 
     private void OnUnlockUnit()
     {
         if (_levelUpgrade.TryRemoveCoins(_unitConfig.UnlockCosts))
         {
+            _unitIcon.enabled = true;
             _unlockObjects.SetActive(true);
             _lockObjects.SetActive(false);
             _unitConfig.UnlockUnit();

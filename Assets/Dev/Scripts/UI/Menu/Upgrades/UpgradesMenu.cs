@@ -12,21 +12,26 @@ public class UpgradesMenu : Menu, ILevelHandler
     [SerializeField] private Transform _unitUpgradesContainer;
     [SerializeField] private UnitCard _unitUpgradesCardTemplate;
 
+    [Header("Game Modifier")]
+    [SerializeField] private TMP_Text _damageModifier;
+    [SerializeField] private TMP_Text _healthModifier;
+    [SerializeField] private TMP_Text _speedModifier;
+
     [Header("Game Upgrade UI Links")]
-    [SerializeField] private TMP_Text _coinCountText;
+    [SerializeField] private TMP_Text _upgradeValue;
     [SerializeField] private Button _moneyPerSeconsUpgrade;
 
+    private GlobalManager _globalManager;
     private UnitBase[] _playerUnits;
     private LevelUpgrade _levelUpgrade;
     private UnitCard[] _unitUpgradesCards;
 
     [Inject]
-    public void Construct(LevelUpgrade levelUpgrade)
+    public void Construct(LevelUpgrade levelUpgrade, GlobalManager globalManager)
     {
         _levelUpgrade = levelUpgrade;
-        
+        _globalManager = globalManager;
         _levelUpgrade.onUpgradeMoneyPerSecond += UpdateInfoInUpgradeMoneyPerSecondButton;
-        _levelUpgrade.onChangeMoney += UpdateCoinCountText;
     }
 
     public override void CloseMenu()
@@ -43,6 +48,7 @@ public class UpgradesMenu : Menu, ILevelHandler
         _canvasGroup.interactable = true;
 
         UpdateUpgradeCardInfo();
+        UpdateModifierInfo();
     }
 
     private void OnEnable()
@@ -60,6 +66,7 @@ public class UpgradesMenu : Menu, ILevelHandler
 
     protected override void Initialized()
     {
+        Debug.Log("Init Upgrade Menu");
         _unitUpgradesCards = new UnitCard[_playerUnits.Length];
 
         if(_unitUpgradesContainer.childCount > 0)
@@ -80,6 +87,9 @@ public class UpgradesMenu : Menu, ILevelHandler
 
         _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text
             = _levelUpgrade.CurrentGameModifier.Cost.ToString();
+
+        Debug.Log(_levelUpgrade.CurrentGameModifier);
+        _upgradeValue.text = _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue.ToString();
     }
 
     private void UpdateUpgradeCardInfo()
@@ -98,6 +108,8 @@ public class UpgradesMenu : Menu, ILevelHandler
         {
             _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text
             = _levelUpgrade.CurrentGameModifier.Cost.ToString();
+
+            _upgradeValue.text = _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue.ToString();
         }
         else
         {
@@ -106,7 +118,12 @@ public class UpgradesMenu : Menu, ILevelHandler
         }
     }
 
-    private void UpdateCoinCountText(int value) => _coinCountText.text = value.ToString();
+    private void UpdateModifierInfo()
+    {
+        _damageModifier.text = $"x{_globalManager.DamageMultiplier.GetValue()}";
+        _healthModifier.text = $"x{_globalManager.HealthMultiplier.GetValue()}";
+        _speedModifier.text = $"x{_globalManager.SpeedMultiplier.GetValue()}";
+    }
 
     public void SetLevelSettings(LevelSetting levelSettings)
     {
@@ -115,7 +132,9 @@ public class UpgradesMenu : Menu, ILevelHandler
 
     public void SetEraSettings(LevelSetting levelSettings)
     {
+        Debug.Log("Inject Player Units in Upgrade Menu");
         _playerUnits = levelSettings.PlayerUnits;
+        Debug.Log($"Player Units {_playerUnits.Length}");
         Initialized();
     }
 }

@@ -24,5 +24,6 @@ public class LevelInstailer : MonoInstaller
     private void InjectGlobalComponent()
     {
         Container.Bind<GlobalManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<EraManager>().FromComponentInHierarchy().AsSingle();
     }
 }

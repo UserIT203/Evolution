@@ -8,7 +8,6 @@ public abstract class Menu : MonoBehaviour
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        Initialized();
     }
 
     public abstract void OpenMenu();

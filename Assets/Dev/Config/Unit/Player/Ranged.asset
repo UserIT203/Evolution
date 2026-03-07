@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedd8e70dd97ff74fbcc21b823057541, type: 3}
   m_Name: Ranged
   m_EditorClassIdentifier: 
-  <UnitName>k__BackingField: 
+  <UnitName>k__BackingField: fdfdfd
   <Cost>k__BackingField: 3
   <UnitType>k__BackingField: 1
   <Maxhealth>k__BackingField: 20
@@ -26,7 +26,7 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 5
   <Damage>k__BackingField: 8
   <DetectedRange>k__BackingField: 7
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: -336139715, guid: fd6cb592190e4d0478872c048c13d0cc, type: 3}
   <IsUnlock>k__BackingField: 0
   <UnlockCosts>k__BackingField: 5
   <BulletConfig>k__BackingField: {fileID: 11400000, guid: bc3adb71c23a9f847847773033dedb62, type: 2}
