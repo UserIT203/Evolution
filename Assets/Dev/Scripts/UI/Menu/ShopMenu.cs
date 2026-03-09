@@ -24,7 +24,7 @@ public class ShopMenu : Menu
 
     private void OpenChest(Rarity chestRarity)
     {
-        _chestOpenView.gameObject.SetActive(true);
+        _chestOpenView?.gameObject.SetActive(true);
         _chestManager.OpenChest(chestRarity);
     }
 

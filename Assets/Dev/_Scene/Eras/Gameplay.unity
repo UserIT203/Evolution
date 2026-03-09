@@ -4553,7 +4553,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154191804}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -15348,7 +15348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1090, y: -94.16998}
+  m_AnchoredPosition: {x: 1191.0166, y: -85.16147}
   m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595944073
@@ -18353,7 +18353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 830, y: -94.16998}
+  m_AnchoredPosition: {x: 931.0166, y: -85.16147}
   m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696889170
@@ -20270,7 +20270,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitUpgradesContainer: {fileID: 1593424985}
   _unitUpgradesCardTemplate: {fileID: -2291772464141319031, guid: f51218a42c79b354086e7a11fd8a21ac, type: 3}
-  _coinCountText: {fileID: 498728159}
+  _damageModifier: {fileID: 0}
+  _healthModifier: {fileID: 0}
+  _speedModifier: {fileID: 0}
+  _upgradeValue: {fileID: 0}
   _moneyPerSeconsUpgrade: {fileID: 1746409684}
 --- !u!225 &781479673
 CanvasGroup:
@@ -23428,7 +23431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1350, y: -94.16998}
+  m_AnchoredPosition: {x: 1451.0166, y: -85.16147}
   m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863688871
@@ -32281,6 +32284,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6378b926847bffb499db2e7b764e8583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _eraText: {fileID: 0}
+  _levelText: {fileID: 0}
+  _damageModifierText: {fileID: 0}
+  _healthModifierText: {fileID: 0}
+  _speedModifierText: {fileID: 0}
+  _levelIcon: {fileID: 0}
   _playButton: {fileID: 378899064}
 --- !u!1 &1160227295
 GameObject:
@@ -38222,10 +38231,12 @@ MonoBehaviour:
   - Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     Price: 50
     UseDonatMoney: 1
+    NameItem: 
     _getCoins: 150
   - Icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     Price: 100
     UseDonatMoney: 1
+    NameItem: 
     _getCoins: 400
 --- !u!1 &1429394374
 GameObject:
@@ -49957,7 +49968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 570, y: -94.16998}
+  m_AnchoredPosition: {x: 671.0166, y: -85.16147}
   m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837451563

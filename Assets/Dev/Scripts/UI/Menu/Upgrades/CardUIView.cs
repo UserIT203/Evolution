@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class CardUIView : MonoBehaviour
 {
     [SerializeField] protected Image _icon;
+    [SerializeField] protected Image _background;
     [SerializeField] protected TMP_Text _currentLevelText;
-    [SerializeField] protected Slider _collectedCardSlider;
     [SerializeField] protected TMP_Text _collectedCardText;
 
     private Button _button;
@@ -24,9 +24,11 @@ public class CardUIView : MonoBehaviour
         _button.onClick.AddListener(OnClickCard);
     }
 
-    public void Initialized(ICollectedCard collectManager, CardItem card)
+    public void Initialized(
+        ICollectedCard collectManager, 
+        CardItem card, 
+        Sprite backgroundSprite)
     {
-        Debug.Log(collectManager.GetType().Name);
         _collectManager = collectManager;
         _card = card;
     }
@@ -35,9 +37,6 @@ public class CardUIView : MonoBehaviour
     {
         _icon.sprite = _card.Sprite;
         _currentLevelText.text = _collectManager.GetLevel(_card.CardID).ToString();
-
-        _collectedCardSlider.value = (float)(_collectManager.GetCollectedCards(_card.CardID) - 
-            _collectManager.GetCardsNeededForNextLevel(_card.CardID));
 
         _collectedCardText.text = string.Format($"{_collectManager.GetCollectedCards(_card.CardID)} | {_collectManager.GetCardsNeededForNextLevel(_card.CardID)}");
     }
