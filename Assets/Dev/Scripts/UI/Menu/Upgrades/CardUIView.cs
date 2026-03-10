@@ -21,7 +21,6 @@ public class CardUIView : MonoBehaviour
     private void Awake()
     {
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(OnClickCard);
     }
 
     public void Initialized(
@@ -29,6 +28,7 @@ public class CardUIView : MonoBehaviour
         CardItem card, 
         Sprite backgroundSprite)
     {
+        _background.sprite = backgroundSprite;
         _collectManager = collectManager;
         _card = card;
     }
@@ -41,8 +41,8 @@ public class CardUIView : MonoBehaviour
         _collectedCardText.text = string.Format($"{_collectManager.GetCollectedCards(_card.CardID)} | {_collectManager.GetCardsNeededForNextLevel(_card.CardID)}");
     }
 
-    private void OnClickCard()
+    public void OnClickCard(Action clickEvent)
     {
-        onClickCard?.Invoke(_card, _collectManager);
+        _button.onClick.AddListener(() => clickEvent?.Invoke());
     }
 }

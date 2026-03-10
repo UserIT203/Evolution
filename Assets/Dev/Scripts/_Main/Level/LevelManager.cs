@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
 
     private Dictionary<LevelSetting, bool> _levelsCompleted;
 
+    private List<ILevelHandler> _registerHandlers = new();
+
     private event Action<LevelSetting> onSetNewLevelSettings;
     private event Action<LevelSetting> onOpenNewLevel;
 
@@ -44,16 +46,11 @@ public class LevelManager : MonoBehaviour
 
         gameManager.onWinLevel += OpenNewLevel;
 
-        onSetNewLevelSettings += unitSpawner.SetLevelSettings;
-        onSetNewLevelSettings += waveManager.SetLevelSettings;
-        onSetNewLevelSettings += gameManager.SetLevelSettings;
-        onSetNewLevelSettings += levelUpgrader.SetLevelSettings;
-
-        onOpenNewLevel += unitSpawner.SetEraSettings;
-        onOpenNewLevel += waveManager.SetEraSettings;
-        onOpenNewLevel += gameManager.SetEraSettings;
-        onOpenNewLevel += levelUpgrader.SetEraSettings;
-        onOpenNewLevel += upgradesMenu.SetEraSettings;
+        RegisterToChange(unitSpawner);
+        RegisterToChange(waveManager);
+        RegisterToChange(gameManager);
+        RegisterToChange(levelUpgrader);
+        RegisterToChange(upgradesMenu);
     }
 
     private void Awake()
@@ -69,6 +66,13 @@ public class LevelManager : MonoBehaviour
         onOpenNewLevel?.Invoke(LevelsSettings[_currentSelectLevel]);
     }
 
+    private void OnDestroy()
+    {
+        while (_registerHandlers.Count > 0)
+        {
+            UnregisterLevelHangler(_registerHandlers[0]);
+        }
+    }
 
     public void SetNextLevel()
     {
@@ -114,6 +118,22 @@ public class LevelManager : MonoBehaviour
 
         onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
         onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
+    }
+
+    public void RegisterToChange(ILevelHandler levelHandler)
+    {
+        onSetNewLevelSettings += levelHandler.SetLevelSettings;
+        onOpenNewLevel += levelHandler.SetEraSettings;
+
+        _registerHandlers.Add(levelHandler);
+    }
+
+    private void UnregisterLevelHangler(ILevelHandler levelHandler)
+    {
+        onSetNewLevelSettings -= levelHandler.SetLevelSettings;
+        onOpenNewLevel -= levelHandler.SetEraSettings;
+
+        _registerHandlers.Remove(levelHandler);
     }
 
     private bool CompletedEra()

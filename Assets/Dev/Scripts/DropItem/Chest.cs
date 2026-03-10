@@ -1,5 +1,6 @@
 using UnityEngine;
 using Zenject;
+using System.Collections.Generic;
 
 public class Chest : MonoBehaviour
 {
@@ -46,26 +47,18 @@ public class Chest : MonoBehaviour
     private Rarity RollRarityFromChest()
     {
         var weights = _chestConfig.RarityRollWeigth;
-
+  
         if(weights == null || weights.Count == 0) return Rarity.Common;
 
-        float total = 0f;
+        float roll = Random.Range(0f, 100f);
+        Rarity droppedRarity = Rarity.Common;
 
         foreach (var weigth in weights)
         {
-            total += weigth.Weigth;
+            if(roll <= weigth.Weigth)
+                droppedRarity = weigth.Rarity;
         }
 
-        float roll = Random.Range(0f, total);
-        float cum = 0f;
-
-        foreach (var weigth in weights)
-        {
-            cum += weigth.Weigth;
-
-            return roll <= cum ? weigth.Rarity : Rarity.Common;
-        }
-
-        return weights[^1].Rarity;
+        return droppedRarity;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class FortunaMenu : Menu
 {
@@ -15,8 +16,13 @@ public class FortunaMenu : Menu
     private struct Prize
     {
         public PrizeType PrizeType;
+        public Color Color;
         public int Value;
     }
+
+    [Header("Prize Icon")]
+    [SerializeField] private Sprite _coinImage;
+    [SerializeField] private Sprite _gemImage;
 
     [Header("Main Settings")]
     [SerializeField] private float _spinDuration;
@@ -26,6 +32,8 @@ public class FortunaMenu : Menu
     [SerializeField] private List<Prize> _prizes;
 
     [Header("UI Links")]
+    [SerializeField] private Transform _prizesContainer;
+    [SerializeField] private PrizeView _prizeViewPrefab;
     [SerializeField] private Transform _wheel;
     [SerializeField] private Button _spinButton;
 
@@ -45,6 +53,16 @@ public class FortunaMenu : Menu
     protected override void Initialized()
     {
         CloseMenu();
+
+        if(_prizes.Count > 0)
+        {
+            foreach (var slot in _prizes)
+            {
+                PrizeView prizeView = Instantiate(_prizeViewPrefab, _prizesContainer, false);
+                Sprite icon = slot.PrizeType == PrizeType.Coin ? _coinImage : _gemImage;
+                prizeView.Initialized(slot.Color, icon, slot.Value);
+            }
+        }
     }
 
     public override void CloseMenu()

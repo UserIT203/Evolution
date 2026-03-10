@@ -16,7 +16,7 @@ MonoBehaviour:
   CardName: 
   Sprite: {fileID: 0}
   Description: 
-  Rarity: 0
+  Rarity: 2
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
   _levelUpIncrease: 10

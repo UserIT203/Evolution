@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using Zenject;
 using TMPro;
 
-public class PlayMenu : Menu
+public class PlayMenu : Menu, ILevelHandler
 {
     [Header("Text Links")]
     [SerializeField] private TMP_Text _eraText;
@@ -32,6 +32,8 @@ public class PlayMenu : Menu
         _globalManager = globalManager;
         _eraManager = eraManager;
         _levelManager = levelManager;
+
+        _levelManager.RegisterToChange(this);
     }
 
     public override void CloseMenu()
@@ -52,13 +54,19 @@ public class PlayMenu : Menu
 
     private void FillUI()
     {
-        _eraText.text = $"{_eraText.text} {_eraManager.CurrentEra +1}";
-        _levelText.text = $"{_levelManager.CurrentOpenLevels}/{_levelManager.MaxLevel}";
-
         _damageModifierText.text = "x" + _globalManager.DamageMultiplier.GetValue().ToString();
         _healthModifierText.text = "x" + _globalManager.HealthMultiplier.GetValue().ToString();
         _speedModifierText.text = "x" + _globalManager.SpeedMultiplier.GetValue().ToString();
+    }
 
+    public void SetLevelSettings(LevelSetting levelSettings)
+    {
+        _levelText.text = $"{_levelManager.CurrentOpenLevels}/{_levelManager.MaxLevel}";
         _levelIcon.sprite = _levelManager.CurentLevelIcon;
+    }
+
+    public void SetEraSettings(LevelSetting levelSettings)
+    {
+        _eraText.text = $"{_eraText.text} {_eraManager.CurrentEra + 1}";
     }
 }

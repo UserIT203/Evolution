@@ -10,7 +10,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
 
     private List<GameModifier> _gameModifiers = new();
 
-    private int _levelCoinsCount;
+    private int _coinsCount;
 
     private Queue<GameModifier> _gameModifierQueue;
     private GameModifier _currentUpgrade;
@@ -21,18 +21,23 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
     public event Action onUpgradeMoneyPerSecond;
     public event Action<int> onChangeMoney;
 
+    private void Awake()
+    {
+        onChangeMoney?.Invoke(_coinsCount);
+    }
+
     public void PickUp(int value)
     {
-        _levelCoinsCount += value;
-        onChangeMoney?.Invoke(_levelCoinsCount);
+        _coinsCount += value;
+        onChangeMoney?.Invoke(_coinsCount);
     }
 
     public bool TryRemoveCoins(int value)
     {
-        if(_levelCoinsCount >= value)
+        if(_coinsCount >= value)
         {
-            _levelCoinsCount -= value;
-            onChangeMoney?.Invoke(_levelCoinsCount);
+            _coinsCount -= value;
+            onChangeMoney?.Invoke(_coinsCount);
 
             return true;
         }
@@ -64,7 +69,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
 
     public void SetEraSettings(LevelSetting levelSettings)
     {
-        _levelCoinsCount = 0;
+        _coinsCount = 0;
         _currentUpgradeIndex = 0;
         _gameModifiers = levelSettings.Modifiers.ToList();
 

@@ -53,7 +53,7 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
         onLevelUpAbility?.Invoke(ability);
     }
 
-    public void TryUpgrade(string id)
+    public bool TryUpgrade(string id)
     {
         var config = _abilityCard[id];
         int currentLevel = _currentLevels[id];
@@ -62,7 +62,7 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
         if (currentLevel >= config.MaxLevel)
         {
             // Можно просто игнорировать или сбросить накопление
-            return;
+            return false;
         }
 
         // Сколько нужно карт для перехода на следующий уровень?
@@ -74,12 +74,12 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
             // Выполняем апгрейд
             _currentLevels[id] = currentLevel + 1;
 
-            // Проверяем, можно ли апгрейднуть ещё раз (рекурсивно или в цикле)
-            TryUpgrade(id); // на случай, если после вычета снова хватает
+            onLevelUpAbility?.Invoke(_abilityCard[id]);
+
+            return true;
         }
 
-        onLevelUpAbility?.Invoke(_abilityCard[id]);
-        Debug.Log($"Current Collect Card in Manager {_collectedCards[id]}");
+        return false;
     }
 
     public int GetLevel(string id)

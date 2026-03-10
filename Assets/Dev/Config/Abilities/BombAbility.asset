@@ -16,13 +16,13 @@ MonoBehaviour:
   CardName: Bomb
   Sprite: {fileID: 0}
   Description: 
-  Rarity: 0
+  Rarity: 1
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
+  _levelUpIncrease: 0.5
   _enemyMask:
     serializedVersion: 2
     m_Bits: 64
   _bombDamage:
-    _baseValue: 60
+    BaseValue: 0
     _modifiers: []
-  _levelUpIncrease: 0.5

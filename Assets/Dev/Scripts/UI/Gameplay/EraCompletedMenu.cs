@@ -75,7 +75,7 @@ public class EraCompletedMenu : Menu
 
     private void GetPrice()
     {
-        _globalManager.CoinsCount = _currentPrice;
+        _globalManager.GemCount = _currentPrice;
         CloseMenu();
     }
 

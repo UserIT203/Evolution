@@ -5,6 +5,7 @@ using Zenject;
 using TMPro;
 using System.Linq;
 
+
 public class CollectionMenu : Menu
 {
     [System.Serializable]
@@ -14,30 +15,37 @@ public class CollectionMenu : Menu
         public Sprite Sprite;
     }
 
-
     [Header("UI Links")]
     [SerializeField] private TMP_Text _labelName;
 
     [SerializeField] private RariteTexture[] _rariteTexture;
     [SerializeField] private CardType[] _cardsTypes;
     [SerializeField] private CardUIView _cardViewPrefab;
+    [SerializeField] private Transform _cardContainer;
 
-    private GameObject _currentOpenContainer;
+    private CollectionType _currentOpenCollectionType;
     private GlobalManager _globalManager;
     private AbilityManager _abilityManager;
 
     private Dictionary<string, CardUIView> _cardsDictionary = new();
+    private Dictionary<CollectionType, List<CardUIView>> _cardsTypeDictianoty;
 
     [Inject]
     public void Construct(GlobalManager globalManager, AbilityManager abilityManager)
     {
         _globalManager = globalManager;
-        //_globalManager.onLevelUpUpgrade += UpdateCardInfo;
-        //_globalManager.onAddNewCard += CreateCard;
-    
+        _globalManager.onLevelUpUpgrade += UpdateInfoIntoCard;
+        _globalManager.onAddNewCard += CreateCard;
+
         _abilityManager = abilityManager;
-        //_abilityManager.onLevelUpAbility += UpdateCardInfo;
-        //_abilityManager.onAddNewCard += CreateCard;
+        _abilityManager.onLevelUpAbility += UpdateInfoIntoCard;
+        _abilityManager.onAddNewCard += CreateCard;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var type in _cardsTypes)
+            type.OpenButton.onClick.RemoveAllListeners();
     }
 
     public override void CloseMenu()
@@ -56,6 +64,35 @@ public class CollectionMenu : Menu
 
     protected override void Initialized()
     {
+        _cardsTypeDictianoty = new Dictionary<CollectionType, List<CardUIView>>();
+        _cardsTypeDictianoty.Add(CollectionType.Modifier, new List<CardUIView>());
+        _cardsTypeDictianoty.Add(CollectionType.Ability, new List<CardUIView>());
+
+        foreach (var modifierCard in _globalManager.GetActiveCards())
+            CreateCard(modifierCard, _globalManager, 0);
+
+        foreach (var abilityCard in _abilityManager.GetActiveCards())
+            CreateCard(abilityCard, _abilityManager, 0);
+
+        foreach (var type in _cardsTypes)
+            type.OpenButton.onClick.AddListener(() => ShowCollectedCards(type.CollectionType));  
+
+        ShowCollectedCards(_currentOpenCollectionType);
+    }
+
+    private void ShowCollectedCards(CollectionType type)
+    {
+        Debug.Log($"Card Type {type}");
+
+        if (_currentOpenCollectionType == type) return;
+
+        var openCards = _cardsTypeDictianoty[_currentOpenCollectionType];
+        openCards.ForEach(c => c.gameObject.SetActive(false));
+
+        var cards = _cardsTypeDictianoty[type];
+        cards.ForEach(c => c.gameObject.SetActive(true));
+
+        _currentOpenCollectionType = type;
     }
 
     private void CreateCard(CardItem cardItem, ICollectedCard handler, int count)
@@ -64,13 +101,35 @@ public class CollectionMenu : Menu
 
         Sprite background = _rariteTexture.First(t => t.Rarity == cardItem.Rarity).Sprite;
 
-        CardUIView cardView = Instantiate(_cardViewPrefab);
+        CardUIView cardView = Instantiate(_cardViewPrefab, _cardContainer, false);
         cardView.Initialized(handler, cardItem, background);
+
+        CollectionType cardType = CollectionType.Modifier;
 
         if(handler is GlobalManager)
         {
-
+            _cardsTypeDictianoty[CollectionType.Modifier].Add(cardView);   
+            cardType = CollectionType.Modifier;
         }
+        else if (handler is AbilityManager)
+        {
+            _cardsTypeDictianoty[CollectionType.Ability].Add(cardView);
+            cardType = CollectionType.Ability;
+        }
+
+        if (_currentOpenCollectionType != cardType)
+            cardView.gameObject.SetActive(false);
+
+        CardType type = _cardsTypes.First(t => t.CollectionType == cardType);
+        cardView.OnClickCard(() => type.Popup.Open(handler, cardItem));
+
+        _cardsDictionary.Add(cardItem.CardID, cardView);
+    }
+
+    private void UpdateInfoIntoCard(CardItem item)
+    {
+        CardUIView cardView = _cardsDictionary[item.CardID];
+        cardView.UpdateInfo();
     }
 }
 
@@ -78,8 +137,13 @@ public class CollectionMenu : Menu
 public struct CardType
 {
     public string Name;
-    public CardUIView CardView;
-    public Transform Container;
+    public CollectionType CollectionType;
     public PopUp Popup;
     public Button OpenButton;
+}
+
+public enum CollectionType
+{
+    Modifier,
+    Ability
 }

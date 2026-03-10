@@ -9,7 +9,7 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
     [field: SerializeField] public Stat DamageMultiplier;
     [field: SerializeField] public Stat SpeedMultiplier;
 
-    [SerializeField] private int _coinsCount;
+    [SerializeField] private int _gemCount;
 
     private Dictionary<string, int> _currentLevels = new();
     private Dictionary<string, int> _collectedCards = new();
@@ -20,10 +20,21 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
     public Action<CardItem, ICollectedCard, int> onAddNewCard;
     public Action<UnitUpradeCardConfig> onLevelUpUpgrade;
 
-    public int CoinsCount
+    public Action<int> onChangeCoin;
+
+    public int GemCount
     {
-        get { return _coinsCount; }
-        set { _coinsCount += value; }
+        get { return _gemCount; }
+        set 
+        {
+            _gemCount += value;
+            onChangeCoin?.Invoke(_gemCount);
+        }
+    }
+
+    private void Awake()
+    {
+        onChangeCoin?.Invoke(_gemCount);
     }
 
     public void CollectCard(UnitUpradeCardConfig card)
@@ -34,7 +45,6 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
             return;
         }
 
-        // Инициализация
         if (!_cardCollection.ContainsKey(card.CardID))
         {
             _cardCollection[card.CardID] = card;
@@ -92,7 +102,7 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
         Debug.Log($"Upgraded '{id}' to level {newLevel}");
     }
 
-    public void TryUpgrade(string id)
+    public bool TryUpgrade(string id)
     {
         var config = _cardCollection[id];
         int currentLevel = _currentLevels[id];
@@ -101,7 +111,7 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
         if (currentLevel >= config.MaxLevel)
         {
             // Можно просто игнорировать или сбросить накопление
-            return;
+            return false;
         }
 
         // Сколько нужно карт для перехода на следующий уровень?
@@ -113,11 +123,10 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
             // Выполняем апгрейд
             UpgradeToNextLevel(id, config);
 
-            // Проверяем, можно ли апгрейднуть ещё раз (рекурсивно или в цикле)
-            TryUpgrade(id); // на случай, если после вычета снова хватает
+            return true;
         }
 
-        Debug.Log($"Current Collect Card in Manager {_collectedCards[id]}");
+        return false;  
     }
 
     public int GetLevel(string id) => _currentLevels.GetValueOrDefault(id, 0);
@@ -139,10 +148,11 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
 
     public bool TryRemoveCoin(int value)
     {
-        if (value <= _coinsCount)
+        if (value <= _gemCount)
         {
-            _coinsCount -= value;
+            _gemCount -= value;
 
+            onChangeCoin?.Invoke(_gemCount);
             return true;
         }
 
