@@ -11,6 +11,6 @@ public class ItemBase : ScriptableObject
 
     public virtual void Use(ItemUseContext context, Vector3 position)
     {
-        context.GetHandler(_handlerType)?.PickUp(_valueCount);
+        context.GetHandler(_handlerType)?.AddCoin(_valueCount);
     }  
 }

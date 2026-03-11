@@ -2,10 +2,14 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.VisualScripting;
+using Zenject;
+using TMPro;
+using System;
 
 public class FortunaMenu : Menu
 {
+    private const float TIME_SPIN = 30f;
+
     private enum PrizeType
     {
         DonatCoin,
@@ -32,14 +36,26 @@ public class FortunaMenu : Menu
     [SerializeField] private List<Prize> _prizes;
 
     [Header("UI Links")]
+    [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Button _closeButton;
     [SerializeField] private Transform _prizesContainer;
     [SerializeField] private PrizeView _prizeViewPrefab;
     [SerializeField] private Transform _wheel;
     [SerializeField] private Button _spinButton;
 
+    private GlobalManager _globalManager;
+    private LevelUpgrade _levelUpgrade;
+
+    private float _spinTimer;
     private bool _isSpinning = false;
     private float _currentAngle = 0f;
+
+    [Inject]
+    public void Construnt(GlobalManager globalManager, LevelUpgrade levelUpgrade)
+    {
+        _globalManager = globalManager;
+        _levelUpgrade = levelUpgrade;
+    }
 
     private void OnEnable()
     {
@@ -51,6 +67,16 @@ public class FortunaMenu : Menu
     {
         _spinButton.onClick.RemoveListener(OnSpinButton);
         _closeButton.onClick.RemoveListener(CloseMenu);
+    }
+
+    private void LateUpdate()
+    {
+        _spinTimer -= Time.deltaTime;
+
+        TimeSpan time = TimeSpan.FromSeconds(Mathf.Max(0, _spinTimer));
+        string timeFormat = time.ToString(@"hh\:mm\:ss");
+
+        _timeText.text = timeFormat;
     }
 
     protected override void Initialized()
@@ -70,9 +96,15 @@ public class FortunaMenu : Menu
 
     public override void CloseMenu()
     {
+        if (IsClosed == true) return;
+
         _canvasGroup.alpha = 0f;
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.interactable = false;
+
+        IsClosed = true;
+
+        MenuManager?.OpenMenu(0);
     }
 
     public override void OpenMenu()
@@ -80,13 +112,26 @@ public class FortunaMenu : Menu
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
+
+        IsClosed = false;
     }
 
     private void OnSpinButton()
     {
-        if (_isSpinning == true) return;
+        if (_isSpinning == true || TrySpeen() == false) return;
 
         StartCoroutine(SpinWheel());
+    }
+
+    private bool TrySpeen()
+    {
+        if(_spinTimer < 0)
+        {
+            _spinTimer = TIME_SPIN;
+            return true;
+        }
+            
+        return false;
     }
 
     private IEnumerator SpinWheel()
@@ -133,6 +178,13 @@ public class FortunaMenu : Menu
         int index = _prizes.Count - 1 - Mathf.FloorToInt(adjustedAngle / segmentAngle);
 
         index = Mathf.Clamp(index, 0, _prizes.Count - 1);
+
+        Prize prize = _prizes[index];
+
+        if (prize.PrizeType == PrizeType.Coin)
+            _levelUpgrade.AddCoin(prize.Value);
+        else if (prize.PrizeType == PrizeType.DonatCoin)
+            _globalManager.GemCount = prize.Value;
 
         Debug.Log($"Dropped prizes index {index}");
     }

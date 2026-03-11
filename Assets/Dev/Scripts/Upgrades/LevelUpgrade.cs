@@ -26,7 +26,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
         onChangeMoney?.Invoke(_coinsCount);
     }
 
-    public void PickUp(int value)
+    public void AddCoin(int value)
     {
         _coinsCount += value;
         onChangeMoney?.Invoke(_coinsCount);

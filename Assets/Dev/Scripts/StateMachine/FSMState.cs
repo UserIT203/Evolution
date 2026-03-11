@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FSMState
 {
-
     public HashSet<ITransition> Transitions { get; private set; }
     protected readonly FSM _fsm;
 

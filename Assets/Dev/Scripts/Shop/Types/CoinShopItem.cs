@@ -12,6 +12,6 @@ public class CoinShopItem : ShopItem
 
     protected override void Success()
     {
-        _levelUpgrade.PickUp(_getCoins);
+        _levelUpgrade.AddCoin(_getCoins);
     }
 }
