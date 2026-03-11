@@ -6,9 +6,6 @@ public class GameState : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
 
-    [Header("Links For Game Ready State")]
-    [SerializeField] private CanvasGroup _readyUI;
-
     [Header("Links For Game Play State")]
     [SerializeField] private CanvasGroup _gamePlayUI;
 
@@ -20,8 +17,15 @@ public class GameState : MonoBehaviour
     [SerializeField] private CanvasGroup _losePanel;
     [SerializeField] private Button _mainMenuButton;
 
-
     private FSM _fsm;
+
+    private MenuManager _menuManager;
+
+    [Inject]
+    public void Construct(MenuManager menuManager)
+    {
+        _menuManager = menuManager;
+    }
 
     private void OnEnable()
     {
@@ -48,7 +52,7 @@ public class GameState : MonoBehaviour
     {
         _fsm = new FSM();
 
-        _fsm.AddFsm(new GameReadyState(_fsm, _readyUI));
+        _fsm.AddFsm(new GameReadyState(_fsm, _menuManager));
 
         GamePlayState gamePlayState = new GamePlayState(_fsm, _gamePlayUI);
         _diContainer.Inject(gamePlayState);

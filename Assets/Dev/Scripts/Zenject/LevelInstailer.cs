@@ -19,6 +19,7 @@ public class LevelInstailer : MonoInstaller
         Container.Bind<AbilityManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<UpgradesMenu>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<MenuManager>().FromComponentInHierarchy().AsSingle();
     }
 
     private void InjectGlobalComponent()

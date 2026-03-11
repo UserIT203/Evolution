@@ -9,7 +9,7 @@ public class GameView : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
 
-    [SerializeField] private TMP_Text _currentMoneyText;
+    [SerializeField] private TMP_Text _currentMeatText;
     [SerializeField] private Image _fillImageProgressMoney;
     [SerializeField] private Button _abilityButton;
 
@@ -24,7 +24,7 @@ public class GameView : MonoBehaviour
 
     public void SetCurrentMoneyText(int currentMoney)
     {
-        _currentMoneyText.text = currentMoney.ToString();
+        _currentMeatText.text = currentMoney.ToString();
     }
 
     public void ChangeImageFill(float max, float value)

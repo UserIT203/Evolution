@@ -23,6 +23,7 @@ public class CollectionMenu : Menu
     [SerializeField] private CardUIView _cardViewPrefab;
     [SerializeField] private Transform _cardContainer;
 
+    private CardUIView _currentActiveAbilityView;
     private CollectionType _currentOpenCollectionType;
     private GlobalManager _globalManager;
     private AbilityManager _abilityManager;
@@ -40,6 +41,8 @@ public class CollectionMenu : Menu
         _abilityManager = abilityManager;
         _abilityManager.onLevelUpAbility += UpdateInfoIntoCard;
         _abilityManager.onAddNewCard += CreateCard;
+
+        _abilityManager.onChangeAbility += ShowEquipmentAbility;
     }
 
     private void OnDestroy()
@@ -130,6 +133,16 @@ public class CollectionMenu : Menu
     {
         CardUIView cardView = _cardsDictionary[item.CardID];
         cardView.UpdateInfo();
+    }
+
+    private void ShowEquipmentAbility(Ability ability)
+    {
+        _currentActiveAbilityView?.UnEquipAbility();
+
+        CardUIView cardView = _cardsDictionary[ability.CardID];
+        cardView.EquipAbility();
+
+        _currentActiveAbilityView = cardView;
     }
 }
 

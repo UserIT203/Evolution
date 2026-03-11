@@ -24,11 +24,4 @@ public class GamePlayState : FSMState
         _gameManager.Play();
         _waveManager.SetWave();
     }
-
-    public override void Exit()
-    {
-        _gamePlayUI.alpha = 0.0f;
-        _gamePlayUI.interactable = false;
-        _gamePlayUI.blocksRaycasts = false;
-    }
 }

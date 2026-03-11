@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class CardUIView : MonoBehaviour
 {
+    [SerializeField] private Image _equipIcon;
     [SerializeField] protected Image _icon;
     [SerializeField] protected Image _background;
     [SerializeField] protected TMP_Text _currentLevelText;
@@ -20,6 +21,7 @@ public class CardUIView : MonoBehaviour
 
     private void Awake()
     {
+        UnEquipAbility();
         _button = GetComponent<Button>();
     }
 
@@ -40,6 +42,9 @@ public class CardUIView : MonoBehaviour
 
         _collectedCardText.text = string.Format($"{_collectManager.GetCollectedCards(_card.CardID)} | {_collectManager.GetCardsNeededForNextLevel(_card.CardID)}");
     }
+
+    public void EquipAbility() => _equipIcon.enabled = true;
+    public void UnEquipAbility() => _equipIcon.enabled = false;
 
     public void OnClickCard(Action clickEvent)
     {

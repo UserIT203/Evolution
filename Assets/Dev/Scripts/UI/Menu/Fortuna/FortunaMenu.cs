@@ -32,6 +32,7 @@ public class FortunaMenu : Menu
     [SerializeField] private List<Prize> _prizes;
 
     [Header("UI Links")]
+    [SerializeField] private Button _closeButton;
     [SerializeField] private Transform _prizesContainer;
     [SerializeField] private PrizeView _prizeViewPrefab;
     [SerializeField] private Transform _wheel;
@@ -43,11 +44,13 @@ public class FortunaMenu : Menu
     private void OnEnable()
     {
         _spinButton.onClick.AddListener(OnSpinButton);
+        _closeButton.onClick.AddListener(CloseMenu);
     }
 
     private void OnDisable()
     {
         _spinButton.onClick.RemoveListener(OnSpinButton);
+        _closeButton.onClick.RemoveListener(CloseMenu);
     }
 
     protected override void Initialized()

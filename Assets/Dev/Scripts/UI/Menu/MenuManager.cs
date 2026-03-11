@@ -6,9 +6,13 @@ using Zenject;
 
 public class MenuManager : MonoBehaviour
 {
+    [Header("HUD Elements Links")]
+    [SerializeField] private TMP_Text _coinValueHUDText;
+    [SerializeField] private TMP_Text _gemValueHUDText;
+
     [Header("UI Links")]
-    [SerializeField] private TMP_Text _coinCount;
-    [SerializeField] private TMP_Text _gemCount;
+    [SerializeField] private TMP_Text _coinValueUIText;
+    [SerializeField] private TMP_Text _gemValueUIText;
 
     [Header("Main Options")]
     [SerializeField] private Menu[] _menus;
@@ -20,7 +24,10 @@ public class MenuManager : MonoBehaviour
     private Menu _currentOpenMenu;
 
     [Inject]
-    public void Constract(GameManager gameManager, GlobalManager globalManager, LevelUpgrade levelUpgrade)
+    public void Constract(
+        GameManager gameManager, 
+        GlobalManager globalManager, 
+        LevelUpgrade levelUpgrade)
     {
         gameManager.onPlay += CloseAllPanel;
 
@@ -67,7 +74,7 @@ public class MenuManager : MonoBehaviour
         OpenMenu(_startMenuIndex);
     }
 
-    private void OpenMenu(int menuIndex)
+    public void OpenMenu(int menuIndex)
     {
         _currentOpenMenu?.CloseMenu();
 
@@ -83,8 +90,17 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    private void ChangeGemText(int value) => _gemCount.text = value.ToString();
-    private void ChangeCointText(int value) => _coinCount.text = value.ToString();
+    private void ChangeGemText(int value)
+    {
+        _gemValueHUDText.text = value.ToString();
+        _gemValueUIText.text = value.ToString();
+    }
+
+    private void ChangeCointText(int value)
+    {
+        _coinValueHUDText.text = value.ToString();
+        _coinValueUIText.text = value.ToString();
+    }
 }
 
 [System.Serializable]
