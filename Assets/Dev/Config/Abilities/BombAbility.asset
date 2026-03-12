@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: -13762
   CardName: Bomb
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 1688508369, guid: 3757f873ab1a809459f2ff87ce65be64, type: 3}
   Description: 
   Rarity: 1
   <MaxLevel>k__BackingField: 5

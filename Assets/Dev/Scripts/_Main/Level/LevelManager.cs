@@ -31,7 +31,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public int CurrentSelectedLevel => _currentSelectLevel;
+
     public event Action onEraCompleted;
+    public event Action onLevelCompleted;
 
     [Inject]
     public void Construct(
@@ -114,7 +117,10 @@ public class LevelManager : MonoBehaviour
 
         _levelBuilder.SetNextLevel();
 
-        if (CompletedEra() == true) return;
+        if (CompletedEra() == true)
+            onEraCompleted?.Invoke();
+        else
+            onLevelCompleted?.Invoke();
 
         onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
         onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
@@ -143,14 +149,7 @@ public class LevelManager : MonoBehaviour
         if (completedLevels >= LevelsSettings.Count)
         {
             _maxOpenLevels = 0;
-            _currentSelectLevel = 0;
-
-            onEraCompleted?.Invoke();
-
-            onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
-            onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
-            
-            Debug.LogWarning("Era Completed");
+            _currentSelectLevel = 0;        
 
             return true;
         }

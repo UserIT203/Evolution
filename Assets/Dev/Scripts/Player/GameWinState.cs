@@ -13,7 +13,6 @@ public class GameWinState : FSMState
         _menuManager = menuManager;
     }
 
-
     public override void Enter()
     {
         base.Enter();

@@ -18,23 +18,18 @@ public class GameManager : MonoBehaviour, ILevelHandler
     private float _addMoneyTime;
     private float _timer;
 
-    private GameState _gameState;
     private UnitBase[] _playerUnits;
 
     public float CurrentMoney => _currentMoney;
 
-    public event Action<UnitBase> onInitializedUnit;
+    public event Action<UnitBase, int> onInitializedUnit;
     public event Action<float, float> onChangeTime;
     public event Action<int> onChangeMoneyCount;
 
     public event Action onPlay;
     public event Action onEnd;
     public event Action onWinLevel;
-
-    private void Awake()
-    {
-        _gameState = GetComponent<GameState>();
-    }
+    public event Action onLoseLevel;
 
     private void Update()
     {
@@ -53,10 +48,15 @@ public class GameManager : MonoBehaviour, ILevelHandler
 
     private void InitializedUnit()
     {
+        int unitIndex = 1;
+
         foreach (var unit in _playerUnits)
         {
             if(unit.UnitConfig.IsUnlock == true)
-                onInitializedUnit?.Invoke(unit);
+            {
+                onInitializedUnit?.Invoke(unit, unitIndex);
+                unitIndex++;
+            }
         }
     }
 
@@ -101,11 +101,10 @@ public class GameManager : MonoBehaviour, ILevelHandler
         switch (towerType)
         {
             case TowerType.EnemyTower:
-                _gameState.SetState(GameStates.WinState);
                 onWinLevel?.Invoke();
                 break;
             case TowerType.PlayerTower:
-                _gameState.SetState(GameStates.LoseState);
+                onLoseLevel?.Invoke();
                 break;
         }
 
@@ -113,6 +112,8 @@ public class GameManager : MonoBehaviour, ILevelHandler
     }
 
     public void UpgradePerMoneySecond(Modifier modifier) => _moneyCountPerSecond.AddModifier(modifier);
+
+    public void EndGame() => onEnd?.Invoke();
 
     public void SetLevelSettings(LevelSetting levelSettings)
     {

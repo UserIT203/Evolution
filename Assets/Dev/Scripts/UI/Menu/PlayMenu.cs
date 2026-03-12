@@ -26,8 +26,7 @@ public class PlayMenu : Menu, ILevelHandler
         GameManager gameManager, GlobalManager globalManager, 
         EraManager eraManager, LevelManager levelManager)
     {
-        GameState gameState = gameManager.GetComponent<GameState>();
-        _playButton.onClick.AddListener(() => gameState.SetState(GameStates.GameState));
+        _playButton.onClick.AddListener(() => gameManager.Play());
 
         _globalManager = globalManager;
         _eraManager = eraManager;
@@ -67,6 +66,6 @@ public class PlayMenu : Menu, ILevelHandler
 
     public void SetEraSettings(LevelSetting levelSettings)
     {
-        _eraText.text = $"{_eraText.text} {_eraManager.CurrentEra + 1}";
+        _eraText.text = string.Format(_eraText.text, _eraManager.CurrentEra + 1);
     }
 }

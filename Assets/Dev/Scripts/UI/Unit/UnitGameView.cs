@@ -8,6 +8,7 @@ public class UnitGameView : MonoBehaviour
 {
     [Inject] private GameManager _gameManager;
 
+    [SerializeField] private TMP_Text _inputKeyboard;
     [SerializeField] private TMP_Text _unitCostText;
 
     private Button _button;
@@ -41,16 +42,17 @@ public class UnitGameView : MonoBehaviour
         _gameManager.SpawnUnit(_unit);
     }
 
-    private void SetUI()
+    private void SetUI(int index)
     {
         _unitCostText.text = _unit.UnitConfig.Cost.ToString();
+        _inputKeyboard.text = index.ToString();
     }
 
-    public void Initialized(UnitBase unit)
+    public void Initialized(UnitBase unit, int index)
     {
         Debug.Log("Init card");
 
         _unit = unit;
-        SetUI();
+        SetUI(index);
     }
 }

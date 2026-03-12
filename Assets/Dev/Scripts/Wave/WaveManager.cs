@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using Zenject;
+using System;
 
-public class WaveManager : MonoBehaviour, ILevelHandler
+public class WaveManager : MonoBehaviour, ILevelHandler, IDisposable
 {
     [Inject] private readonly UnitSpawner _unitSpawner;
 
@@ -14,8 +15,27 @@ public class WaveManager : MonoBehaviour, ILevelHandler
     private Coroutine _spawnCoroutine;
     private Coroutine _waveCoroutine;
 
+    private GameManager _gameManager;
+
     public WavesConfig WaveConfig => _waveConfig;
     public List<Wave> Waves => _waveConfig.Waves;
+
+    [Inject]
+    public void Construct(GameManager gameManager)
+    {
+        _gameManager = gameManager;
+
+        _gameManager.onPlay += SetWave;
+        _gameManager.onEnd += RestartWaves;
+    }
+
+
+    public void Dispose()
+    {
+        _gameManager.onPlay -= SetWave;
+        _gameManager.onEnd -= RestartWaves;
+    }
+
 
     private IEnumerator SetNextWave()
     {
@@ -59,8 +79,6 @@ public class WaveManager : MonoBehaviour, ILevelHandler
 
         yield return null;
     }
-
-    
 
     public void SetWave()
     {

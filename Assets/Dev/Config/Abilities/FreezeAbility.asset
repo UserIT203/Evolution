@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: -32478
   CardName: Freeze
-  Sprite: {fileID: 0}
+  Sprite: {fileID: -2096251044, guid: 3757f873ab1a809459f2ff87ce65be64, type: 3}
   Description: 
   Rarity: 0
   <MaxLevel>k__BackingField: 5

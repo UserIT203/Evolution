@@ -51,7 +51,7 @@ public class EraManager : MonoBehaviour
 
         if(newEraIndex == _eraSettings.Count - 1)
         {
-            Debug.LogWarning("Game Completed");
+            Debug.LogWarning("<color=green>Game Completed</color>");
         }
 
         if(_currentEra != newEraIndex)

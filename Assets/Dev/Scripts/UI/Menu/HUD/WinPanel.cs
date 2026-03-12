@@ -2,20 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using Zenject.Asteroids;
 
 public class WinPanel : Menu, IDisposable
 {
     [SerializeField] private Button _continueButton;
-
-    private GameState _gameState;
-
-    [Inject]
-    public void Construct(GameManager gameManager)
-    {
-        _gameState = gameManager.GetComponent<GameState>();
-
-        _continueButton.onClick.AddListener(() => _gameState.SetState(GameStates.ReadyState));
-    }
 
     public override void CloseMenu()
     {
@@ -39,6 +30,9 @@ public class WinPanel : Menu, IDisposable
     protected override void Initialized()
     {
         base.Initialized();
+        
         CloseMenu();
+
+        _continueButton.onClick.AddListener(() => MenuManager.OpenUIMenu());
     }
 }

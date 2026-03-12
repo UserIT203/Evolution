@@ -11,16 +11,14 @@ public class GameView : MonoBehaviour
 
     [SerializeField] private TMP_Text _currentMeatText;
     [SerializeField] private Image _fillImageProgressMoney;
+
+    [Header("Anility UI Links")]
+    [SerializeField] private Image _abilityIcon;
     [SerializeField] private Button _abilityButton;
 
     [Header("Unit Card")]
     [SerializeField] private UnitGameView _unitCardTemplate;
     [SerializeField] private Transform _unitCardContainer;
-
-    private void Awake()
-    {
-        _abilityButton.gameObject.SetActive(false);
-    }
 
     public void SetCurrentMoneyText(int currentMoney)
     {
@@ -32,10 +30,10 @@ public class GameView : MonoBehaviour
         _fillImageProgressMoney.fillAmount = value / max;
     }
 
-    public void CreateUnitCard(UnitBase unit)
+    public void CreateUnitCard(UnitBase unit, int index)
     {
         UnitGameView card = Instantiate(_unitCardTemplate, _unitCardContainer);
-        card.Initialized(unit);
+        card.Initialized(unit, index);
         _diContainer.Inject(card);
     }
 
@@ -49,10 +47,8 @@ public class GameView : MonoBehaviour
 
     public void UpdateAbilityButton(Ability ability)
     {
-        if(_abilityButton.gameObject.activeSelf == false) 
-            _abilityButton.gameObject.SetActive(true);
-
-        _abilityButton.GetComponent<Image>().sprite = ability.Sprite;
+        _abilityIcon.enabled = true;
+        _abilityIcon.sprite = ability.Sprite;
     }
 
     public void InitializedAbilityButton(UnityAction operation)
