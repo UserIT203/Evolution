@@ -25,6 +25,8 @@ public class LevelBuilderWindow : EditorWindow
 
     private Vector2 _scrollPosition;
 
+    private bool _showMapFoldout = false;
+
     private Dictionary<LevelTypeObject, Vector2> _objectScrollPositions = new();
     private Dictionary<LevelTypeObject, bool> _foldoutStates = new();
 
@@ -119,37 +121,41 @@ public class LevelBuilderWindow : EditorWindow
         #endregion
 
         #region Create Map
-        GUILayout.Label("Object Map");
+        _showMapFoldout = EditorGUILayout.Foldout(_showMapFoldout, "Object Map", false);
 
-        for (int row = 0; row < _gridConfig.Row; row++)
+        if (_showMapFoldout == true)
         {
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
 
-            for (int col = 0; col < _gridConfig.Col; col++)
+            for (int row = 0; row < _gridConfig.Row; row++)
             {
-                int index = row * _gridConfig.Col + col;
-                Color currentColor = _gridConfig.GetColor(index);
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
 
-                _cellButtonStyle = new GUIStyle(GUI.skin.button)
+                for (int col = 0; col < _gridConfig.Col; col++)
                 {
-                    normal = { background = MakeTexture(2, 2, currentColor) },
-                    fixedWidth = _gridConfig.CellSize * CELL_MULTIPLE,
-                    fixedHeight = _gridConfig.CellSize * CELL_MULTIPLE
-                };
+                    int index = row * _gridConfig.Col + col;
+                    Color currentColor = _gridConfig.GetColor(index);
 
-                if(GUILayout.Button(GUIContent.none, _cellButtonStyle))
-                {
-                    _gridConfig.SetColor(index, _selectedColor);
+                    _cellButtonStyle = new GUIStyle(GUI.skin.button)
+                    {
+                        normal = { background = MakeTexture(2, 2, currentColor) },
+                        fixedWidth = _gridConfig.CellSize * CELL_MULTIPLE,
+                        fixedHeight = _gridConfig.CellSize * CELL_MULTIPLE
+                    };
+
+                    if (GUILayout.Button(GUIContent.none, _cellButtonStyle))
+                    {
+                        _gridConfig.SetColor(index, _selectedColor);
+                    }
+
+                    if (col < _gridConfig.Col - 1)
+                        GUILayout.Space(SPACING);
                 }
 
-                if (col < _gridConfig.Col - 1)
-                    GUILayout.Space(SPACING);
+                GUILayout.FlexibleSpace();
+                EditorGUILayout.EndHorizontal();
+                GUILayout.Space(SPACING);
             }
-
-            GUILayout.FlexibleSpace();
-            EditorGUILayout.EndHorizontal();
-            GUILayout.Space(SPACING);
         }
         #endregion
 

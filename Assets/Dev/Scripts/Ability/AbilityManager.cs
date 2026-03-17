@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class AbilityManager : MonoBehaviour, ICollectedCard
 {
+    [Inject] private DesktopInput _desktopInput;
+
     [SerializeField] private Transform _bombExplosionPosition;
     [SerializeField] private UnitSpawner _unitSpawner;
 
@@ -21,6 +24,8 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
 
     public void Awake()
     {
+        if (_desktopInput != null) _desktopInput.onPressButtonAbility += UseAbility;
+
         _abilityContext = new AbilityContext
         {
             BombAbilityPosition = _bombExplosionPosition,

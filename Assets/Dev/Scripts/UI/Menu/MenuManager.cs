@@ -9,6 +9,8 @@ using Zenject;
 [RequireComponent(typeof(CanvasGroup))]
 public class MenuManager : MonoBehaviour
 {
+    [Inject] private DesktopInput _desktopInput;
+
     [Header("HUD Elements Links")]
     [SerializeField] private TMP_Text _levelLabel;
     [SerializeField] private TMP_Text _coinValueHUDText;
@@ -69,7 +71,7 @@ public class MenuManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _pauseButton.onClick.AddListener(() => GetHUDPanel<PausePanel>().OpenMenu());
+        _pauseButton.onClick.AddListener(OpenPauseMenu);
 
         if (_buttons == null || _buttons.Count == 0) return;
 
@@ -93,6 +95,8 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        if (_desktopInput != null) _desktopInput.onPressPause += OpenPauseMenu;
+
         _cavasGroup = GetComponent<CanvasGroup>();
 
         CloseAllPanel();
@@ -164,7 +168,7 @@ public class MenuManager : MonoBehaviour
         _coinValueUIText.text = value.ToString();
     }
 
-    
+    private void OpenPauseMenu() => GetHUDPanel<PausePanel>().OpenMenu();
 }
 
 [System.Serializable]

@@ -172,7 +172,6 @@ public class LevelBuilder : MonoBehaviour
 
     private void SpawnLevelObjects(LevelOptions levelOptions, LevelRoot levelRoot)
     {
-        Debug.Log(_gridConfig);
         var cell = _gridConfig.GetCellObjects();
         var objectByType = levelOptions.Config.TypeObjects;
         _cellSize = _gridConfig.CellSize;
@@ -262,6 +261,8 @@ public class LevelBuilder : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             GameObject prefab = props[UnityEngine.Random.Range(0, props.Count)];
+
+            if (prefab == null) continue;
 
             Vector2 offset = UnityEngine.Random.insideUnitCircle * propsScatterRadius;
             Vector3 position = cellCenter + new Vector3(offset.x, 0f, offset.y);

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bullet : Poolable
 {
-    private const float LifeTime = 4f;
+    private const float LifeTime = 2f;
 
     private BulletConfig _config;
 

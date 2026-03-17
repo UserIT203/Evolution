@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UnitName>k__BackingField: 
   <Cost>k__BackingField: 0
-  <UnitType>k__BackingField: 0
-  <Maxhealth>k__BackingField: 50
+  <UnitType>k__BackingField: 2
+  <Maxhealth>k__BackingField: 150
   <Armor>k__BackingField: 0
   <Speed>k__BackingField: 0.6
   <VictimTag>k__BackingField: Player

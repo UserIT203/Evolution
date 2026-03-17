@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour, ILevelHandler
 {
     private const float TimePerUpdateMoney = 1f;
 
+    [Inject] private DesktopInput _desktopInput;
     [Inject] private UnitSpawner _unitSpawner;
 
     [SerializeField] private Stat _moneyCountPerSecond;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour, ILevelHandler
 
     public float CurrentMoney => _currentMoney;
 
+    private Dictionary<int, UnitBase> _playerUnitsActived = new(); 
+
     public event Action<UnitBase, int> onInitializedUnit;
     public event Action<float, float> onChangeTime;
     public event Action<int> onChangeMoneyCount;
@@ -30,6 +33,11 @@ public class GameManager : MonoBehaviour, ILevelHandler
     public event Action onEnd;
     public event Action onWinLevel;
     public event Action onLoseLevel;
+
+    private void Awake()
+    {
+        if (_desktopInput != null) _desktopInput.onGetPressButtonIndex += SpawnUnitFromDesktopInput;
+    }
 
     private void Update()
     {
@@ -48,16 +56,27 @@ public class GameManager : MonoBehaviour, ILevelHandler
 
     private void InitializedUnit()
     {
+        if (_playerUnitsActived.Count > 0) _playerUnitsActived.Clear();
+
         int unitIndex = 1;
 
         foreach (var unit in _playerUnits)
         {
             if(unit.UnitConfig.IsUnlock == true)
             {
+                _playerUnitsActived.Add(unitIndex, unit);
                 onInitializedUnit?.Invoke(unit, unitIndex);
                 unitIndex++;
             }
         }
+    }
+
+    private void SpawnUnitFromDesktopInput(int index)
+    {
+        UnitBase spawnUnit = _playerUnitsActived[index];
+
+        if (_currentMoney >= spawnUnit.UnitConfig.Cost)
+            SpawnUnit(spawnUnit);
     }
 
     public void AddMoney(int value)
@@ -88,6 +107,8 @@ public class GameManager : MonoBehaviour, ILevelHandler
         _addMoneyTime = TimePerUpdateMoney / _moneyCountPerSecond.GetValue();
         _timer = _addMoneyTime;
 
+        _desktopInput?.EnableInput();
+
         onPlay?.Invoke();
         onChangeMoneyCount?.Invoke(0);
     }
@@ -95,6 +116,8 @@ public class GameManager : MonoBehaviour, ILevelHandler
     public void EndGame(TowerType towerType)
     {
         if(_isPaused == true) return;
+
+        _desktopInput?.DisableInput();
 
         onEnd?.Invoke();
 

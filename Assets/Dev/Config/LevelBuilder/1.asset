@@ -29,7 +29,6 @@ MonoBehaviour:
     - {fileID: 1817971802973291228, guid: f725902d5adb6e2429fbb35220475ee4, type: 3}
     - {fileID: 911120629359669715, guid: d0637671180e22f4086f09e33a105b89, type: 3}
     - {fileID: 8269564154982377145, guid: 7cd78105d034fb545ba32b93f81d6c00, type: 3}
-    - {fileID: 8557010278409828418, guid: 16e9ab5cef8aec44b8c873dc887379c5, type: 3}
     - {fileID: 9204952843170208338, guid: a7b504fc99665aa45b4c46cf9bad28e7, type: 3}
   - Type: 4
     Objects:

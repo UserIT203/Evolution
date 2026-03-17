@@ -218,7 +218,8 @@ public abstract class UnitBase : Poolable, IDamagaeble, IEffectAction
         else
             Gizmos.color = Color.yellow;
 
-        Gizmos.DrawWireSphere(transform.position, _unitStats.AttackRange.GetValue());
+        if(_unitStats != null)
+            Gizmos.DrawWireSphere(transform.position, _unitStats.AttackRange.GetValue());
     }
 #endif
 }

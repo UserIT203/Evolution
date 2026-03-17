@@ -13,13 +13,11 @@ public class StatsController : MonoBehaviour
 
         _statsModel.onChangeHealth += _statsView.ChangeHealthBarValue;
         _statsModel.onChangeArmor += _statsView.ChangeArmorBarValue;
-        _statsModel.onSetTarget += _statsView.SetVictimText;
     }
 
     private void OnDestroy()
     {
         _statsModel.onChangeHealth -= _statsView.ChangeHealthBarValue;
         _statsModel.onChangeArmor -= _statsView.ChangeArmorBarValue;
-        _statsModel.onSetTarget -= _statsView.SetVictimText;
     }
 }
