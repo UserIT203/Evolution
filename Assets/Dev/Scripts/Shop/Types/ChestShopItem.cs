@@ -1,24 +1,22 @@
-using UnityEngine;
 using Zenject;
 
 public class ChestShopItem : ShopItem
 {
-    [Inject] private ChestManager _chestManager;
+    [Inject] private MenuManager _menuManager;
 
-    private Rarity _chestRarity;
+    private ChestConfig _chestConfig;
 
-    public string NameItem => _chestRarity.ToString();
-
-    public ChestShopItem(IPurchasedItem item, Rarity chestRarity)
+    public ChestShopItem(IPurchasedItem item)
     {
-        Icon = item.Icon;
+        Icon = item.CloseIcon;
         Price = item.Price;
         UseDonatMoney = item.UseDonatMoney;
-        _chestRarity = chestRarity;
+        _chestConfig = item as ChestConfig;
+        NameItem = _chestConfig.ToString();
     }
 
     protected override void Success()
     {
-        _chestManager.OpenChest(_chestRarity);
+        _menuManager.GetUIMenu<ChestMenu>().OpenChest(_chestConfig);
     }
 }

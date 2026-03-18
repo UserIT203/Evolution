@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CommonChest
   m_EditorClassIdentifier: 
   <Price>k__BackingField: 50
-  <Icon>k__BackingField: {fileID: 21300000, guid: 3cfe4ba70c5a64a869af65245c952b72, type: 3}
+  <CloseIcon>k__BackingField: {fileID: 21300000, guid: 3cfe4ba70c5a64a869af65245c952b72, type: 3}
+  <OpenIcon>k__BackingField: {fileID: 21300000, guid: 65a5570ba70b54e9dafe17dd4fc34a5b, type: 3}
   <UseDonatMoney>k__BackingField: 1
   ChestRarity: 0
   MinItems: 1

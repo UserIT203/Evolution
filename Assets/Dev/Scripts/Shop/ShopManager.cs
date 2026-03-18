@@ -67,9 +67,7 @@ public class ShopManager : MonoBehaviour
 
         foreach (ChestConfig chest in _chests)
         {
-            ChestShopItem shopItem = new ChestShopItem(
-                chest,
-                chest.ChestRarity);
+            ChestShopItem shopItem = new ChestShopItem(chest);
 
             _diContainer.Inject(shopItem);
 

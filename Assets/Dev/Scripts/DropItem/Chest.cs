@@ -2,36 +2,38 @@ using UnityEngine;
 using Zenject;
 using System.Collections.Generic;
 
-public class Chest : MonoBehaviour
+public class Chest
 {
-    [Inject] private LootManager _lootManager;
+    private AllLootPool _allLoots;
 
-    [SerializeField] private ChestConfig _chestConfig;
-
-    public ChestConfig ChestConfig => _chestConfig;
-
-    public void OpenChest()
+    public Chest(AllLootPool allLoot)
     {
-        if (_chestConfig == null || _lootManager == null) return;
+        _allLoots = allLoot;
+    }
 
-        int itemCount = Random.Range(_chestConfig.MinItems, _chestConfig.MaxItems + 1);
+    public CardItem[] GetDroppedCards(ChestConfig chestConfig)
+    {
+        int itemCount = Random.Range(chestConfig.MinItems, chestConfig.MaxItems + 1);
+        CardItem[] droppedCards = new CardItem[itemCount];
 
         for (int i = 0; i < itemCount; i++)
         {
-            CardItem loot = RollLootFromChest();
+            CardItem loot = RollLootFromChest(chestConfig);
 
             if(loot != null)
             {
-                _lootManager.LootHandler(loot);
+                droppedCards[i] = loot;
             }
         }
+
+        return droppedCards;
     }
 
-    private CardItem RollLootFromChest()
+    private CardItem RollLootFromChest(ChestConfig config)
     {
-        Rarity choisenRarity = RollRarityFromChest();
+        Rarity choisenRarity = RollRarityFromChest(config);
 
-        var availableCards = _lootManager.DroppedLoots.GetLootsByRarity(choisenRarity);
+        var availableCards = _allLoots.GetLootsByRarity(choisenRarity);
 
         if (availableCards.Count == 0)
         {
@@ -44,9 +46,9 @@ public class Chest : MonoBehaviour
         return availableCards[index];
     }
 
-    private Rarity RollRarityFromChest()
+    private Rarity RollRarityFromChest(ChestConfig config)
     {
-        var weights = _chestConfig.RarityRollWeigth;
+        var weights = config.RarityRollWeigth;
   
         if(weights == null || weights.Count == 0) return Rarity.Common;
 

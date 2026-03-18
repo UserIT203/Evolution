@@ -1,3 +1,4 @@
+using ModestTree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,15 +59,15 @@ public class MenuManager : MonoBehaviour
 
     private void OnValidate()
     {
-        if(_menus == null || _menus.Length == 0 || _menus.Length == _buttons.Count) return;
+        //if(_menus == null || _menus.Length == 0 || _menus.Length == _buttons.Count) return;
 
-        for(int i = _buttons.Count; i < _menus.Length; i++)
-        {
-            MenuOpenButtons button = new();
-            button.MenuIndex = i;
+        //for(int i = _buttons.Count; i < _menus.Length; i++)
+        //{
+        //    MenuOpenButtons button = new();
+        //    button.MenuIndex = i;
 
-            _buttons.Add(button);
-        }
+        //    _buttons.Add(button);
+        //}
     }
 
     private void OnEnable()
@@ -118,6 +119,11 @@ public class MenuManager : MonoBehaviour
         _currentOpenMenu.OpenMenu();
 
         _headerText.text = _buttons.Find(b => b.MenuIndex == menuIndex).MenuName;
+    }
+
+    public T GetUIMenu<T>() where T : Menu
+    {
+        return _menus.OfType<T>().First();
     }
 
     public void CloseUIMenu()
