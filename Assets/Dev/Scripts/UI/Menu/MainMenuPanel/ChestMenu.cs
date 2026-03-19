@@ -5,17 +5,25 @@ using System.Linq;
 using UnityEngine.UI;
 using DG.Tweening;
 using Zenject;
+using TMPro;
 
 public class ChestMenu : Menu, IPointerClickHandler
 {
     [Header("UI Links")]
     [SerializeField] private Image _chestIcon;
 
+    [Header("Dropped Card UI Links")]
+    [SerializeField] private Image _cardContainer;
+    [SerializeField] private Image _cardIcon;
+    [SerializeField] private TMP_Text _cardName;
+    [SerializeField] private TMP_Text _cardDroppedCount;
+
     private LootManager _lootManager;
     private Chest _chestOpen;
     private ChestConfig _config;
     
     private Sequence _iconSequence;
+    private Sequence _droppedCardSequence;
 
     private CardItem[] _droppedItems;
     private Dictionary<CardItem, int> _droppedCardDictianory = new();
@@ -43,16 +51,27 @@ public class ChestMenu : Menu, IPointerClickHandler
 
     public override void OpenMenu()
     {
+        _cardContainer.enabled = false;
+        _cardIcon.enabled = false;
+
+        _cardName.text = "";
+        _cardDroppedCount.text = "";
+
         _canvasGroup.alpha = 1f;
         _canvasGroup.interactable = true;
         _canvasGroup.blocksRaycasts = true;
+
+        MenuManager.CloseAllPanel();
 
         IsClosed = false;
     }
 
     public void OpenChest(ChestConfig chestConfig)
     {
+        _currentDroppedCard = 0;
         _droppedItems = _chestOpen.GetDroppedCards(chestConfig);
+
+        if (_droppedCardDictianory.Count > 0) _droppedCardDictianory.Clear();
 
         foreach (CardItem item in _droppedItems) 
         {
@@ -60,6 +79,12 @@ public class ChestMenu : Menu, IPointerClickHandler
                 _droppedCardDictianory[item]++;
             else
                 _droppedCardDictianory.Add(item, 1);
+        }
+
+        foreach (var droppedCard in _droppedCardDictianory)
+        {
+            for (int i = 0; i < droppedCard.Value; i++)
+                _lootManager.LootHandler(droppedCard.Key);
         }
 
         Debug.Log($"<color=green>Dictianoty Length</color> {_droppedCardDictianory.Count}");
@@ -75,21 +100,20 @@ public class ChestMenu : Menu, IPointerClickHandler
         _chestIcon.sprite = config.CloseIcon;
     }
 
-    protected override void Initialized()
-    {
-        _iconSequence = DOTween.Sequence();
-
-        _iconSequence
-            .Append(
-            _chestIcon.transform.DOShakeRotation(1f, 45, 10, 80)
-            );
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("<color=red>Click on Chest</color>");
 
-        if (_currentDroppedCard > _droppedCardDictianory.Count - 1) return;
+        _cardContainer.enabled = false;
+        _cardIcon.enabled = false;
+        _cardName.text = "";
+        _cardDroppedCount.text = "";
+
+        if (_currentDroppedCard >= _droppedCardDictianory.Count)
+        {
+            CloseMenu();
+            return;
+        }
 
         _chestIcon.sprite = _config.CloseIcon;
 
@@ -98,24 +122,52 @@ public class ChestMenu : Menu, IPointerClickHandler
         _iconSequence
             .Append(
                 _chestIcon.transform
-                    .DOScale(new Vector3(0.8f, 0.8f, 0.8f), 2f)
+                    .DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.5f)
                     .SetEase(Ease.OutBounce)
                     .SetLoops(1, LoopType.Yoyo))
             .Append(
                 _chestIcon.transform
                     .DOScale(Vector3.one, 0.5f)
-                    .OnComplete(() => _chestIcon.sprite = _config.OpenIcon))
+                    .OnComplete(() => 
+                    {
+                        _chestIcon.sprite = _config.OpenIcon;
+                        PlayDroppedCardAnimation(
+                            _droppedCardDictianory.ElementAt(_currentDroppedCard).Key);
+                    }
+                    ))
             .Append(
                 _chestIcon.transform
-                    .DOShakeRotation(1f, 20, 6, 50)
+                    .DOShakeRotation(0.5f, 20, 6, 50)
                     .SetEase(Ease.OutCubic)
             );
+            
 
         Debug.Log($"<color=yellow>Drop Card</color>\n" +
             $"Card Name: {_droppedCardDictianory.ElementAt(_currentDroppedCard).Key}\n" +
             $"Card Count: {_droppedCardDictianory.ElementAt(_currentDroppedCard).Value}");
+    }
+    
+    public void PlayDroppedCardAnimation(CardItem droppedItem)
+    {
+        _cardContainer.enabled = true;
+
+        _cardIcon.sprite = droppedItem.Sprite;
+        _cardIcon.enabled = true;
+
+        _droppedCardSequence = DOTween.Sequence();
+
+        _droppedCardSequence
+            .Append(_cardContainer.transform.DOScale(1f, 0.5f).From(0f))
+            .Append(
+                _cardContainer.transform.DOLocalRotate(
+                    new Vector3(0f, 360f, 0f), 0.5f, RotateMode.FastBeyond360)
+                )
+            .OnComplete(() =>
+            {
+                _cardDroppedCount.text = _droppedCardDictianory[droppedItem].ToString();
+                _cardName.text = droppedItem.CardName;
+            });
 
         _currentDroppedCard++;
     }
-    
 }

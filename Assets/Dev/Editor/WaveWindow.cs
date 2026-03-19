@@ -271,6 +271,7 @@ public class WaveWindow : EditorWindow
             if (GUILayout.Button("SaveConfig"))
             {
                 _dowloadConfig.Waves = _waves;
+                EditorUtility.SetDirty(_dowloadConfig);
             }
         }
 

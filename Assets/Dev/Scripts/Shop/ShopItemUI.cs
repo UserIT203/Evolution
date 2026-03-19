@@ -33,5 +33,7 @@ public class ShopItemUI : MonoBehaviour
 
         _button.onClick.AddListener(() => item.TryBuy());
     }
+
+    
 }
    

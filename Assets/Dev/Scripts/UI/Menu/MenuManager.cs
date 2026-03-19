@@ -1,5 +1,3 @@
-using ModestTree;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -19,6 +17,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button _pauseButton;
 
     [Header("UI Links")]
+    [SerializeField] private Button _nextLevelButton;
+    [SerializeField] private Button _previousLevelButton;
     [SerializeField] private TMP_Text _headerText;
     [SerializeField] private TMP_Text _coinValueUIText;
     [SerializeField] private TMP_Text _gemValueUIText;
@@ -53,21 +53,11 @@ public class MenuManager : MonoBehaviour
 
         globalManager.onChangeCoin += ChangeGemText;
         levelUpgrade.onChangeMoney += ChangeCointText;
+
+        _nextLevelButton.onClick.AddListener(() => levelManager.SetNextLevel());
+        _previousLevelButton.onClick.AddListener(() => levelManager.SetPreviousLevel());
     
         _levelManager = levelManager;
-    }
-
-    private void OnValidate()
-    {
-        //if(_menus == null || _menus.Length == 0 || _menus.Length == _buttons.Count) return;
-
-        //for(int i = _buttons.Count; i < _menus.Length; i++)
-        //{
-        //    MenuOpenButtons button = new();
-        //    button.MenuIndex = i;
-
-        //    _buttons.Add(button);
-        //}
     }
 
     private void OnEnable()
@@ -85,6 +75,8 @@ public class MenuManager : MonoBehaviour
     private void OnDisable()
     {
         _pauseButton.onClick.RemoveAllListeners();
+        _nextLevelButton.onClick.RemoveAllListeners();
+        _previousLevelButton.onClick.RemoveAllListeners();
 
         if (_buttons == null || _buttons.Count == 0) return;
 
@@ -128,9 +120,7 @@ public class MenuManager : MonoBehaviour
 
     public void CloseUIMenu()
     {
-        _cavasGroup.alpha = 0f;
-        _cavasGroup.blocksRaycasts = false;
-        _cavasGroup.interactable = false;
+        _cavasGroup.Hide();
 
         _levelLabel.text = string.Format(_levelLabel.text, _levelManager.CurrentSelectedLevel + 1);
 
@@ -139,9 +129,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenUIMenu()
     {
-        _cavasGroup.alpha = 1f;
-        _cavasGroup.blocksRaycasts = true;
-        _cavasGroup.interactable = true;
+        _cavasGroup.Show();
 
         foreach (var hudPanel in _hudMenu)
             hudPanel.CloseMenu();
@@ -154,7 +142,7 @@ public class MenuManager : MonoBehaviour
         return _hudMenu.OfType<T>().FirstOrDefault();
     }
 
-    private void CloseAllPanel()
+    public void CloseAllPanel()
     {
         foreach (var menu in _menus)
         {

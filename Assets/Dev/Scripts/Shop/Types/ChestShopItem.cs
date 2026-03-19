@@ -2,8 +2,6 @@ using Zenject;
 
 public class ChestShopItem : ShopItem
 {
-    [Inject] private MenuManager _menuManager;
-
     private ChestConfig _chestConfig;
 
     public ChestShopItem(IPurchasedItem item)

@@ -4,6 +4,7 @@ using Zenject;
 public abstract class ShopItem
 {
     [Inject] private GlobalManager _globalManager;
+    [Inject] protected MenuManager _menuManager;
 
     public Sprite Icon;
     public int Price;
@@ -31,6 +32,7 @@ public abstract class ShopItem
 
     protected virtual void Fail()
     {
-        Debug.LogWarning("No needed money");
+        _menuManager.GetUIMenu<ShopMenu>().OpenShopPopup();
+        Debug.LogWarning("<color=red>No needed money</color>");
     }
 }
