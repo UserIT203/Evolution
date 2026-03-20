@@ -1,7 +1,8 @@
+using DG.Tweening.Core.Easing;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using TMPro;
 
 public class PlayMenu : Menu, ILevelHandler
 {
@@ -20,19 +21,30 @@ public class PlayMenu : Menu, ILevelHandler
     private GlobalManager _globalManager;
     private EraManager _eraManager;
     private LevelManager _levelManager;
+    private GameManager _gameManager;
 
     [Inject]
     public void Constract(
         GameManager gameManager, GlobalManager globalManager, 
         EraManager eraManager, LevelManager levelManager)
-    {
-        _playButton.onClick.AddListener(() => gameManager.Play());
-
+    {        
+        _gameManager = gameManager;
         _globalManager = globalManager;
         _eraManager = eraManager;
         _levelManager = levelManager;
 
         _levelManager.RegisterToChange(this);
+    }
+
+    private void OnEnable()
+    {
+        _playButton.onClick.AddListener(() => _gameManager.Play());
+        _playButton.onClick.AddListener(() => AudioManager.PlaySound("Click"));
+    }
+
+    private void OnDisable()
+    {
+        _playButton.onClick.RemoveAllListeners();
     }
 
     public override void CloseMenu()

@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 6032310556527718110}
   - component: {fileID: 3410606580908671407}
   - component: {fileID: 6706796529648377352}
+  - component: {fileID: 5201093029356162923}
   m_Layer: 6
   m_Name: EnemyUnitHeavy
   m_TagString: Enemy
@@ -400,6 +401,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aa097697a659d4bbd97b2e8ea99739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimation
+--- !u!114 &5201093029356162923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348290367095156357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _effects:
+  - Name: hit
+    Offset: {x: 0, y: 1, z: 0}
+    Particle: {fileID: 2931607104509068050, guid: c48e64fa429d42448b9a7fab5de14c3c, type: 3}
 --- !u!1 &3438608905747169916
 GameObject:
   m_ObjectHideFlags: 0

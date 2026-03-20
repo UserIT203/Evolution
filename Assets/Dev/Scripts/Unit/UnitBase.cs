@@ -176,6 +176,8 @@ public abstract class UnitBase : Poolable, IDamagaeble, IEffectAction
             Die();
         }
 
+        AudioManager.PlaySound("Hit");
+
         onChangeHealth?.Invoke(_unitStats.MaxHealth.GetValue(), CurrentHealth);
         onChangeArmor?.Invoke(_unitStats.Armor.GetValue(), CurrentArmor);
 

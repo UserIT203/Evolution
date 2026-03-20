@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5003701137143920907}
   - component: {fileID: 5490222556985966856}
   - component: {fileID: 9147176621471237208}
+  - component: {fileID: -4969620988763534552}
   m_Layer: 6
   m_Name: EnemyRangedUnit
   m_TagString: Enemy
@@ -176,6 +177,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4b7ae19114b8f448f6159bfacb8efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatsController
+--- !u!114 &-4969620988763534552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28624079509786667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _effects:
+  - Name: hit
+    Offset: {x: 0, y: 1, z: 0}
+    Particle: {fileID: 2931607104509068050, guid: c48e64fa429d42448b9a7fab5de14c3c, type: 3}
 --- !u!1 &1511075226244935834
 GameObject:
   m_ObjectHideFlags: 0

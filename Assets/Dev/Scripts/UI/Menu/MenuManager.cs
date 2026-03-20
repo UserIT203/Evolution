@@ -69,6 +69,7 @@ public class MenuManager : MonoBehaviour
         foreach (var button in _buttons)
         {
             button.Button.onClick.AddListener(() => OpenMenu(button.MenuIndex));
+            button.Button.onClick.AddListener(() => AudioManager.PlaySound("Click"));
         }
     }
 

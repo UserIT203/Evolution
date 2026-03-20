@@ -34652,6 +34652,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484445934}
   m_Mesh: {fileID: 594406225054975251, guid: 1914ed13503c2394cb03a722dec51ee3, type: 3}
+--- !u!1 &1489376033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489376034}
+  - component: {fileID: 1489376036}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1489376034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489376033}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.29452, y: 3.74152, z: 6.43126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1489376036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489376033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15b2e8287792c64b80eab6d33c726c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _startAmbientName: MainAmbient
+  _sounds:
+  - Name: Hit
+    Clip: {fileID: 8300000, guid: 911a700255c505b47b7ed104c2d3137a, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    IsAmbient: 0
+  - Name: MainAmbient
+    Clip: {fileID: 8300000, guid: ec29fc1587aca3e48970a90140bbb6f1, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    IsAmbient: 1
+  - Name: BattleAmbient
+    Clip: {fileID: 8300000, guid: e902a4ba3c7fa2b4cb0fd41fb9ad87ed, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    IsAmbient: 1
+  - Name: Click
+    Clip: {fileID: 8300000, guid: 476d66b607e35d947ad477c6e4c6cb45, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    IsAmbient: 0
 --- !u!1 &1490932030
 GameObject:
   m_ObjectHideFlags: 0
@@ -51544,6 +51610,7 @@ SceneRoots:
   - {fileID: 221067892}
   - {fileID: 1418143633}
   - {fileID: 1350979111}
+  - {fileID: 1489376034}
   - {fileID: 810877293}
   - {fileID: 682852193}
   - {fileID: 2035367462}

@@ -109,13 +109,17 @@ public class GameManager : MonoBehaviour, ILevelHandler
 
         _desktopInput?.EnableInput();
 
+        AudioManager.Instance.SetAmbient("BattleAmbient");
+
         onPlay?.Invoke();
         onChangeMoneyCount?.Invoke(0);
     }
 
     public void EndGame(TowerType towerType)
     {
-        if(_isPaused == true) return;
+        AudioManager.Instance.SetAmbient("MainAmbient");
+
+        if (_isPaused == true) return;
 
         _desktopInput?.DisableInput();
 
@@ -132,11 +136,18 @@ public class GameManager : MonoBehaviour, ILevelHandler
         }
 
         _isPaused = true;
+
+        
     }
 
     public void UpgradePerMoneySecond(Modifier modifier) => _moneyCountPerSecond.AddModifier(modifier);
 
-    public void EndGame() => onEnd?.Invoke();
+    public void EndGame()
+    {
+        AudioManager.Instance.SetAmbient("MainAmbient");
+
+        onEnd?.Invoke();
+    }
 
     public void SetLevelSettings(LevelSetting levelSettings)
     {

@@ -17,6 +17,10 @@ public class UnitInstaller : MonoBehaviour
                 gameObject.AddComponent<UnitMelee>();
                 break;
 
+            case UnitType.Heavy:
+                gameObject.AddComponent<UnitMelee>();
+                break;
+
             case UnitType.Ranged:
                 gameObject.AddComponent<UnitRanged>();
                 break;
@@ -27,6 +31,7 @@ public class UnitInstaller : MonoBehaviour
 
         gameObject.AddComponent<UnitAnimation>();
         gameObject.AddComponent<StatsController>();
+        gameObject.AddComponent<UnitEffect>();
 
         DestroyImmediate(GetComponent<UnitInstaller>());
     }
