@@ -1,16 +1,31 @@
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class LoaderUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Image _loadingBar;
+
+    private CanvasGroup _canvasGroup;
+
+    private void Awake()
     {
-        
+        _canvasGroup = GetComponent<CanvasGroup>();
+        CloseLoaderUI();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void OpenLoaderUI(float progress)
     {
+        _loadingBar.fillAmount = progress;
         
+        if(_canvasGroup.alpha != 1)
+            _canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutSine);
+    }
+
+    public void CloseLoaderUI()
+    {
+        _canvasGroup.DOFade(0f, 2f).SetEase(Ease.Linear);
     }
 }

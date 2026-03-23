@@ -11,7 +11,7 @@ namespace System.SceneManager
 
     public enum SceneType
     {
-        ActiveScene,
+        Bootstrap,
         MainMenu,
         GamePlay,
         HUD

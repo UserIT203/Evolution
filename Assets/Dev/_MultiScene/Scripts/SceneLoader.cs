@@ -10,13 +10,13 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private List<SceneData> _scenesData;
 
-    private int _currentLevelSceneIndex;
     private bool _isLoaded;
 
     private Coroutine _loadSceneCoroutine;
     private Coroutine _unloadSceneCoroutine;
 
     public Action<float> onSceneProgress;
+    public Action onEndLoading;
 
     private void OnDisable()
     {
@@ -42,6 +42,18 @@ public class SceneLoader : MonoBehaviour
         sceneData.SceneName = levelSceneName;
     }
 
+    public void LoadS()
+    {
+        string sceneName = GetSceneByType(SceneType.MainMenu);
+        _loadSceneCoroutine = StartCoroutine(LoadSceneAsync(sceneName, null));
+    }
+
+    public void UnloadS()
+    {
+        string sceneName = GetSceneByType(SceneType.MainMenu);
+        _unloadSceneCoroutine = StartCoroutine(UnloadingScene(sceneName));
+    }
+
     private string GetSceneByType(SceneType type)
     {
         return _scenesData.First(s => s.SceneType == type).SceneName;
@@ -63,6 +75,7 @@ public class SceneLoader : MonoBehaviour
 
         operation.allowSceneActivation = true;
 
+        onEndLoading?.Invoke();
         onComplete?.Invoke();
 
         _isLoaded = false;
