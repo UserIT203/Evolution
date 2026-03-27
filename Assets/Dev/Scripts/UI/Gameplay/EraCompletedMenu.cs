@@ -1,9 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditorInternal;
 using Zenject;
-using System.Diagnostics;
 
 public class EraCompletedMenu : Menu
 {

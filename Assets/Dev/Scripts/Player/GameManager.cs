@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour, ILevelHandler
 
     public void SpawnUnit(UnitBase unit)
     {
+        AudioManager.PlaySound("SpawnUnit");
         _unitSpawner.SpawnUnit(this, unit.UnitConfig.UnitType);
         RemoveMoney(unit.UnitConfig.Cost);
     }
@@ -128,9 +129,11 @@ public class GameManager : MonoBehaviour, ILevelHandler
         switch (towerType)
         {
             case TowerType.EnemyTower:
+                AudioManager.PlaySound("Win");
                 onWinLevel?.Invoke();
                 break;
             case TowerType.PlayerTower:
+                AudioManager.PlaySound("Lose");
                 onLoseLevel?.Invoke();
                 break;
         }
@@ -140,7 +143,10 @@ public class GameManager : MonoBehaviour, ILevelHandler
         
     }
 
-    public void UpgradePerMoneySecond(Modifier modifier) => _moneyCountPerSecond.AddModifier(modifier);
+    public void UpgradePerMoneySecond(Modifier modifier)
+    {
+        _moneyCountPerSecond.AddModifier(modifier);
+    }
 
     public void EndGame()
     {

@@ -35,11 +35,17 @@ public class PausePanel : Menu
 
         _continueButton.onClick.AddListener(CloseMenu);
         _mainMenuButton.onClick.AddListener(GoToMainMenu);
+        _settingButton.onClick.AddListener(OpenSettingMenu);   
     }
 
     private void GoToMainMenu()
     {
         _gameManager.EndGame();
         MenuManager.OpenUIMenu();
+    }
+
+    private void OpenSettingMenu()
+    {
+        MenuManager.GetHUDPanel<SettingMenu>().OpenMenu();
     }
 }

@@ -73,6 +73,10 @@ public abstract class PopUp : MonoBehaviour
 
     private void UpgradeCard()
     {
-        if(_collected.TryUpgrade(_cardItem.CardID)) FillUI();
+        if (_collected.TryUpgrade(_cardItem.CardID)) 
+        {
+            AudioManager.PlaySound("Upgrade");
+            FillUI();
+        } 
     }
 }

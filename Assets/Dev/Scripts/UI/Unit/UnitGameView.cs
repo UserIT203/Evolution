@@ -50,8 +50,6 @@ public class UnitGameView : MonoBehaviour
 
     public void Initialized(UnitBase unit, int index)
     {
-        Debug.Log("Init card");
-
         _unit = unit;
         SetUI(index);
     }

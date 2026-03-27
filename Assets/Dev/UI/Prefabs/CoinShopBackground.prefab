@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.85
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 7712256339870705333}
   - component: {fileID: 6265743954476820622}
   - component: {fileID: 402514950417880397}
+  - component: {fileID: 9181894739685866435}
   m_Layer: 5
   m_Name: CoinShopBackground
   m_TagString: Untagged
@@ -353,6 +354,19 @@ MonoBehaviour:
   _nameText: {fileID: 8274050816274909102}
   _priceText: {fileID: 8835924745781891683}
   _icon: {fileID: 5529822962957315500}
+--- !u!114 &9181894739685866435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883233992051829426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4e17bdb58a2404bbc88917966383fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonEffects
+  _soundName: Click
 --- !u!1 &5067154189484059810
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +534,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.95
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

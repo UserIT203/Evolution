@@ -58,6 +58,8 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
                 _currentUpgrade = _gameModifierQueue.Dequeue();
 
             _currentUpgradeIndex++;
+
+            AudioManager.PlaySound("Buy");
         }
 
         onUpgradeMoneyPerSecond?.Invoke();

@@ -31,7 +31,7 @@ public class FSMRangedAttack : FSMMeleeAttack
             direction,
             _unit.UnitStats.Damage.GetValue(),
             _bulletConfig,
-            _unit.UnitConfig.AttackMask);
+            _unit.VictimLayer);
 
         _attackTimer = _unit.UnitStats.AttackDelay.GetValue();
         _unit.Attack();

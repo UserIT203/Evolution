@@ -11,6 +11,7 @@ public class ChestMenu : Menu, IPointerClickHandler
 {
     [Header("UI Links")]
     [SerializeField] private Image _chestIcon;
+    [SerializeField] private float _clickSensitivity;
 
     [Header("Dropped Card UI Links")]
     [SerializeField] private Image _cardContainer;
@@ -21,7 +22,9 @@ public class ChestMenu : Menu, IPointerClickHandler
     private LootManager _lootManager;
     private Chest _chestOpen;
     private ChestConfig _config;
-    
+
+    private float _lastClickTime;
+
     private Sequence _iconSequence;
     private Sequence _droppedCardSequence;
 
@@ -33,7 +36,6 @@ public class ChestMenu : Menu, IPointerClickHandler
     public void Construct(LootManager lootManager)
     {
         _lootManager = lootManager;
-
         _chestOpen = new Chest(_lootManager.DroppedLoots);
     }
 
@@ -70,6 +72,9 @@ public class ChestMenu : Menu, IPointerClickHandler
     {
         _currentDroppedCard = 0;
         _droppedItems = _chestOpen.GetDroppedCards(chestConfig);
+        
+        _chestIcon.transform.rotation = Quaternion.identity;
+        _chestIcon.transform.localScale = Vector3.one;
 
         if (_droppedCardDictianory.Count > 0) _droppedCardDictianory.Clear();
 
@@ -116,7 +121,12 @@ public class ChestMenu : Menu, IPointerClickHandler
         }
 
         _chestIcon.sprite = _config.CloseIcon;
+        CardItem item = _droppedCardDictianory.ElementAt(_currentDroppedCard).Key;
+        _currentDroppedCard++;
 
+        if (Time.time - _lastClickTime <= _clickSensitivity) return;
+
+        _lastClickTime = Time.time;
         _iconSequence = DOTween.Sequence();
 
         _iconSequence
@@ -125,14 +135,14 @@ public class ChestMenu : Menu, IPointerClickHandler
                     .DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.5f)
                     .SetEase(Ease.OutBounce)
                     .SetLoops(1, LoopType.Yoyo))
+                    .OnComplete(() => AudioManager.PlaySound("OpenChest"))
             .Append(
                 _chestIcon.transform
                     .DOScale(Vector3.one, 0.5f)
-                    .OnComplete(() => 
+                    .OnComplete(() =>
                     {
                         _chestIcon.sprite = _config.OpenIcon;
-                        PlayDroppedCardAnimation(
-                            _droppedCardDictianory.ElementAt(_currentDroppedCard).Key);
+                        PlayDroppedCardAnimation(item);
                     }
                     ))
             .Append(
@@ -168,6 +178,6 @@ public class ChestMenu : Menu, IPointerClickHandler
                 _cardName.text = droppedItem.CardName;
             });
 
-        _currentDroppedCard++;
+        AudioManager.PlaySound("DroppedCard");
     }
 }

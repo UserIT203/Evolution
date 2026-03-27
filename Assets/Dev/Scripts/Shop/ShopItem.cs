@@ -28,7 +28,10 @@ public abstract class ShopItem
         }
     }
 
-    protected abstract void Success();
+    protected virtual void Success()
+    {
+
+    }
 
     protected virtual void Fail()
     {

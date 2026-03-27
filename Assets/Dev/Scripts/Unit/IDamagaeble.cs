@@ -1,6 +1,4 @@
 using System;
-using Unity.Burst;
-using UnityEditor.Purchasing;
 using UnityEngine;
 
 public interface IDamagaeble

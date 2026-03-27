@@ -10,5 +10,7 @@ public struct Sound
     public AudioClip Clip;
     public float StartVolume;
     public float StartPitch;
-    public bool IsAmbient;
+    public SoundType Type;
 }
+
+public enum SoundType { SFX, Ambient, MenuMusic}

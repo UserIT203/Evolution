@@ -52,14 +52,14 @@ public class FSMSearchTargetState : FSMState
         _victimColliders = Physics.OverlapSphere(
             _unit.transform.position, 
             _unit.UnitStats.DetectedRange.GetValue(),
-            _unit.UnitConfig.AttackMask);
+            _unit.VictimLayer);
 
         if (_victimColliders.Length <= 0) return;
 
         foreach (Collider victim in _victimColliders)
         {
             if (victim.TryGetComponent<IDamagaeble>(out var target) 
-                && victim.transform.tag == _unit.UnitConfig.VictimTag)
+                && victim.transform.tag == _unit.VictimTag)
             {
                 _unit.SetVictim(target);
             }

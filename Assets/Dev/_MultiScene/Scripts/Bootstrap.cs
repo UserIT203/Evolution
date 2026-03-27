@@ -6,10 +6,6 @@ public class Bootstrap : MonoBehaviour
     [Header("UI")]
     [SerializeField] private LoaderUI _loaderUI;
 
-    [Header("Manager")]
-    [SerializeField] private SceneLoader _loader;
-
-
     private IEnumerator Start()
     {
         BindingObject();
@@ -22,14 +18,11 @@ public class Bootstrap : MonoBehaviour
 
     private void BindingObject()
     {
-        _loader = Instantiate(_loader);
+
     }
 
     private IEnumerator Initialized()
     {
-        _loader.onEndLoading += _loaderUI.CloseLoaderUI;
-        _loader.onSceneProgress += _loaderUI.OpenLoaderUI;
-
         yield return null;
     }
 

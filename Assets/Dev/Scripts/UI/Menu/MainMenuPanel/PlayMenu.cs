@@ -39,7 +39,6 @@ public class PlayMenu : Menu, ILevelHandler
     private void OnEnable()
     {
         _playButton.onClick.AddListener(() => _gameManager.Play());
-        _playButton.onClick.AddListener(() => AudioManager.PlaySound("Click"));
     }
 
     private void OnDisable()

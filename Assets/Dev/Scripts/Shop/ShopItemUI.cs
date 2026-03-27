@@ -26,14 +26,11 @@ public class ShopItemUI : MonoBehaviour
 
     public void Initialized(ShopItem item)
     {
-        Debug.Log(item.NameItem);
-
         _icon.sprite = item.Icon;
         _priceText.text = item.Price.ToString();
+        _nameText.text = item.NameItem;
 
         _button.onClick.AddListener(() => item.TryBuy());
     }
-
-    
 }
    

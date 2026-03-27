@@ -18,7 +18,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private List<Containers> _containers;
 
     [Header("Shop Item Info")]
-    [SerializeField] private List<ChestConfig> _chests;
+    [SerializeField] private List<ChestShopItem> _chests;
     [SerializeField] private List<CoinShopItem> _coins;
 
     private void Awake()
@@ -65,13 +65,10 @@ public class ShopManager : MonoBehaviour
     {
         container.Items = new List<ShopItem>();
 
-        foreach (ChestConfig chest in _chests)
+        foreach (ChestShopItem chest in _chests)
         {
-            ChestShopItem shopItem = new ChestShopItem(chest);
-
-            _diContainer.Inject(shopItem);
-
-            container.Items.Add(shopItem);
+            _diContainer.Inject(chest);
+            container.Items.Add(chest);
         }
     }
 

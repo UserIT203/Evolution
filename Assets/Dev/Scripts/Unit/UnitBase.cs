@@ -5,9 +5,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class UnitBase : Poolable, IDamagaeble, IEffectAction
 {
-    [SerializeField] private Transform _targetBase;
+    [Header("<color=green><b>Main Settings</b></color>")]
     [SerializeField] protected UnitStatsConfig _unitConfig;
+    [field: SerializeField] public string VictimTag;
+    [field: SerializeField] public LayerMask VictimLayer;
 
+    private Transform _targetBase;
     private EffectManager _effectManager;
 
     protected CustomPool<Bullet> _bulletPool;

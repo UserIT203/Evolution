@@ -13,8 +13,6 @@ public class UnitStatsConfig : ScriptableObject
     [field: SerializeField] public float Speed { get; private set; }
 
     [field: Header("Attack Options")]
-    [field: SerializeField] public string VictimTag { get; private set; }
-    [field: SerializeField] public LayerMask AttackMask { get; private set; }
     [field: SerializeField] public float AttackDelay { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public float Damage { get; private set; }

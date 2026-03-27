@@ -22,8 +22,8 @@ public class AbilityPopUp : PopUp
 
     private void EquipAbility()
     {
+        AudioManager.PlaySound("DroppedCard");
         AbilityManager abilityManager = _collected as AbilityManager;
-
         abilityManager.ChangeAbility(_cardItem.CardID);
     }
 }

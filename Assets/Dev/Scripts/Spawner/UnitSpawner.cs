@@ -42,8 +42,6 @@ public class UnitSpawner : MonoBehaviour, ILevelHandler
     {
         if(unitDictianory != null && unitDictianory.Count != 0)
         {
-            Debug.Log($"Pool object count {unitDictianory.Count}");
-
             foreach(var pool in unitDictianory.Values)
                 pool.ClearAll();
         }

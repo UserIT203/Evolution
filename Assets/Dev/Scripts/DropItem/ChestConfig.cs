@@ -2,12 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Chest", menuName = "Chest/ChestConfig")]
-public class ChestConfig : ScriptableObject, IPurchasedItem
+public class ChestConfig : ScriptableObject
 {
-    [field: SerializeField] public int Price { get; set; }
     [field: SerializeField] public Sprite CloseIcon { get; set; }
     [field: SerializeField] public Sprite OpenIcon { get; set; }
-    [field: SerializeField] public bool UseDonatMoney { get; set; }
 
     public Rarity ChestRarity;
     public int MinItems;

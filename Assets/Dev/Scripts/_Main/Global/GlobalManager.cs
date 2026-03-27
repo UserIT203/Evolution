@@ -154,6 +154,8 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
             _gemCount -= value;
 
             onChangeCoin?.Invoke(_gemCount);
+
+            AudioManager.PlaySound("Buy");
             return true;
         }
 

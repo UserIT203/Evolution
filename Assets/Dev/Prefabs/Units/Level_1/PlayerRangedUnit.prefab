@@ -345,8 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d9b5d8d80958a4498cdb814aa7688b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetBase: {fileID: 0}
-  _unitConfig: {fileID: 11400000, guid: d8fb56a6c7dc5564fa0f6da36fcd838c, type: 2}
+  _unitConfig: {fileID: 11400000, guid: 2d7d43f8575ace24baf356468ed7da56, type: 2}
+  VictimTag: Enemy
+  VictimLayer:
+    serializedVersion: 2
+    m_Bits: 64
   _shootPoint: {fileID: 2764227694221696152}
 --- !u!114 &7522233571207700207
 MonoBehaviour:

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b314ff6803be745ae836a1a1b4f211, type: 3}
+  m_Name: Level_1
+  m_EditorClassIdentifier: 
+  LevelName: First Level
+  LevelIcon: {fileID: 21300000, guid: a0d5a17e1bf3753489c8e191e6e648df, type: 3}
+  Modifiers:
+  - Cost: 5
+    Modifier:
+      ModifierType: 0
+      <ModifierValue>k__BackingField: 0.1
+  - Cost: 10
+    Modifier:
+      ModifierType: 0
+      <ModifierValue>k__BackingField: 0.2
+  PlayerUnits:
+  - {fileID: 4589907965028871516, guid: 9deff5be79a2f0e43858ce7c8024a9bc, type: 3}
+  - {fileID: 4411722504567029211, guid: bdfdc644140dd0a4581c22888b6f0f35, type: 3}
+  - {fileID: 23580588558624143, guid: 441b9e8eb70424e44aa92c1d7eb646d4, type: 3}
+  EnemyUnits:
+  - {fileID: 8437068924828531486, guid: a46c2cd2680e26f46be9a004fcd6e03b, type: 3}
+  - {fileID: 627264252693175357, guid: 52e8da8a1910637439d4275cecb6aa50, type: 3}
+  - {fileID: 7605661492966538867, guid: 8777fa203df7f6f488238cadb47aa0c2, type: 3}
+  WavesConfig: {fileID: 11400000, guid: b185bc23888942b4aa6dcd3df1fedcea, type: 2}
+  LevelOptions: {fileID: 11400000, guid: 4cbaf2fd4692fe24fa99e968f14f357e, type: 2}

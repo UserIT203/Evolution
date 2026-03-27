@@ -345,8 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13ff0885f34834bab186c69ce0e699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitMelee
-  _targetBase: {fileID: 0}
-  _unitConfig: {fileID: 11400000, guid: 52d36ea78c9efcd4d93e655a6e07d5f9, type: 2}
+  _unitConfig: {fileID: 11400000, guid: 09ecc051ef71e8b4b872f4d3877e4dbc, type: 2}
+  VictimTag: Player
+  VictimLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7681938703615360863
 MonoBehaviour:
   m_ObjectHideFlags: 0

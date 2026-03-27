@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Value: 1.5
   scatter:
     m_OverrideState: 1
-    m_Value: 0.69
+    m_Value: 0.628
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -86,7 +86,7 @@ MonoBehaviour:
     m_Value: 9.8
   focalLength:
     m_OverrideState: 1
-    m_Value: 67
+    m_Value: 1
   bladeCount:
     m_OverrideState: 0
     m_Value: 4

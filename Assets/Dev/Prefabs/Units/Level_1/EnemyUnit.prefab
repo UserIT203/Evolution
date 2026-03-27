@@ -150,8 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13ff0885f34834bab186c69ce0e699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetBase: {fileID: 0}
-  _unitConfig: {fileID: 11400000, guid: 50ac9b07f38255544bbabd8dd13694a9, type: 2}
+  _unitConfig: {fileID: 11400000, guid: af94726b4753de14691901ef540c5ead, type: 2}
+  VictimTag: Player
+  VictimLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-306241782664034977
 MonoBehaviour:
   m_ObjectHideFlags: 0

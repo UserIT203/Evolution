@@ -12,7 +12,7 @@ public class LoaderUI : MonoBehaviour
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        CloseLoaderUI();
+        _canvasGroup.Hide();
     }
 
 

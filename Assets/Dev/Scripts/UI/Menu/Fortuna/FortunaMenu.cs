@@ -181,6 +181,8 @@ public class FortunaMenu : Menu
 
         Prize prize = _prizes[index];
 
+        AudioManager.PlaySound("SpinWheel");
+
         if (prize.PrizeType == PrizeType.Coin)
             _levelUpgrade.AddCoin(prize.Value);
         else if (prize.PrizeType == PrizeType.DonatCoin)
