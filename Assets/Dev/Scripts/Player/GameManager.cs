@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour, ILevelHandler
 
     public void UpgradePerMoneySecond(Modifier modifier)
     {
+        _moneyCountPerSecond.RemoveAllModifier();
         _moneyCountPerSecond.AddModifier(modifier);
     }
 

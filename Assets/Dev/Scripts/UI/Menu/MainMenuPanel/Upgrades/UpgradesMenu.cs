@@ -103,7 +103,8 @@ public class UpgradesMenu : Menu, ILevelHandler
     {
         _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text =
             modifier.Cost.ToString();
-        _upgradeValue.text = _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue.ToString();
+        _upgradeValue.text =
+            string.Format("{0:f}", _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue);
     }
 
     private void UpdateModifierInfo()
