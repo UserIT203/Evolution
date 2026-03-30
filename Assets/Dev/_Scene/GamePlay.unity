@@ -2454,6 +2454,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63854608c19cf754187278dae8dd0729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startModifier:
+    Cost: 5
+    Modifier:
+      ModifierType: 0
+      <ModifierValue>k__BackingField: 0.1
+  _increasePreviousCost: 2
+  _increasePreviousModifier: 0.1
 --- !u!114 &221067896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4825,7 +4832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24700001, y: 0.20500001}
   m_AnchorMax: {x: 0.74966395, y: 0.37333333}
-  m_AnchoredPosition: {x: 1, y: -1.999321}
+  m_AnchoredPosition: {x: 1, y: -1.99926}
   m_SizeDelta: {x: -2, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438243365

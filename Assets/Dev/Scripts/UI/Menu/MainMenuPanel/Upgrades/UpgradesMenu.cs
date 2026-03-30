@@ -55,8 +55,6 @@ public class UpgradesMenu : Menu, ILevelHandler
     {
         _moneyPerSeconsUpgrade.onClick.AddListener(
             () => _levelUpgrade.UpgradeMoneyPerSecond());
-
-        UpdateInfoInUpgradeMoneyPerSecondButton();
     }
 
     private void OnDisable()
@@ -85,6 +83,8 @@ public class UpgradesMenu : Menu, ILevelHandler
 
         UpdateUpgradeCardInfo();
 
+        _levelUpgrade.onUpgradeMoneyPerSecond += UpdateInfoInUpgradeMoneyPerSecondButton;
+
         _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text
             = _levelUpgrade.CurrentGameModifier.Cost.ToString();
 
@@ -99,20 +99,11 @@ public class UpgradesMenu : Menu, ILevelHandler
         }
     }
 
-    private void UpdateInfoInUpgradeMoneyPerSecondButton()
-    { 
-        if (_levelUpgrade.CanUpgradeMoneyPerSecond())
-        {
-            _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text
-            = _levelUpgrade.CurrentGameModifier.Cost.ToString();
-
-            _upgradeValue.text = _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue.ToString();
-        }
-        else
-        {
-            _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text =
-                "MAX";
-        }
+    private void UpdateInfoInUpgradeMoneyPerSecondButton(GameModifier modifier)
+    {
+        _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text =
+            modifier.Cost.ToString();
+        _upgradeValue.text = _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue.ToString();
     }
 
     private void UpdateModifierInfo()

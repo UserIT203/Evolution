@@ -138,9 +138,7 @@ public class GameManager : MonoBehaviour, ILevelHandler
                 break;
         }
 
-        _isPaused = true;
-
-        
+        _isPaused = true; 
     }
 
     public void UpgradePerMoneySecond(Modifier modifier)
