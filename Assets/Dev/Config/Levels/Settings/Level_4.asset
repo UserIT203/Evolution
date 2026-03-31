@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b314ff6803be745ae836a1a1b4f211, type: 3}
+  m_Name: Level_4
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSetting
+  LevelName: Four Level
+  LevelIcon: {fileID: 0}
+  PlayerUnits:
+  - {fileID: 796205688025059025, guid: c0083ba8baa3e4648a1acb7705c28ef1, type: 3}
+  - {fileID: 2274729380952362785, guid: 38582326808427c4fa1bc4dffbdc045e, type: 3}
+  - {fileID: 6811170344297397080, guid: 419ed69f13b1e9046a2b47423b18dcee, type: 3}
+  EnemyUnits:
+  - {fileID: 6832287162686409943, guid: 805e933208871a94e8463a2c3b016235, type: 3}
+  - {fileID: 3878577500840237513, guid: 86f1803361639004599fde047b642476, type: 3}
+  - {fileID: 1684162353634312953, guid: 0575f5f914fbcc747bbdbb90ce74049b, type: 3}
+  WavesConfig: {fileID: 11400000, guid: 8a472ad2709fdca4fae00763cf63bcd6, type: 2}
+  LevelOptions: {fileID: 11400000, guid: b5eb1d8f3b16e75488b8f029ac727aa3, type: 2}

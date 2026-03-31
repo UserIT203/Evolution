@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8506141595365688765}
   - component: {fileID: 8069869273650202519}
   - component: {fileID: 465505236062088277}
+  - component: {fileID: -2193501976445432934}
   m_Layer: 7
   m_Name: PlayerHouse
   m_TagString: Player
@@ -157,3 +158,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4b7ae19114b8f448f6159bfacb8efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatsController
+--- !u!114 &-2193501976445432934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330862591179029307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _effects:
+  - Name: hit
+    Offset: {x: 0, y: 4, z: 0}
+    Particle: {fileID: 4831766335027363736, guid: e45e6d80f68f7b849b9340b1493480d6, type: 3}

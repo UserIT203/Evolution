@@ -15454,6 +15454,8 @@ MonoBehaviour:
     EraLevelsSettings:
     - {fileID: 11400000, guid: 721f8be6fb88f6b428db9a087d9327df, type: 2}
     - {fileID: 11400000, guid: f83e706b48be87a4b9685df9f066fba0, type: 2}
+    - {fileID: 11400000, guid: d6e55a063877b1b4e8beb8ef549634f2, type: 2}
+    - {fileID: 11400000, guid: 24eb0ae05d3e4db4f836e65dc63de678, type: 2}
     IsCompleted: 0
 --- !u!114 &1418143637
 MonoBehaviour:
@@ -21536,12 +21538,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levels.Array.data[2].Order
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levels.Array.data[0].Config
       value: 
-      objectReference: {fileID: 11400000, guid: 77b111774457ea3499d1eae9bbcefea1, type: 2}
+      objectReference: {fileID: 11400000, guid: b5eb1d8f3b16e75488b8f029ac727aa3, type: 2}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levels.Array.data[1].Config
       value: 
@@ -21549,7 +21551,11 @@ PrefabInstance:
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levels.Array.data[2].Config
       value: 
-      objectReference: {fileID: 11400000, guid: 77b111774457ea3499d1eae9bbcefea1, type: 2}
+      objectReference: {fileID: 11400000, guid: e8068a266d700f542a98620dd9d04742, type: 2}
+    - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
+      propertyPath: _levels.Array.data[3].Config
+      value: 
+      objectReference: {fileID: 11400000, guid: b5eb1d8f3b16e75488b8f029ac727aa3, type: 2}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levelsOrder.Array.data[0].Root
       value: 
@@ -21576,7 +21582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levelsRoots.Array.data[3].Order
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levelsRoots.Array.data[5].Order
@@ -21608,7 +21614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levelsRoots.Array.data[3].ChildIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levelsRoots.Array.data[3].EnemyTower

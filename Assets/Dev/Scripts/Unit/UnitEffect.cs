@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(UnitBase))]
+[RequireComponent(typeof(IDamagaeble))]
 public class UnitEffect : MonoBehaviour
 {
     [System.Serializable]
@@ -12,14 +12,19 @@ public class UnitEffect : MonoBehaviour
         public ParticleSystem Particle;
     }
 
+    [Header("<color=yellow>Coin Effect</color>")]
+    [SerializeField] private CoinViewUI _coinViewUI;
+    [SerializeField] private Vector3 _spawnOffset;
+    
+    [Header("<color=red>Particle Effects</color>")]
     [SerializeField] private List<Effect> _effects;
 
-    private UnitBase _unit;
+    private IDamagaeble _unit;
     private Dictionary<string, ParticleSystem> _particleDictianory = new();
 
     private void OnEnable()
     {
-        _unit = GetComponent<UnitBase>();
+        _unit = GetComponent<IDamagaeble>();
 
         _unit.onTakeDamage += PlayHitEffect;
     }
@@ -32,6 +37,22 @@ public class UnitEffect : MonoBehaviour
     private void Awake()
     {
         InitializedEffects();
+    }
+
+    public void PlayEffect(string name)
+    {
+        _particleDictianory[name].Play();
+    }
+
+    public void CreateCoinView(int amount)
+    {
+        if (_coinViewUI == null) return;
+
+        CoinViewUI view = Instantiate(_coinViewUI);
+
+        view.transform.position = transform.position + _spawnOffset;
+
+        view.PlayAnimation(amount);
     }
 
     private void InitializedEffects()
@@ -53,10 +74,5 @@ public class UnitEffect : MonoBehaviour
     private void PlayHitEffect(float value)
     {
         PlayEffect("hit");
-    }
-
-    public void PlayEffect(string name)
-    {
-        _particleDictianory[name].Play();
     }
 }

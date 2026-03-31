@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2824121892546341748}
   - component: {fileID: 5392724724778572458}
   - component: {fileID: 1920646498104910523}
+  - component: {fileID: 6196158568893298589}
   m_Layer: 6
   m_Name: Enemy_House_2
   m_TagString: Enemy
@@ -173,4 +174,21 @@ MonoBehaviour:
   _hasCreateLootOnTakeDamage: 1
   _items:
   - Item: {fileID: 11400000, guid: 25601e9b14b1d3c4cac8f7e6b4668d2d, type: 2}
+    ItemCount: 10
     Probability: 100
+--- !u!114 &6196158568893298589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694469065707599023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _effects:
+  - Name: hit
+    Offset: {x: 0, y: 10, z: 0}
+    Particle: {fileID: 4831766335027363736, guid: e45e6d80f68f7b849b9340b1493480d6, type: 3}

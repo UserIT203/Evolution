@@ -395,7 +395,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LootBag
   _hasCreateLootOnTakeDamage: 0
-  _items: []
+  _items:
+  - Item: {fileID: 11400000, guid: 25601e9b14b1d3c4cac8f7e6b4668d2d, type: 2}
+    ItemCount: 20
+    Probability: 100
 --- !u!114 &8853680199833068832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aa097697a659d4bbd97b2e8ea99739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimation
+  _animator: {fileID: 0}
+  _unitBase: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!114 &544578153083730900
 MonoBehaviour:
   m_ObjectHideFlags: 0

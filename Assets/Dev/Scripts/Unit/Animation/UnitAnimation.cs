@@ -1,20 +1,17 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(UnitBase))]
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(NavMeshAgent))]
 public class UnitAnimation : MonoBehaviour
 {
-    private UnitBase _unitBase;
-    private Animator _animator;
-    private NavMeshAgent _agent;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private UnitBase _unitBase;
+    [SerializeField] private NavMeshAgent _agent;
 
     private void Awake()
-    {
-        _unitBase = GetComponent<UnitBase>();
-        _animator = GetComponent<Animator>();
-        _agent = GetComponent<NavMeshAgent>();
+    { 
+        if(_unitBase == null) _unitBase = GetComponent<UnitBase>();
+        if (_animator == null) _animator = GetComponent<Animator>();
+        if(_agent == null) _agent = GetComponent<NavMeshAgent>();
 
         _unitBase.onAttack += PlayAttackAnimation;
         _unitBase.onDie += PlayDieAnimation;

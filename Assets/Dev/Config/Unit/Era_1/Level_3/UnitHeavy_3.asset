@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedd8e70dd97ff74fbcc21b823057541, type: 3}
+  m_Name: UnitHeavy_3
+  m_EditorClassIdentifier: Assembly-CSharp::UnitRangedConfig
+  <UnitName>k__BackingField: 
+  <Cost>k__BackingField: 5
+  <UnitType>k__BackingField: 2
+  <Maxhealth>k__BackingField: 200
+  <Armor>k__BackingField: 50
+  <Speed>k__BackingField: 0.6
+  <AttackDelay>k__BackingField: 4
+  <AttackRange>k__BackingField: 4
+  <Damage>k__BackingField: 100
+  <DetectedRange>k__BackingField: 6
+  <Icon>k__BackingField: {fileID: 0}
+  <IsUnlock>k__BackingField: 0
+  <UnlockCosts>k__BackingField: 300
+  <BulletConfig>k__BackingField: {fileID: 11400000, guid: bc3adb71c23a9f847847773033dedb62, type: 2}

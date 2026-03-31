@@ -11,9 +11,15 @@ GameObject:
   - component: {fileID: 7796410233952757230}
   - component: {fileID: 8675683863299802580}
   - component: {fileID: 8651890851497733146}
-  m_Layer: 0
+  - component: {fileID: 1146644494356779245}
+  - component: {fileID: 5012777717474605309}
+  - component: {fileID: 3936793013553950242}
+  - component: {fileID: 395057559977885763}
+  - component: {fileID: 6644228365310431652}
+  - component: {fileID: 2002296221414217918}
+  m_Layer: 6
   m_Name: EnemyTower_4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,9 +32,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9159830720540205347}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25.95056, y: 2.744307, z: -7.6117797}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,3 +97,99 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1146644494356779245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159830720540205347}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.981345, y: 3.537807, z: 9.253577}
+  m_Center: {x: -0.00837934, y: 1.6345966, z: -0.45637512}
+--- !u!114 &5012777717474605309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159830720540205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bee7056063f8384b8a1048e6431ebcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tower
+  MaxHealth:
+    BaseValue: 1500
+    _modifiers: []
+  _type: 0
+--- !u!114 &3936793013553950242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159830720540205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0a54a1aabd10c499f7dd2270f00c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsView
+  _barViewPrefab: {fileID: 1029846560337500416, guid: 9aec90646ed086c4e95973c9cfd5ab9f, type: 3}
+  _offset: 4
+--- !u!114 &395057559977885763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159830720540205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4b7ae19114b8f448f6159bfacb8efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsController
+--- !u!114 &6644228365310431652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159830720540205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce2c46f0ce1f4c498bc4a73db651d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootBag
+  _hasCreateLootOnTakeDamage: 1
+  _items:
+  - Item: {fileID: 11400000, guid: 25601e9b14b1d3c4cac8f7e6b4668d2d, type: 2}
+    ItemCount: 50
+    Probability: 100
+--- !u!114 &2002296221414217918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159830720540205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _effects:
+  - Name: hit
+    Offset: {x: 0, y: 4, z: 0}
+    Particle: {fileID: 4831766335027363736, guid: e45e6d80f68f7b849b9340b1493480d6, type: 3}

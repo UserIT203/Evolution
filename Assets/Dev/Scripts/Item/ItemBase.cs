@@ -6,11 +6,10 @@ public class ItemBase : ScriptableObject
 {
     [SerializeField] private GameObject _itemPrefab;
     [SerializeField] private ItemHandlerType _handlerType;
-    [SerializeField] private int _valueCount;
     [SerializeField] private Vector3 _spawnOffset;
 
-    public virtual void Use(ItemUseContext context, Vector3 position)
+    public virtual void Use(ItemUseContext context, int count)
     {
-        context.GetHandler(_handlerType)?.AddCoin(_valueCount);
+        context.GetHandler(_handlerType)?.AddCoin(count);
     }  
 }
