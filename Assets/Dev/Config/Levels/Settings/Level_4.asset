@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_4
   m_EditorClassIdentifier: Assembly-CSharp::LevelSetting
   LevelName: Four Level
-  LevelIcon: {fileID: 0}
+  LevelIcon: {fileID: 21300000, guid: 25ff1ad0fbfbf504f8c41abee409d527, type: 3}
   PlayerUnits:
   - {fileID: 796205688025059025, guid: c0083ba8baa3e4648a1acb7705c28ef1, type: 3}
   - {fileID: 2274729380952362785, guid: 38582326808427c4fa1bc4dffbdc045e, type: 3}

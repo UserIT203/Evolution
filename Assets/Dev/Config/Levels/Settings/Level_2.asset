@@ -13,24 +13,7 @@ MonoBehaviour:
   m_Name: Level_2
   m_EditorClassIdentifier: Assembly-CSharp::LevelSetting
   LevelName: Second Level
-  LevelIcon: {fileID: 0}
-  Modifiers:
-  - Cost: 10
-    Modifier:
-      ModifierType: 0
-      <ModifierValue>k__BackingField: 0.1
-  - Cost: 20
-    Modifier:
-      ModifierType: 0
-      <ModifierValue>k__BackingField: 0.1
-  - Cost: 40
-    Modifier:
-      ModifierType: 0
-      <ModifierValue>k__BackingField: 0.2
-  - Cost: 80
-    Modifier:
-      ModifierType: 0
-      <ModifierValue>k__BackingField: 0.4
+  LevelIcon: {fileID: 21300000, guid: 50c65307c6ba3f847855975d5eaa6ebb, type: 3}
   PlayerUnits:
   - {fileID: 7982989613664579060, guid: 2e87c7cb0dca6c4449b96d18a38dbabc, type: 3}
   - {fileID: 6629097360854727984, guid: a788ec5d352ead549aa98b5f9a638a82, type: 3}

@@ -35,7 +35,6 @@ public interface IPredicate
 
 public class FuncPredicate : IPredicate
 {
-
     public readonly Func<bool> _func;
 
     public FuncPredicate(Func<bool> func)

@@ -8,6 +8,7 @@ public class UnitGameView : MonoBehaviour
 {
     [Inject] private GameManager _gameManager;
 
+    [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _inputKeyboard;
     [SerializeField] private TMP_Text _unitCostText;
 
@@ -46,6 +47,7 @@ public class UnitGameView : MonoBehaviour
     {
         _unitCostText.text = _unit.UnitConfig.Cost.ToString();
         _inputKeyboard.text = index.ToString();
+        _icon.sprite = _unit.UnitConfig.Icon;
     }
 
     public void Initialized(UnitBase unit, int index)

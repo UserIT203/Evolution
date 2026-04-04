@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_3
   m_EditorClassIdentifier: Assembly-CSharp::LevelSetting
   LevelName: Thread Level
-  LevelIcon: {fileID: 0}
+  LevelIcon: {fileID: 21300000, guid: 5ec1bf8c7d41c1b43a73cdd83f8260f4, type: 3}
   PlayerUnits:
   - {fileID: 1396457288283625836, guid: 1ffe710bad69bf945aa94233ca5e74a3, type: 3}
   - {fileID: 1900933916947112959, guid: dc0e48c2a96820440b94b308fad367f2, type: 3}

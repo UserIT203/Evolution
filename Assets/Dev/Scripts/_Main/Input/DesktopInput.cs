@@ -9,6 +9,7 @@ public class DesktopInput
     public Action<int> onGetPressButtonIndex;
     public Action onPressButtonAbility;
     public Action onPressPause;
+    public Action onClick;
 
     public DesktopInput()
     {

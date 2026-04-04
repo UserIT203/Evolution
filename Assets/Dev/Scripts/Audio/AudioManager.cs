@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Audio;
 
@@ -21,8 +20,6 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, AudioSource> _audioSources = new();
 
-    
-
     public void Awake()
     {
         if (Instance != null) Destroy(this);
@@ -31,6 +28,27 @@ public class AudioManager : MonoBehaviour
         Initialized();
         SetAmbient(_startAmbientName);
         DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
+        SaveSystem saveSystem = new SaveSystem();
+        SettingData data = saveSystem.LoadData<SettingData>("SettingData");
+
+        Debug.Log("<color=green>Load Data</color> " + data.SFXVolume);
+    }
+
+    private void OnDisable()
+    {
+        SaveSystem saveSystem = new SaveSystem();
+        SettingData data = new();
+
+        _audioMixer.GetFloat("sfxVolume", out data.SFXVolume);
+        _audioMixer.GetFloat("musicVolume", out data.MusicVolume);
+
+        saveSystem.SaveDate(data, "SettingData");
+
+        Debug.Log($"<color=yellow>Save Setting Data</color>\nSave Data {data.SFXVolume}");
     }
 
     public static void PlaySound(string name)

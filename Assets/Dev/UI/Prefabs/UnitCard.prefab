@@ -456,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2346b2009e587a46bb90868d61310c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 8987184118987897591}
   _inputKeyboard: {fileID: 3655407100395698570}
   _unitCostText: {fileID: 2043545797621444222}
 --- !u!1 &6068786160539187139
@@ -490,10 +491,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8038407262957243940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1095625, y: 0.16666669}
-  m_AnchorMax: {x: 0.89043754, y: 0.8333334}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.18756251, y: 0.16666669}
+  m_AnchorMax: {x: 0.79675007, y: 0.8333334}
+  m_AnchoredPosition: {x: 1.0000191, y: 0}
+  m_SizeDelta: {x: -0.8463001, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5767223213164134297
 CanvasRenderer:

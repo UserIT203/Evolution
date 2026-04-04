@@ -22,6 +22,6 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 2
   <Damage>k__BackingField: 5
   <DetectedRange>k__BackingField: 3
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 294282a4e71815049bdf21ed69201bdf, type: 3}
   <IsUnlock>k__BackingField: 1
   <UnlockCosts>k__BackingField: 0

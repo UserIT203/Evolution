@@ -8,9 +8,7 @@ public class InputInstaller : MonoInstaller
     public override void InstallBindings()
     {
         if (_isDesktop == true)
-        {
             Container.Bind<DesktopInput>().FromNew().AsSingle();
-        }
         else
             Container.Bind<DesktopInput>().FromMethod(ctx => null).AsSingle();
     }

@@ -11,9 +11,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
     [SerializeField] private GameModifier _startModifier;
     [SerializeField] private int _increasePreviousCost;
     [SerializeField] private float _increasePreviousModifier;
-
-
-    private int _coinsCount;
+    [SerializeField] private int _coinsCount;
 
     private int _currentUpgradeIndex;
 

@@ -13,16 +13,7 @@ MonoBehaviour:
   m_Name: Level_1
   m_EditorClassIdentifier: 
   LevelName: First Level
-  LevelIcon: {fileID: 21300000, guid: a0d5a17e1bf3753489c8e191e6e648df, type: 3}
-  Modifiers:
-  - Cost: 5
-    Modifier:
-      ModifierType: 0
-      <ModifierValue>k__BackingField: 0.1
-  - Cost: 10
-    Modifier:
-      ModifierType: 0
-      <ModifierValue>k__BackingField: 0.2
+  LevelIcon: {fileID: 21300000, guid: 7c4548a31be3de247a65bbcbc004bcf3, type: 3}
   PlayerUnits:
   - {fileID: 4589907965028871516, guid: 9deff5be79a2f0e43858ce7c8024a9bc, type: 3}
   - {fileID: 4411722504567029211, guid: bdfdc644140dd0a4581c22888b6f0f35, type: 3}
