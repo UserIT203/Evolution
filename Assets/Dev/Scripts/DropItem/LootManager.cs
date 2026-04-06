@@ -27,4 +27,6 @@ public class LootManager : MonoBehaviour
                 break;
         }
     }
+
+    public CardItem GetItemById(string id) => _droppedLoots.GetLootById(id);
 }

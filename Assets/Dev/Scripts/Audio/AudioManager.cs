@@ -1,9 +1,13 @@
-using UnityEngine;
+using DG.Tweening;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Audio;
+using Zenject;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, ISaveSystemService
 {
+    [Inject] private SettingData _settingData;
+
     private const string MUSIC_GROUP = "Music";
     private const string SFX_GROUP = "SFX";
     private const string MENU_MUSIC_GROUP = "MenuMusic";
@@ -20,7 +24,7 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, AudioSource> _audioSources = new();
 
-    public void Awake()
+    private void Awake()
     {
         if (Instance != null) Destroy(this);
         else Instance = this;
@@ -32,23 +36,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        SaveSystem saveSystem = new SaveSystem();
-        SettingData data = saveSystem.LoadData<SettingData>("SettingData");
-
-        Debug.Log("<color=green>Load Data</color> " + data.SFXVolume);
-    }
-
-    private void OnDisable()
-    {
-        SaveSystem saveSystem = new SaveSystem();
-        SettingData data = new();
-
-        _audioMixer.GetFloat("sfxVolume", out data.SFXVolume);
-        _audioMixer.GetFloat("musicVolume", out data.MusicVolume);
-
-        saveSystem.SaveDate(data, "SettingData");
-
-        Debug.Log($"<color=yellow>Save Setting Data</color>\nSave Data {data.SFXVolume}");
+        Debug.Log($"<color=red>Load Data</color> {_settingData.SFXVolume}");
     }
 
     public static void PlaySound(string name)
@@ -124,5 +112,28 @@ public class AudioManager : MonoBehaviour
 
             _audioSources.Add(sound.Name, source);
         }
+    }
+
+    public void LoadData()
+    {
+        _audioMixer.SetFloat("sfxVolume", _settingData.SFXVolume);
+        _audioMixer.SetFloat("musicVolume", _settingData.MusicVolume);
+    }
+
+    public void SaveData(SaveSystem saveSystem)
+    {
+        _audioMixer.GetFloat("sfxVolume", out _settingData.SFXVolume);
+        _audioMixer.GetFloat("musicVolume", out _settingData.MusicVolume);
+
+        saveSystem.SaveDate(_settingData, "SettingData");
+
+        Debug.Log($"<color=yellow>Save Setting Data</color>\nSave Data {_settingData.SFXVolume}");
+    }
+
+    public float GetVolumeValue(string parametr)
+    {
+        _audioMixer.GetFloat(parametr, out float value);
+
+        return Mathf.Pow(10f, value / 20f);
     }
 }

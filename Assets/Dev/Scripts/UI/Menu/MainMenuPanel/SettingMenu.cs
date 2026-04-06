@@ -40,5 +40,8 @@ public class SettingMenu : Menu
     public override void OpenMenu()
     {
         _canvasGroup.Show();
+
+        _musicSlider.value = AudioManager.Instance.GetVolumeValue("musicVolume");
+        _sfxSlider.value = AudioManager.Instance.GetVolumeValue("sfxVolume");
     }
 }

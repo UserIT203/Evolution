@@ -3,6 +3,6 @@ using UnityEngine;
 
 public interface ISaveSystemService
 {
-    public void LoadSystem();
-    public void SaveSystem();
+    public void LoadData();
+    public void SaveData(SaveSystem saveSystem);
 }

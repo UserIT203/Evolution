@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 
-public class GameManager : MonoBehaviour, ILevelHandler
+public class GameManager : MonoBehaviour, ILevelHandler, ISaveSystemService
 {
+    [Inject] private LevelData _levelData;
+
     private const float TimePerUpdateMoney = 1f;
 
     [Inject] private DesktopInput _desktopInput;
@@ -19,8 +22,7 @@ public class GameManager : MonoBehaviour, ILevelHandler
     private float _addMoneyTime;
     private float _timer;
 
-    private UnitBase[] _playerUnits;
-
+    [field: SerializeField] public UnitInfo[] UnitInfo { get; private set; }
     public float CurrentMoney => _currentMoney;
 
     private Dictionary<int, UnitBase> _playerUnitsActived = new(); 
@@ -60,12 +62,12 @@ public class GameManager : MonoBehaviour, ILevelHandler
 
         int unitIndex = 1;
 
-        foreach (var unit in _playerUnits)
+        foreach (var unit in UnitInfo)
         {
-            if(unit.UnitConfig.IsUnlock == true)
+            if(unit.IsUnlock == true)
             {
-                _playerUnitsActived.Add(unitIndex, unit);
-                onInitializedUnit?.Invoke(unit, unitIndex);
+                _playerUnitsActived.Add(unitIndex, unit.Unit);
+                onInitializedUnit?.Invoke(unit.Unit, unitIndex);
                 unitIndex++;
             }
         }
@@ -162,6 +164,46 @@ public class GameManager : MonoBehaviour, ILevelHandler
     public void SetEraSettings(LevelSetting levelSettings)
     {
         _moneyCountPerSecond.RemoveAllModifier();
-        _playerUnits = levelSettings.PlayerUnits;
+
+        UnitInfo = new UnitInfo[levelSettings.PlayerUnits.Length];
+
+        for (int i = 0; i < levelSettings.PlayerUnits.Length; i++)
+        {
+            UnitInfo info = new UnitInfo(levelSettings.PlayerUnits[i]);
+            UnitInfo[i] = info;
+        }
+    }
+
+    public void LoadData()
+    {
+        for (int i = 0; i < _levelData.UnlockUnits.Length; i++)
+            UnitInfo[i].IsUnlock = _levelData.UnlockUnits[i];
+    }
+
+    public void SaveData(SaveSystem saveSystem)
+    {
+        bool[] unlockUnit = new bool[UnitInfo.Length];
+
+        for(int i = 0;i < UnitInfo.Length; i++)
+        {
+            unlockUnit[i] = UnitInfo[i].IsUnlock;
+        }
+
+        _levelData.UnlockUnits = unlockUnit;
+
+        saveSystem.SaveDate(_levelData, "LevelData");
+    }
+}
+
+[System.Serializable]
+public class UnitInfo
+{
+    public UnitBase Unit { get; set; }
+    public bool IsUnlock { get; set; }
+
+    public UnitInfo(UnitBase unit) 
+    { 
+        Unit = unit;
+        IsUnlock = unit.UnitConfig.IsUnlock;
     }
 }

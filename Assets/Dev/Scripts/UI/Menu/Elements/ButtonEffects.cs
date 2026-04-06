@@ -15,7 +15,7 @@ public class ButtonEffects : MonoBehaviour
 
     private void OnDisable()
     {
-        _button.onClick.RemoveAllListeners();
+        _button.onClick.RemoveListener(() => AudioManager.PlaySound(_soundName));
     }
 
     private void Awake()

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using Zenject;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class MenuManager : MonoBehaviour
+public class MenuManager : MonoBehaviour, IInitialized
 {
     [Inject] private DesktopInput _desktopInput;
 
@@ -86,7 +86,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Initialized()
     {
         if (_desktopInput != null) _desktopInput.onPressPause += OpenPauseMenu;
 
@@ -101,6 +101,11 @@ public class MenuManager : MonoBehaviour
 
         foreach (var hudPanel in _hudMenu)
             hudPanel.MenuManager = this;
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void OpenMenu(int menuIndex)

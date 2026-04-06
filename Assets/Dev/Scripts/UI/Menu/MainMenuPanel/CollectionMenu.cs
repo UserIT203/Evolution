@@ -68,6 +68,7 @@ public class CollectionMenu : Menu
     protected override void Initialized()
     {
         _cardsTypeDictianoty = new Dictionary<CollectionType, List<CardUIView>>();
+
         _cardsTypeDictianoty.Add(CollectionType.Modifier, new List<CardUIView>());
         _cardsTypeDictianoty.Add(CollectionType.Ability, new List<CardUIView>());
 
@@ -124,7 +125,7 @@ public class CollectionMenu : Menu
             cardView.gameObject.SetActive(false);
 
         CardType type = _cardsTypes.First(t => t.CollectionType == cardType);
-        cardView.OnClickCard(() => type.Popup.Open(handler, cardItem));
+        cardView.OnClickCard(type.Popup);
 
         _cardsDictionary.Add(cardItem.CardID, cardView);
     }

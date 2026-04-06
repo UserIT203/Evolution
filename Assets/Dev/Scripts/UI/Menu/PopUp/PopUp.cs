@@ -36,23 +36,21 @@ public abstract class PopUp : MonoBehaviour
 
     public void Open(ICollectedCard collected, CardItem cardItem)
     {
+        Debug.Log("<color=green>Open Popup</color>");
+
         _collected = collected;
         _cardItem = cardItem;
 
         _upgradeButton.onClick.AddListener(UpgradeCard);
 
-        _canvasGroup.alpha = 1f;
-        _canvasGroup.interactable = true;
-        _canvasGroup.blocksRaycasts = true;
+        _canvasGroup.Show();
 
         FillUI();
     }
 
     public virtual void Exit()
     {
-        _canvasGroup.alpha = 0f;
-        _canvasGroup.interactable = false;
-        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.Hide();
 
         _upgradeButton.onClick.RemoveAllListeners();
     }

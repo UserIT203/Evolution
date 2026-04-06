@@ -4,8 +4,11 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class GlobalManager : MonoBehaviour, ICollectedCard
+public class GlobalManager : MonoBehaviour, ICollectedCard, ISaveSystemService, IInitialized
 {
+    [Inject] private LootManager _lootManager;
+    [Inject] private GlobalData _globalData;
+
     [field: SerializeField] public Stat HealthMultiplier;
     [field: SerializeField] public Stat DamageMultiplier;
     [field: SerializeField] public Stat SpeedMultiplier;
@@ -33,7 +36,7 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
         }
     }
 
-    private void Awake()
+    public void Initialized()
     {
         onChangeCoin?.Invoke(_gemCount);
     }
@@ -73,13 +76,12 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
         onLevelUpUpgrade?.Invoke(card);
     }
 
-    private void UpgradeToNextLevel(string id, UnitUpradeCardConfig upgrade)
+    public void UpgradeToNextLevel(string id, UnitUpradeCardConfig upgrade)
     {
         int oldLevel = _currentLevels[id];
         int newLevel = oldLevel + 1;
         _currentLevels[id] = newLevel;
 
-        // Удаляем старые модификаторы
         if (_activeModifiers.TryGetValue(id, out var oldMods))
         {
             HealthMultiplier.RemoveModifier(oldMods.h);
@@ -87,14 +89,12 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
             SpeedMultiplier.RemoveModifier(oldMods.s);
         }
 
-        // Создаём новые
         var newH = upgrade.GetScaledModifier(upgrade.BaseHealthModifier, newLevel);
         var newD = upgrade.GetScaledModifier(upgrade.BaseDamageModifier, newLevel);
         var newS = upgrade.GetScaledModifier(upgrade.BaseSpeedModifier, newLevel);
 
         _activeModifiers[id] = (newH, newD, newS);
 
-        // Применяем
         HealthMultiplier.AddModifier(newH);
         DamageMultiplier.AddModifier(newD);
         SpeedMultiplier.AddModifier(newS);
@@ -111,17 +111,14 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
 
         if (currentLevel >= config.MaxLevel)
         {
-            // Можно просто игнорировать или сбросить накопление
             return false;
         }
 
-        // Сколько нужно карт для перехода на следующий уровень?
-        int needed = config.CardsRequiredPerLevel[currentLevel]; // индекс = текущий уровень
+        int needed = config.CardsRequiredPerLevel[currentLevel];
 
         if (collected >= needed)
         {
             _collectedCards[id] -= needed;
-            // Выполняем апгрейд
             UpgradeToNextLevel(id, config);
 
             return true;
@@ -160,5 +157,57 @@ public class GlobalManager : MonoBehaviour, ICollectedCard
         }
 
         return false;
+    }
+
+    public void LoadData()
+    {
+        _gemCount = _globalData.GemCount;
+
+        foreach (var card in _globalData.CardCollection)
+        {
+            UnitUpradeCardConfig config = _lootManager.GetItemById(card.ID) as UnitUpradeCardConfig;
+
+            _cardCollection.Add(card.ID, config);
+            _currentLevels.Add(card.ID, card.CardLevel);
+            _collectedCards.Add(card.ID, card.CollectedCardCount);
+
+            var healthModifier = config.GetScaledModifier(config.BaseHealthModifier, card.CardLevel);
+            var damageModifier = config.GetScaledModifier(config.BaseDamageModifier, card.CardLevel);
+            var speedModifier = config.GetScaledModifier(config.BaseSpeedModifier, card.CardLevel);
+
+            _activeModifiers.Add(card.ID, (healthModifier, damageModifier, speedModifier));
+        }
+
+        foreach (var modifier in _activeModifiers.Values)
+        {
+            HealthMultiplier.AddModifier(modifier.h);
+            DamageMultiplier.AddModifier(modifier.d);
+            SpeedMultiplier.AddModifier(modifier.s);
+        }
+    }
+
+    public void SaveData(SaveSystem saveSystem)
+    {        
+        _globalData.GemCount = _gemCount;
+
+        CardInfo[] cardInfo = new CardInfo[_collectedCards.Count];
+
+        for (int i = 0; i < _cardCollection.Keys.Count; i++)
+        {
+            string id = _cardCollection.ElementAt(i).Key;
+
+            CardInfo info = 
+                new CardInfo(
+                    id,
+                    _collectedCards[id],
+                    _currentLevels[id]
+                );
+
+            cardInfo[i] = info;
+        }
+
+        _globalData.CardCollection = cardInfo;
+
+        saveSystem.SaveDate(_globalData, "GlobalData");
     }
 }

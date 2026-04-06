@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using System.Linq;
-using System.ComponentModel;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
 {
+    [Inject] private LevelData _levelData;
+
     [SerializeField] private int _currentSelectLevel = 0;
     [SerializeField] private int _maxOpenLevels = 0;
 
@@ -56,7 +57,7 @@ public class LevelManager : MonoBehaviour
         RegisterToChange(upgradesMenu);
     }
 
-    private void Awake()
+    public void Initialized()
     {
         _levelsCompleted = new Dictionary<LevelSetting, bool>();
 
@@ -66,7 +67,7 @@ public class LevelManager : MonoBehaviour
         }
 
         onSetNewLevelSettings?.Invoke(LevelsSettings[_currentSelectLevel]);
-        onOpenNewLevel?.Invoke(LevelsSettings[_currentSelectLevel]);
+        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
     }
 
     private void OnDestroy()
@@ -155,5 +156,25 @@ public class LevelManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void LoadData()
+    {
+        for (int i = 0; i < _levelsCompleted.Values.Count; i++)
+        {
+            var key = _levelsCompleted.Keys.ElementAt(i);
+            _levelsCompleted[key] = _levelData.OpenLevels[i];
+        }
+
+        _maxOpenLevels = _levelData.CurrentOpenLevel;
+        _currentSelectLevel = 0;
+    }
+
+    public void SaveData(SaveSystem saveSystem)
+    {
+        _levelData.OpenLevels = _levelsCompleted.Values.ToArray();
+        _levelData.CurrentOpenLevel = CurrentOpenLevels;
+
+        saveSystem.SaveDate(_levelData, "LevelData");
     }
 }

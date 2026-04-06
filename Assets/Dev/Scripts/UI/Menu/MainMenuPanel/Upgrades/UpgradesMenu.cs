@@ -22,15 +22,16 @@ public class UpgradesMenu : Menu, ILevelHandler
     [SerializeField] private Button _moneyPerSeconsUpgrade;
 
     private GlobalManager _globalManager;
-    private UnitBase[] _playerUnits;
     private LevelUpgrade _levelUpgrade;
+    private GameManager _gameManager;
     private UnitCard[] _unitUpgradesCards;
 
     [Inject]
-    public void Construct(LevelUpgrade levelUpgrade, GlobalManager globalManager)
+    public void Construct(LevelUpgrade levelUpgrade, GlobalManager globalManager, GameManager gameManager)
     {
         _levelUpgrade = levelUpgrade;
         _globalManager = globalManager;
+        _gameManager = gameManager;
         _levelUpgrade.onUpgradeMoneyPerSecond += UpdateInfoInUpgradeMoneyPerSecondButton;
     }
 
@@ -65,7 +66,7 @@ public class UpgradesMenu : Menu, ILevelHandler
     protected override void Initialized()
     {
         Debug.Log("Init Upgrade Menu");
-        _unitUpgradesCards = new UnitCard[_playerUnits.Length];
+        _unitUpgradesCards = new UnitCard[_gameManager.UnitInfo.Length];
 
         if(_unitUpgradesContainer.childCount > 0)
         {
@@ -73,7 +74,7 @@ public class UpgradesMenu : Menu, ILevelHandler
                 Destroy(_unitUpgradesContainer.GetChild(i).gameObject);
         }
 
-        for (int i = 0; i < _playerUnits.Length; i++)
+        for (int i = 0; i < _gameManager.UnitInfo.Length; i++)
         {
             UnitCard card = Instantiate(_unitUpgradesCardTemplate);
             _DIContainer.Inject(card);
@@ -95,7 +96,7 @@ public class UpgradesMenu : Menu, ILevelHandler
     {
         for (int i = 0; i < _unitUpgradesCards.Length; i++)
         {
-            _unitUpgradesCards[i].UpdateInfo(_playerUnits[i]);
+            _unitUpgradesCards[i].UpdateInfo(_gameManager.UnitInfo[i]);
         }
     }
 
@@ -121,9 +122,6 @@ public class UpgradesMenu : Menu, ILevelHandler
 
     public void SetEraSettings(LevelSetting levelSettings)
     {
-        Debug.Log("Inject Player Units in Upgrade Menu");
-        _playerUnits = levelSettings.PlayerUnits;
-        Debug.Log($"Player Units {_playerUnits.Length}");
         Initialized();
     }
 }

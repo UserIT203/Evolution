@@ -4,8 +4,9 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
+public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSystemService, IInitialized
 {
+    [Inject] private LevelData _levelData;
     [Inject] private GameManager _gameManager;
 
     [SerializeField] private GameModifier _startModifier;
@@ -20,7 +21,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
     public event Action<GameModifier> onUpgradeMoneyPerSecond;
     public event Action<int> onChangeMoney;
 
-    private void Awake()
+    public void Initialized()
     {
         onChangeMoney?.Invoke(_coinsCount);
     }
@@ -50,6 +51,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
         {
             _gameManager.UpgradePerMoneySecond(CurrentGameModifier.Modifier);
             CurrentGameModifier.SetMultiple(_increasePreviousCost, _increasePreviousModifier);
+            _currentUpgradeIndex++;
 
             onUpgradeMoneyPerSecond?.Invoke(CurrentGameModifier);
         }
@@ -65,6 +67,28 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler
     public void SetLevelSettings(LevelSetting levelSettings)
     {
         
+    }
+
+    public void LoadData()
+    {
+        _coinsCount = _levelData.Coins;
+
+        for (int i = 0; i < _levelData.LevelUpgradeCount; i++)
+        {
+            _gameManager.UpgradePerMoneySecond(CurrentGameModifier.Modifier);
+            CurrentGameModifier.SetMultiple(_increasePreviousCost, _increasePreviousModifier);
+            _currentUpgradeIndex++;
+
+            onUpgradeMoneyPerSecond?.Invoke(CurrentGameModifier);
+        }
+    }
+
+    public void SaveData(SaveSystem saveSystem)
+    {
+        _levelData.Coins = _coinsCount;
+        _levelData.LevelUpgradeCount = _currentUpgradeIndex;
+
+        saveSystem.SaveDate(_levelData, "LevelData");
     }
 }
 

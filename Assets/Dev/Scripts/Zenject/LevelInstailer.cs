@@ -6,8 +6,9 @@ public class LevelInstailer : MonoInstaller
 {
     public override void InstallBindings()
     {
-        InjectGlobalComponent();
+        InjectBootableComponent();
 
+        Container.Bind<EraManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelBuilder>().FromComponentInHierarchy().AsSingle();
         Container.Bind<UnitSpawner>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
@@ -19,12 +20,14 @@ public class LevelInstailer : MonoInstaller
         Container.Bind<AbilityManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<UpgradesMenu>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelManager>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<MenuManager>().FromComponentInHierarchy().AsSingle();
+        
+        Container.Bind<ISaveSystemService>().FromComponentsInHierarchy().AsCached();
     }
 
-    private void InjectGlobalComponent()
+    private void InjectBootableComponent()
     {
+        Container.Bind<MenuManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<SaveManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GlobalManager>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<EraManager>().FromComponentInHierarchy().AsSingle();
     }
 }

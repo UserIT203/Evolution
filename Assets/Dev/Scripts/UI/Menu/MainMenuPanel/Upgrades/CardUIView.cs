@@ -12,6 +12,7 @@ public class CardUIView : MonoBehaviour
     [SerializeField] protected TMP_Text _currentLevelText;
     [SerializeField] protected TMP_Text _collectedCardText;
 
+    private PopUp _popUp;
     private Button _button;
 
     protected ICollectedCard _collectManager;
@@ -25,6 +26,12 @@ public class CardUIView : MonoBehaviour
         _button = GetComponent<Button>();
     }
 
+    private void ButtonClick()
+    {
+        Debug.Log("<color=yellow>Click on Card Button</color>");
+        _popUp.Open(_collectManager, _card);
+    }
+
     public void Initialized(
         ICollectedCard collectManager, 
         CardItem card, 
@@ -33,6 +40,8 @@ public class CardUIView : MonoBehaviour
         _background.sprite = backgroundSprite;
         _collectManager = collectManager;
         _card = card;
+
+        UpdateInfo();
     }
 
     public virtual void UpdateInfo()
@@ -46,8 +55,9 @@ public class CardUIView : MonoBehaviour
     public void EquipAbility() => _equipIcon.enabled = true;
     public void UnEquipAbility() => _equipIcon.enabled = false;
 
-    public void OnClickCard(Action clickEvent)
+    public void OnClickCard(PopUp popUp)
     {
-        _button.onClick.AddListener(() => clickEvent?.Invoke());
+        _popUp = popUp;
+        _button.onClick.AddListener(ButtonClick);
     }
 }

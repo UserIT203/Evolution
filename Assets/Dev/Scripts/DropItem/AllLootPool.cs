@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AllLootPool", menuName = "Chest/AllLootPool")]
@@ -24,5 +25,10 @@ public class AllLootPool : ScriptableObject
         }
 
         return _lootsByRarity.GetValueOrDefault(rarity, new List<CardItem>());
+    }
+
+    public CardItem GetLootById(string lootsId)
+    {
+        return DropedLoots.Find(i => i.CardID == lootsId);
     }
 }

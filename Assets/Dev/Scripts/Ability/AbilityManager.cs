@@ -4,8 +4,10 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class AbilityManager : MonoBehaviour, ICollectedCard
+public class AbilityManager : MonoBehaviour, ICollectedCard, ISaveSystemService
 {
+    [Inject] private LootManager _lootManager;
+    [Inject] private GlobalData _globalData;
     [Inject] private DesktopInput _desktopInput;
 
     [SerializeField] private Transform _bombExplosionPosition;
@@ -20,7 +22,7 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
 
     public Action<Ability> onChangeAbility;
     public Action<CardItem, ICollectedCard, int> onAddNewCard;
-    public Action<Ability> onLevelUpAbility; 
+    public Action<Ability> onLevelUpAbility;
 
     public void Awake()
     {
@@ -32,6 +34,11 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
             EnemiesUnits = _unitSpawner.GetActiveEnemiesList(),
             PlayerUnits = _unitSpawner.GetActivePlayerUnitsList()
         };
+    }
+
+    private void Start()
+    {
+        onChangeAbility?.Invoke(_activeAbility);
     }
 
     public void CollectedAbilityCard(Ability ability)
@@ -66,17 +73,14 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
 
         if (currentLevel >= config.MaxLevel)
         {
-            // Можно просто игнорировать или сбросить накопление
             return false;
         }
 
-        // Сколько нужно карт для перехода на следующий уровень?
-        int needed = config.CardsRequiredPerLevel[currentLevel]; // индекс = текущий уровень
+        int needed = config.CardsRequiredPerLevel[currentLevel];
 
         if (collected >= needed)
         {
             _collectedCards[id] -= needed;
-            // Выполняем апгрейд
             _currentLevels[id] = currentLevel + 1;
 
             onLevelUpAbility?.Invoke(_abilityCard[id]);
@@ -122,5 +126,46 @@ public class AbilityManager : MonoBehaviour, ICollectedCard
     public void UseAbility() 
     {
         _activeAbility?.Activated(_abilityContext, _currentLevels[_activeAbility.CardID]);
+    }
+
+    public void LoadData()
+    {
+        foreach (var card in _globalData.AbilityCardCollection)
+        {
+            Ability config = _lootManager.GetItemById(card.ID) as Ability;
+
+            _abilityCard.Add(card.ID, config);
+            _currentLevels.Add(card.ID, card.CardLevel);
+            _collectedCards.Add(card.ID, card.CollectedCardCount);
+        }
+
+        if (_abilityCard.ContainsKey(_globalData.ActiveAbilityID))
+        {
+            _activeAbility = _abilityCard[_globalData.ActiveAbilityID];
+        }
+    }
+
+    public void SaveData(SaveSystem saveSystem)
+    {
+        CardInfo[] cardInfo = new CardInfo[_collectedCards.Count];
+
+        for (int i = 0; i < _abilityCard.Keys.Count; i++)
+        {
+            string id = _abilityCard.ElementAt(i).Key;
+
+            CardInfo info =
+                new CardInfo(
+                    id,
+                    _collectedCards[id],
+                    _currentLevels[id]
+                );
+
+            cardInfo[i] = info;
+        }
+
+        _globalData.AbilityCardCollection = cardInfo;
+        _globalData.ActiveAbilityID = _activeAbility != null ? _activeAbility.CardID : string.Empty;
+
+        saveSystem.SaveDate(_globalData, "GlobalData");
     }
 }

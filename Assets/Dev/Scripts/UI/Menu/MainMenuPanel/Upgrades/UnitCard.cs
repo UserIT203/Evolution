@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -16,48 +17,52 @@ public class UnitCard : MonoBehaviour
     [SerializeField] private TMP_Text _unitHealthText;
 
     [Header("Lock Objects")]
+    [SerializeField] private Sprite _unlockIcon;
     [SerializeField] private GameObject _lockObjects;
     [SerializeField] private TMP_Text _unitCostText;
     [SerializeField] private Button _unlockButton;
 
-    private UnitStatsConfig _unitConfig;
+    private UnitInfo _unitInfo;
 
     private void Awake()
     {
         _unlockButton.onClick.AddListener(OnUnlockUnit);
     }
 
-    public void UpdateInfo(UnitBase unit)
+    public void UpdateInfo(UnitInfo unitInfo)
     {
-        if (unit.UnitConfig.IsUnlock == false)
+        if (unitInfo.IsUnlock == false)
         {
             _unlockObjects.SetActive(false);
             _lockObjects.SetActive(true);
+            _unitIcon.sprite = _unlockIcon;
         }
         else
         {
             _unlockObjects.SetActive(true);
             _lockObjects.SetActive(false);
+            _unitIcon.sprite = unitInfo.Unit.UnitConfig.Icon;
         }
 
-        _unitNameText.text = unit.UnitConfig.UnitName;
-        _unitDamageText.text = unit.UnitConfig.Damage.ToString();
-        _unitHealthText.text = unit.UnitConfig.Maxhealth.ToString();
+        _unitNameText.text = unitInfo.Unit.UnitConfig.UnitName;
+        _unitDamageText.text = unitInfo.Unit.UnitConfig.Damage.ToString();
+        _unitHealthText.text = unitInfo.Unit.UnitConfig.Maxhealth.ToString();
 
-        _unitCostText.text = unit.UnitConfig.UnlockCosts.ToString();
+        _unitCostText.text = unitInfo.Unit.UnitConfig.UnlockCosts.ToString();
 
-        _unitConfig = unit.UnitConfig;
-        //_unitIcon.sprite = _unitConfig.Icon;
+        _unitInfo = unitInfo;
+        
     }
 
     private void OnUnlockUnit()
     {
-        if (_levelUpgrade.TryRemoveCoins(_unitConfig.UnlockCosts))
+        if (_levelUpgrade.TryRemoveCoins(_unitInfo.Unit.UnitConfig.UnlockCosts))
         {
             _unitIcon.enabled = true;
+            _unitIcon.sprite = _unitInfo.Unit.UnitConfig.Icon;
             _unlockObjects.SetActive(true);
             _lockObjects.SetActive(false);
-            _unitConfig.UnlockUnit();
+            _unitInfo.IsUnlock = true;
 
             AudioManager.PlaySound("Upgrade");
         }
