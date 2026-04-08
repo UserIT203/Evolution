@@ -72,12 +72,12 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
     public void LoadData()
     {
         _coinsCount = _levelData.Coins;
+        _currentUpgradeIndex = _levelData.LevelUpgradeCount;
 
         for (int i = 0; i < _levelData.LevelUpgradeCount; i++)
         {
             _gameManager.UpgradePerMoneySecond(CurrentGameModifier.Modifier);
             CurrentGameModifier.SetMultiple(_increasePreviousCost, _increasePreviousModifier);
-            _currentUpgradeIndex++;
 
             onUpgradeMoneyPerSecond?.Invoke(CurrentGameModifier);
         }

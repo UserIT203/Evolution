@@ -1,12 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class SettingMenu : Menu
 {
+    [Inject] private LocalizationSelector _localizationSelector;
+
+    [System.Serializable]
+    private struct LanguageButton
+    {
+        public Button Button;
+        public int LanguageIndex;
+    }
+
     [SerializeField] private Button _closeButton;
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
     [SerializeField] private bool _isHUD = false;
+
+    [Header("<color=green>Language Button</color>")]
+    [SerializeField] private LanguageButton[] _languageButton;
 
     private void OnEnable()
     {
@@ -30,6 +43,27 @@ public class SettingMenu : Menu
         _musicSlider.onValueChanged.RemoveAllListeners();
         _sfxSlider.onValueChanged.RemoveAllListeners();
         _closeButton.onClick.RemoveAllListeners();
+    }
+
+    private void OnDestroy()
+    {
+        if (_languageButton.Length <= 0) return;
+
+        foreach (var item in _languageButton)
+            item.Button.onClick.RemoveAllListeners();
+    }
+
+    public override void Initialized()
+    {
+        if (_languageButton.Length <= 0) return;
+
+        foreach (var item in _languageButton)
+        {
+            item.Button.onClick.AddListener(() =>
+            {
+                StartCoroutine(_localizationSelector.SetLocalization(item.LanguageIndex));
+            });
+        }
     }
 
     public override void CloseMenu()

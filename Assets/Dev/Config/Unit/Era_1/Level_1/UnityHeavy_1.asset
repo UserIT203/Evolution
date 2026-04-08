@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79d9f4fbd6db1a45b482a664b5493b9, type: 3}
   m_Name: UnityHeavy_1
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatsConfig
-  <UnitName>k__BackingField: 
+  <UnitName>k__BackingField:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Stone Axe
+    - LocalizeLabel: 1
+      Text: "\u041A\u0430\u043C\u0435\u043D\u044B\u0439 \u0442\u043E\u043F\u043E\u0440"
+    - LocalizeLabel: 2
+      Text: 
   <Cost>k__BackingField: 10
   <UnitType>k__BackingField: 2
   <Maxhealth>k__BackingField: 60

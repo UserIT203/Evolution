@@ -79,7 +79,7 @@ public class FortunaMenu : Menu
         _timeText.text = timeFormat;
     }
 
-    protected override void Initialized()
+    public override void Initialized()
     {
         CloseMenu();
 
@@ -98,9 +98,7 @@ public class FortunaMenu : Menu
     {
         if (IsClosed == true) return;
 
-        _canvasGroup.alpha = 0f;
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.interactable = false;
+        _canvasGroup.Hide();
 
         IsClosed = true;
 
@@ -109,9 +107,7 @@ public class FortunaMenu : Menu
 
     public override void OpenMenu()
     {
-        _canvasGroup.alpha = 1f;
-        _canvasGroup.blocksRaycasts = true;
-        _canvasGroup.interactable = true;
+        _canvasGroup.Show();
 
         IsClosed = false;
     }

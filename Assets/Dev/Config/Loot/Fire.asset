@@ -13,15 +13,26 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: 45686
-  CardName: Fire
+  CardName:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Fire
+    - LocalizeLabel: 1
+      Text: "\u041E\u0433\u043E\u043D\u044C"
+    - LocalizeLabel: 2
+      Text: 
   Sprite: {fileID: 0}
-  Description: 
+  Description:
+    _texts: []
   Rarity: 1
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
   BaseHealthModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0.1
   BaseDamageModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0.4
   BaseSpeedModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0

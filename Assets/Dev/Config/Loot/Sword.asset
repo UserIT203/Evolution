@@ -13,15 +13,26 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: 45764
-  CardName: Sword
+  CardName:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Sword
+    - LocalizeLabel: 1
+      Text: "\u041C\u0435\u0447\u044C"
+    - LocalizeLabel: 2
+      Text: 
   Sprite: {fileID: 0}
-  Description: 
+  Description:
+    _texts: []
   Rarity: 2
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
   BaseHealthModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0.2
   BaseDamageModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0.2
   BaseSpeedModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0.2

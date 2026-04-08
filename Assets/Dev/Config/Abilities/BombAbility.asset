@@ -13,16 +13,20 @@ MonoBehaviour:
   m_Name: BombAbility
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: -13762
-  CardName: Bomb
-  Sprite: {fileID: 1688508369, guid: 3757f873ab1a809459f2ff87ce65be64, type: 3}
-  Description: 
+  CardName:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Bomb
+    - LocalizeLabel: 1
+      Text: "\u0411\u043E\u043C\u0431\u044B"
+    - LocalizeLabel: 2
+      Text: 
+  Sprite: {fileID: 21300000, guid: 6e8a5a55e38cd004d92820a65847d593, type: 3}
+  Description:
+    _texts: []
   Rarity: 1
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
-  _levelUpIncrease: 0.5
-  _enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _bombDamage:
-    BaseValue: 0
-    _modifiers: []
+  <DelayTime>k__BackingField: 50
+  _levelUpIncrease: 5
+  _bombDamage: 50

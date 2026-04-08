@@ -4,14 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Tables;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class MenuManager : MonoBehaviour, IInitialized
 {
+    private const string LOCALIZATION_TABLE_UI = "MenuLabels"; 
+
     [Inject] private DesktopInput _desktopInput;
 
     [Header("HUD Elements Links")]
-    [SerializeField] private TMP_Text _levelLabel;
+    [SerializeField] private LocalizeStringEvent _levelLabelStringEvent;
     [SerializeField] private TMP_Text _coinValueHUDText;
     [SerializeField] private TMP_Text _gemValueHUDText;
     [SerializeField] private Button _pauseButton;
@@ -19,7 +23,7 @@ public class MenuManager : MonoBehaviour, IInitialized
     [Header("UI Links")]
     [SerializeField] private Button _nextLevelButton;
     [SerializeField] private Button _previousLevelButton;
-    [SerializeField] private TMP_Text _headerText;
+    [SerializeField] private LocalizeStringEvent _headerTextStringEvent;
     [SerializeField] private TMP_Text _coinValueUIText;
     [SerializeField] private TMP_Text _gemValueUIText;
 
@@ -29,7 +33,7 @@ public class MenuManager : MonoBehaviour, IInitialized
     [SerializeField] private List<Menu> _hudMenu;
 
     [Header("Menu Open Buttons")]
-    [SerializeField] private List<MenuOpenButtons> _buttons = new();
+    [SerializeField] private List<MenuOpenButtons> _menuSetting = new();
 
     private CanvasGroup _cavasGroup;
     private Menu _currentOpenMenu;
@@ -64,9 +68,9 @@ public class MenuManager : MonoBehaviour, IInitialized
     {
         _pauseButton.onClick.AddListener(OpenPauseMenu);
 
-        if (_buttons == null || _buttons.Count == 0) return;
+        if (_menuSetting == null || _menuSetting.Count == 0) return;
 
-        foreach (var button in _buttons)
+        foreach (var button in _menuSetting)
         {
             button.Button.onClick.AddListener(() => OpenMenu(button.MenuIndex));
         }
@@ -78,9 +82,9 @@ public class MenuManager : MonoBehaviour, IInitialized
         _nextLevelButton.onClick.RemoveAllListeners();
         _previousLevelButton.onClick.RemoveAllListeners();
 
-        if (_buttons == null || _buttons.Count == 0) return;
+        if (_menuSetting == null || _menuSetting.Count == 0) return;
 
-        foreach (var button in _buttons)
+        foreach (var button in _menuSetting)
         {
             button.Button.onClick.RemoveAllListeners();
         }
@@ -97,25 +101,28 @@ public class MenuManager : MonoBehaviour, IInitialized
         OpenUIMenu();
 
         foreach (var menu in _menus)
+        {
             menu.MenuManager = this;
-
+            menu.Initialized();
+        }
+            
         foreach (var hudPanel in _hudMenu)
+        {
             hudPanel.MenuManager = this;
-    }
-
-    private void Start()
-    {
-        
+            hudPanel.Initialized();
+        }    
     }
 
     public void OpenMenu(int menuIndex)
     {
         _currentOpenMenu?.CloseMenu();
-
         _currentOpenMenu = _menus[menuIndex];
         _currentOpenMenu.OpenMenu();
 
-        _headerText.text = _buttons.Find(b => b.MenuIndex == menuIndex).MenuName;
+        MenuOpenButtons menu = _menuSetting.Find(b => b.MenuIndex == menuIndex);
+
+        _headerTextStringEvent.StringReference.SetReference(LOCALIZATION_TABLE_UI, menu.Entry);
+        _headerTextStringEvent.RefreshString();
     }
 
     public T GetUIMenu<T>() where T : Menu
@@ -127,8 +134,12 @@ public class MenuManager : MonoBehaviour, IInitialized
     {
         _cavasGroup.Hide();
 
-        _levelLabel.text = string.Format(_levelLabel.text, _levelManager.CurrentSelectedLevel + 1);
+        if (_levelLabelStringEvent.StringReference.Arguments == null)
+            _levelLabelStringEvent.StringReference.Arguments = new object[1];
 
+        _levelLabelStringEvent.StringReference.Arguments[0] = _levelManager.CurrentSelectedLevel + 1;
+        _levelLabelStringEvent.RefreshString();
+        
         CloseAllPanel();
     }
 
@@ -173,7 +184,7 @@ public class MenuManager : MonoBehaviour, IInitialized
 [System.Serializable]
 public struct MenuOpenButtons
 {
-    public string MenuName;
+    public TableEntryReference Entry;
     public int MenuIndex;
     public Button Button;
 }

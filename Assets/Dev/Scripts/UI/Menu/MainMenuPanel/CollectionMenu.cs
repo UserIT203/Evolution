@@ -4,10 +4,13 @@ using UnityEngine.UI;
 using Zenject;
 using TMPro;
 using System.Linq;
-
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Tables;
 
 public class CollectionMenu : Menu
 {
+    private const string LOCALIZATION_TABLE = "MenuLabels";
+
     [System.Serializable]
     public struct RariteTexture
     {
@@ -16,7 +19,7 @@ public class CollectionMenu : Menu
     }
 
     [Header("UI Links")]
-    [SerializeField] private TMP_Text _labelName;
+    [SerializeField] private LocalizeStringEvent _labelNameLocalizeEvent;
 
     [SerializeField] private RariteTexture[] _rariteTexture;
     [SerializeField] private CardType[] _cardsTypes;
@@ -53,19 +56,15 @@ public class CollectionMenu : Menu
 
     public override void CloseMenu()
     {
-        _canvasGroup.alpha = 0;
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.interactable = false;
+        _canvasGroup.Hide();
     }
 
     public override void OpenMenu()
     {
-        _canvasGroup.alpha = 1;
-        _canvasGroup.blocksRaycasts = true;
-        _canvasGroup.interactable = true;
+        _canvasGroup.Show();
     }
 
-    protected override void Initialized()
+    public override void Initialized()
     {
         _cardsTypeDictianoty = new Dictionary<CollectionType, List<CardUIView>>();
 
@@ -89,6 +88,9 @@ public class CollectionMenu : Menu
         Debug.Log($"Card Type {type}");
 
         if (_currentOpenCollectionType == type) return;
+
+        CardType cardType = _cardsTypes.First(i => i.CollectionType == type);
+        _labelNameLocalizeEvent.StringReference.SetReference(LOCALIZATION_TABLE, cardType.Name);
 
         var openCards = _cardsTypeDictianoty[_currentOpenCollectionType];
         openCards.ForEach(c => c.gameObject.SetActive(false));
@@ -150,7 +152,7 @@ public class CollectionMenu : Menu
 [System.Serializable]
 public struct CardType
 {
-    public string Name;
+    public TableEntryReference Name;
     public CollectionType CollectionType;
     public PopUp Popup;
     public Button OpenButton;

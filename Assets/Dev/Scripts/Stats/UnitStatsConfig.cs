@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UnitStatsConfig", menuName = "Unit/StatConfig")]
 public class UnitStatsConfig : ScriptableObject
 {
-    [field: SerializeField] public string UnitName { get; private set; }
+    [field: SerializeField] public LocalizeText UnitName { get; private set; }
     [field: SerializeField] public int Cost { get; private set; }
     [field: SerializeField] public UnitType UnitType { get; private set; }
 

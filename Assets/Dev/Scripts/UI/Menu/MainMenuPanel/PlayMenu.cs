@@ -1,12 +1,14 @@
-using DG.Tweening.Core.Easing;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.UI;
 using Zenject;
 
 public class PlayMenu : Menu, ILevelHandler
 {
     [Header("Text Links")]
+    [SerializeField] private LocalizeStringEvent _localeEvent;
     [SerializeField] private TMP_Text _eraText;
     [SerializeField] private TMP_Text _levelText;
 
@@ -48,16 +50,12 @@ public class PlayMenu : Menu, ILevelHandler
 
     public override void CloseMenu()
     {
-        _canvasGroup.alpha = 0f;
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.interactable = false;
+        _canvasGroup.Hide();
     }
 
     public override void OpenMenu()
     {
-        _canvasGroup.alpha = 1.0f;
-        _canvasGroup.blocksRaycasts = true;
-        _canvasGroup.interactable = true;
+        _canvasGroup.Show();
 
         FillUI();
     }
@@ -77,6 +75,14 @@ public class PlayMenu : Menu, ILevelHandler
 
     public void SetEraSettings(LevelSetting levelSettings)
     {
-        _eraText.text = string.Format(_eraText.text, _eraManager.CurrentEra + 1);
+
+        if (_localeEvent.StringReference.Arguments == null)
+            _localeEvent.StringReference.Arguments = new object[1];
+
+        _localeEvent.StringReference.Arguments = new object[] { _eraManager.CurrentEra + 1 };
+
+        Debug.Log("<color=green>String Reference</color> " + _localeEvent.StringReference.Arguments.Count);
+
+        _localeEvent.RefreshString();
     }
 }

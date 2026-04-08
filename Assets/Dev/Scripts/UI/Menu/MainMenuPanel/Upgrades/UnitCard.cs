@@ -22,11 +22,24 @@ public class UnitCard : MonoBehaviour
     [SerializeField] private TMP_Text _unitCostText;
     [SerializeField] private Button _unlockButton;
 
+    private LocalizationSelector _localizationSelector;
     private UnitInfo _unitInfo;
+
+    [Inject]
+    public void Construct(LocalizationSelector localizationSelector)
+    {
+        _localizationSelector = localizationSelector;
+        _localizationSelector.onChangeLocale += UpdateLocaleText;
+    }
 
     private void Awake()
     {
         _unlockButton.onClick.AddListener(OnUnlockUnit);
+    }
+
+    private void OnDestroy()
+    {
+        _localizationSelector.onChangeLocale -= UpdateLocaleText;
     }
 
     public void UpdateInfo(UnitInfo unitInfo)
@@ -44,7 +57,7 @@ public class UnitCard : MonoBehaviour
             _unitIcon.sprite = unitInfo.Unit.UnitConfig.Icon;
         }
 
-        _unitNameText.text = unitInfo.Unit.UnitConfig.UnitName;
+        _unitNameText.text = unitInfo.Unit.UnitConfig.UnitName.GetText(_localizationSelector.CurrentLanguage);
         _unitDamageText.text = unitInfo.Unit.UnitConfig.Damage.ToString();
         _unitHealthText.text = unitInfo.Unit.UnitConfig.Maxhealth.ToString();
 
@@ -66,5 +79,10 @@ public class UnitCard : MonoBehaviour
 
             AudioManager.PlaySound("Upgrade");
         }
+    }
+
+    private void UpdateLocaleText()
+    {
+        _unitNameText.text = _unitInfo.Unit.UnitConfig.UnitName.GetText(_localizationSelector.CurrentLanguage);
     }
 }

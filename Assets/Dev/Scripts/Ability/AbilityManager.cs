@@ -4,25 +4,38 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class AbilityManager : MonoBehaviour, ICollectedCard, ISaveSystemService
+public class AbilityManager : MonoBehaviour, ICollectedCard, ISaveSystemService, IInitialized
 {
     [Inject] private LootManager _lootManager;
     [Inject] private GlobalData _globalData;
     [Inject] private DesktopInput _desktopInput;
 
-    [SerializeField] private Transform _bombExplosionPosition;
     [SerializeField] private UnitSpawner _unitSpawner;
 
     private Dictionary<string, int> _currentLevels = new();
     private Dictionary<string, int> _collectedCards = new();
     private Dictionary<string, Ability> _abilityCard = new();
 
+    private bool _isPlay = false;
+    private float _abilityUseTimer = 0;
+
+    private GameManager _gameManager;
     private Ability _activeAbility;
     private AbilityContext _abilityContext;
 
+    public Action<float, float> onAbilityTimer;
     public Action<Ability> onChangeAbility;
     public Action<CardItem, ICollectedCard, int> onAddNewCard;
     public Action<Ability> onLevelUpAbility;
+
+    [Inject]
+    public void Constract(GameManager gameManager)
+    {
+        _gameManager = gameManager;
+
+        _gameManager.onPlay += StartPlay;
+        _gameManager.onEnd += EndPlay;
+    }
 
     public void Awake()
     {
@@ -30,15 +43,34 @@ public class AbilityManager : MonoBehaviour, ICollectedCard, ISaveSystemService
 
         _abilityContext = new AbilityContext
         {
-            BombAbilityPosition = _bombExplosionPosition,
             EnemiesUnits = _unitSpawner.GetActiveEnemiesList(),
             PlayerUnits = _unitSpawner.GetActivePlayerUnitsList()
         };
     }
 
-    private void Start()
+    private void Update()
     {
-        onChangeAbility?.Invoke(_activeAbility);
+        if (_isPlay == false) return;
+
+        if(_activeAbility != null)
+        {
+            if(_abilityUseTimer >= 0)
+            {
+                _abilityUseTimer -= Time.deltaTime;
+                onAbilityTimer?.Invoke(_activeAbility.DelayTime, _abilityUseTimer);
+            }      
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _gameManager.onPlay -= StartPlay;
+        _gameManager.onEnd -= EndPlay;
+    }
+
+    public void Initialized()
+    {
+        if(_activeAbility != null) onChangeAbility?.Invoke(_activeAbility);
     }
 
     public void CollectedAbilityCard(Ability ability)
@@ -119,13 +151,20 @@ public class AbilityManager : MonoBehaviour, ICollectedCard, ISaveSystemService
         if (_abilityCard.TryGetValue(id, out var ability))
         {
             _activeAbility = ability;
+            _abilityUseTimer = 0f;
             onChangeAbility?.Invoke(ability);
         }
     }
 
     public void UseAbility() 
     {
-        _activeAbility?.Activated(_abilityContext, _currentLevels[_activeAbility.CardID]);
+        if (_activeAbility == null) return;
+
+        if(_abilityUseTimer <= 0)
+        {
+            _abilityUseTimer = _activeAbility.DelayTime;
+            _activeAbility.Activated(_abilityContext, _currentLevels[_activeAbility.CardID]);
+        }
     }
 
     public void LoadData()
@@ -168,4 +207,12 @@ public class AbilityManager : MonoBehaviour, ICollectedCard, ISaveSystemService
 
         saveSystem.SaveDate(_globalData, "GlobalData");
     }
+
+    private void StartPlay()
+    {
+        _isPlay = true;
+        _abilityUseTimer = 0f;
+    }
+
+    private void EndPlay() => _isPlay = false;
 }

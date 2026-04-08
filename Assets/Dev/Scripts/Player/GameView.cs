@@ -12,7 +12,8 @@ public class GameView : MonoBehaviour
     [SerializeField] private TMP_Text _currentMeatText;
     [SerializeField] private Image _fillImageProgressMoney;
 
-    [Header("Anility UI Links")]
+    [Header("Ability UI Links")]
+    [SerializeField] private Image _abilityFillImage;
     [SerializeField] private Image _abilityIcon;
     [SerializeField] private Button _abilityButton;
 
@@ -28,6 +29,11 @@ public class GameView : MonoBehaviour
     public void ChangeImageFill(float max, float value)
     {
         _fillImageProgressMoney.fillAmount = value / max;
+    }
+
+    public void ChangeAbilityFill(float max, float value)
+    {
+        _abilityFillImage.fillAmount = value / max;
     }
 
     public void CreateUnitCard(UnitBase unit, int index)

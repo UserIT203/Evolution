@@ -64,11 +64,9 @@ public class EraCompletedMenu : Menu
         _priceButton.onClick.RemoveListener(GetPrice);
     }
 
-    protected override void Initialized()
+    public override void Initialized()
     {
-        _canvasGroup.alpha = 0f;
-        _canvasGroup.interactable = false;
-        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.Hide();
     }
 
     private void GetPrice()

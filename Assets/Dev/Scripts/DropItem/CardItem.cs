@@ -7,9 +7,9 @@ public class CardItem : ScriptableObject
     [field: SerializeField] public string CardID { get; private set; }
 
     [Header("UI")]
-    public string CardName;
+    public LocalizeText CardName;
     public Sprite Sprite;
-    [TextArea(2, 10)] public string Description;
+    public LocalizeText Description;
 
     [Header("Probability")]
     public Rarity Rarity;

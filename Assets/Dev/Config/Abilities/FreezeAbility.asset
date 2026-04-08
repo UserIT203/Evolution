@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: FreezeAbility
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: -32478
-  CardName: Freeze
+  CardName:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Freeze
+    - LocalizeLabel: 1
+      Text: "\u0417\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0430"
+    - LocalizeLabel: 2
+      Text: 
   Sprite: {fileID: -2096251044, guid: 3757f873ab1a809459f2ff87ce65be64, type: 3}
-  Description: 
+  Description:
+    _texts: []
   Rarity: 0
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
+  <DelayTime>k__BackingField: 50
   _levelUpIncrease: 0.5
   _timeToActive: 2

@@ -1,22 +1,35 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Tables;
+using Unity.VisualScripting;
+using Zenject;
 
 [RequireComponent(typeof(CanvasGroup))]
 public abstract class PopUp : MonoBehaviour
 {
     [Header("UI Links")]
     [SerializeField] protected Image _icon;
-    [SerializeField] protected TMP_Text _levelText;
+    [SerializeField] protected LocalizeStringEvent _levelTextLocalizeEvent;
     [SerializeField] protected TMP_Text _itemNameText;
     [SerializeField] protected TMP_Text _collectedCardText;
     [SerializeField] protected Image _fillImage;
     [SerializeField] protected Button _upgradeButton;
     [SerializeField] protected Button _closeButton;
 
+    protected LocalizationSelector _localizationSelector;
+
     protected ICollectedCard _collected;
     protected CardItem _cardItem;
     protected CanvasGroup _canvasGroup;
+
+    [Inject]
+    public void Construct(LocalizationSelector selector)
+    {
+        _localizationSelector = selector;
+        _localizationSelector.onChangeLocale += UpdateLocaleText;
+    }
 
     private void OnEnable()
     {
@@ -32,6 +45,11 @@ public abstract class PopUp : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         Exit();
+    }
+
+    private void OnDestroy()
+    {
+        _localizationSelector.onChangeLocale -= UpdateLocaleText;
     }
 
     public void Open(ICollectedCard collected, CardItem cardItem)
@@ -59,8 +77,13 @@ public abstract class PopUp : MonoBehaviour
     {
         _icon.sprite = _cardItem.Sprite;
 
-        _levelText.text = $"Уровень {_collected.GetLevel(_cardItem.CardID)}";
-        _itemNameText.text = _cardItem.CardName;
+        if (_levelTextLocalizeEvent.StringReference.Arguments == null)
+            _levelTextLocalizeEvent.StringReference.Arguments = new object[1];
+
+        _levelTextLocalizeEvent.StringReference.Arguments[0] = _collected.GetLevel(_cardItem.CardID);
+        _levelTextLocalizeEvent.RefreshString();
+
+        _itemNameText.text = _cardItem.CardName.GetText(_localizationSelector.CurrentLanguage);
 
         _collectedCardText.text =
             $"{_collected.GetCollectedCards(_cardItem.CardID)}/" +
@@ -76,5 +99,11 @@ public abstract class PopUp : MonoBehaviour
             AudioManager.PlaySound("Upgrade");
             FillUI();
         } 
+    }
+
+    protected virtual void UpdateLocaleText()
+    {
+        if(_cardItem != null)
+            _itemNameText.text = _cardItem.CardName.GetText(_localizationSelector.CurrentLanguage);
     }
 }

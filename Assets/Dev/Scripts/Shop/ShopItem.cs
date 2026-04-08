@@ -9,7 +9,7 @@ public abstract class ShopItem
     public Sprite Icon;
     public int Price;
     public bool UseDonatMoney;
-    public string NameItem;
+    public LocalizeText NameItem;
 
     public void TryBuy()
     {

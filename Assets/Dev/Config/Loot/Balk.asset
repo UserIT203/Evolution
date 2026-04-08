@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: Balk
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: 45566
-  CardName: Balk
+  CardName:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Balk
+    - LocalizeLabel: 1
+      Text: "\u0411\u0430\u043B\u043A\u0430"
+    - LocalizeLabel: 2
+      Text: 
   Sprite: {fileID: 0}
-  Description: 
+  Description:
+    _texts: []
   Rarity: 1
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000

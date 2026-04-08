@@ -13,15 +13,26 @@ MonoBehaviour:
   m_Name: Meet
   m_EditorClassIdentifier: 
   <CardID>k__BackingField: 45746
-  CardName: Meet
+  CardName:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Meet
+    - LocalizeLabel: 1
+      Text: "\u041C\u044F\u0441\u043E"
+    - LocalizeLabel: 2
+      Text: 
   Sprite: {fileID: 0}
-  Description: 
+  Description:
+    _texts: []
   Rarity: 0
   <MaxLevel>k__BackingField: 5
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
   BaseHealthModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0.2
   BaseDamageModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0
   BaseSpeedModifier:
+    ModifierType: 0
     <ModifierValue>k__BackingField: 0

@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedd8e70dd97ff74fbcc21b823057541, type: 3}
   m_Name: UnitRanged_1
   m_EditorClassIdentifier: Assembly-CSharp::UnitRangedConfig
-  <UnitName>k__BackingField: 
+  <UnitName>k__BackingField:
+    _texts:
+    - LocalizeLabel: 0
+      Text: Stone
+    - LocalizeLabel: 1
+      Text: "\u041A\u0430\u043C\u0435\u043D\u044C"
+    - LocalizeLabel: 2
+      Text: 
   <Cost>k__BackingField: 5
   <UnitType>k__BackingField: 1
   <Maxhealth>k__BackingField: 30

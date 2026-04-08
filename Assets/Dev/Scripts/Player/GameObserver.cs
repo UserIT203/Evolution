@@ -17,6 +17,8 @@ public class GameObserver : MonoBehaviour
         _gameView = GetComponent<GameView>();
 
         _abilityManager.onChangeAbility += _gameView.UpdateAbilityButton;
+        _abilityManager.onAbilityTimer += _gameView.ChangeAbilityFill;
+        
         _gameView.InitializedAbilityButton(_abilityManager.UseAbility);
 
         _gameManager.onChangeMoneyCount += _gameView.SetCurrentMoneyText;
@@ -28,7 +30,8 @@ public class GameObserver : MonoBehaviour
     private void OnDisable()
     {
         _abilityManager.onChangeAbility -= _gameView.UpdateAbilityButton;
-        
+        _abilityManager.onAbilityTimer -= _gameView.ChangeAbilityFill;
+
         _gameManager.onChangeMoneyCount -= _gameView.SetCurrentMoneyText;
         _gameManager.onChangeTime -= _gameView.ChangeImageFill;
         _gameManager.onInitializedUnit -= _gameView.CreateUnitCard;

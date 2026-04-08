@@ -9,19 +9,15 @@ public class WinEraPanel : Menu
 
     public override void CloseMenu()
     {
-        _canvasGroup.alpha = 0f;
-        _canvasGroup.interactable = false;
-        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.Hide();
     }
 
     public override void OpenMenu()
     {
-        _canvasGroup.alpha = 1f;
-        _canvasGroup.interactable = true;
-        _canvasGroup.blocksRaycasts = true;
+        _canvasGroup.Show();
     }
 
-    protected override void Initialized()
+    public override void Initialized()
     {
         base.Initialized();
 

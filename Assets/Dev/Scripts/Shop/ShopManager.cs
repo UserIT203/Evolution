@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
         public List<ShopItem> Items;
     }
 
+    [Inject] private LocalizationSelector _localizationSelector;
     [Inject] private DiContainer _diContainer;
 
     [SerializeField] private List<Containers> _containers;
@@ -56,7 +57,7 @@ public class ShopManager : MonoBehaviour
                     container.Container) 
                     as ShopItemUI;
 
-                shopUI.Initialized(item);
+                shopUI.Initialized(item, _localizationSelector);
             }
         }
     }

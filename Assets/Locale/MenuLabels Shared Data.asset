@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MenuLabels Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: MenuLabels
+  m_TableCollectionNameGuidString: 932210dcf196c244f9a35c08ef3c344b
+  m_Entries:
+  - m_Id: 38803329044480
+    m_Key: menuLabel.era
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66277844766720
+    m_Key: menuLabel.playTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68343531098112
+    m_Key: menuLabel.upgradeTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73805454430208
+    m_Key: menuLabel.shopTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73990301601792
+    m_Key: menuLabel.collectionTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74133264453632
+    m_Key: menuLabel.fortunaTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74320636596224
+    m_Key: menuLabel.settingTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75336476053504
+    m_Key: 'menuLabel.playText
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75650058997760
+    m_Key: menuLabel.levelText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77242845941760
+    m_Key: menuLabel.meatUpgradeText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78282299330560
+    m_Key: menuLabel.modifierText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78353170485248
+    m_Key: menuLabel.abilityText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329102269927424
+    m_Key: menuLabel.spin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329371682656256
+    m_Key: menuLabel.settingMusic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329461868580864
+    m_Key: menuLabel.settingSFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335916277485568
+    m_Key: popUpAbility.equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336043754967040
+    m_Key: popUpAbility.upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336193571311616
+    m_Key: popUp.level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374420478939136
+    m_Key: menuLabel.settingLanguage
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5315092160390889787
+  references:
+    version: 2
+    RefIds:
+    - rid: 5315092160390889787
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1775585337598

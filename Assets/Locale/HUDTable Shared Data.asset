@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: HUDTable Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: HUDTable
+  m_TableCollectionNameGuidString: 61d12b04e6c6ca448abf9bc1df4393be
+  m_Entries:
+  - m_Id: 6918819840
+    m_Key: hud.level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3713064554496
+    m_Key: hud.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3793565831168
+    m_Key: hud.win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4118427258880
+    m_Key: hud.reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4363588521984
+    m_Key: hud.newLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4455343116288
+    m_Key: hud.doubleReward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4966502944768
+    m_Key: hud.levelCompleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5364869550080
+    m_Key: hud.reborn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5558872887296
+    m_Key: hud.lose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6318356484096
+    m_Key: hud.pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6444852498432
+    m_Key: hud.startGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6569129725952
+    m_Key: hud.mainMenu
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5315092181419819008
+  references:
+    version: 2
+    RefIds:
+    - rid: 5315092181419819008
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1775663615802

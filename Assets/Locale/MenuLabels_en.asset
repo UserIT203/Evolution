@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MenuLabels_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 932210dcf196c244f9a35c08ef3c344b, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 5315092163408167071
+  m_TableData:
+  - m_Id: 38803329044480
+    m_Localized: Era {0}
+    m_Metadata:
+      m_Items:
+      - rid: 5315092163408167071
+  - m_Id: 66277844766720
+    m_Localized: Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68343531098112
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73805454430208
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73990301601792
+    m_Localized: Collection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74133264453632
+    m_Localized: Fortuna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74320636596224
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75336476053504
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75650058997760
+    m_Localized: Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77242845941760
+    m_Localized: Upgrade meat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78282299330560
+    m_Localized: Modifiers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78353170485248
+    m_Localized: Ability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329102269927424
+    m_Localized: Spin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329461868580864
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329371682656256
+    m_Localized: Background music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335916277485568
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336043754967040
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336193571311616
+    m_Localized: Level {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374420478939136
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5315092163408167071
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 38803329044480

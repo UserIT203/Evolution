@@ -25,7 +25,7 @@ public class ShopMenu : Menu
         _canvasGroup.Show();
     }
 
-    protected override void Initialized()
+    public override void Initialized()
     {
         _shopPopupCanvas.Hide();
     }

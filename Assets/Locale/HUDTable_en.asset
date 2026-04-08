@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: HUDTable_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 61d12b04e6c6ca448abf9bc1df4393be, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 5315092181419819104
+  m_TableData:
+  - m_Id: 6918819840
+    m_Localized: Level {0}
+    m_Metadata:
+      m_Items:
+      - rid: 5315092181419819104
+  - m_Id: 3713064554496
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3793565831168
+    m_Localized: Win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4118427258880
+    m_Localized: Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4363588521984
+    m_Localized: New Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4455343116288
+    m_Localized: Double Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4966502944768
+    m_Localized: Level Completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5364869550080
+    m_Localized: Reborn ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5558872887296
+    m_Localized: Lose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6318356484096
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6444852498432
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6569129725952
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5315092181419819104
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 6918819840

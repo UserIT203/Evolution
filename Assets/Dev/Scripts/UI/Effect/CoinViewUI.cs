@@ -55,15 +55,7 @@ public class CoinViewUI : MonoBehaviour
 
 
         seq.OnComplete(() => {
-            _coinCountText.enabled = false;
-            transform.localPosition = startPos;
-            transform.localScale = Vector3.one;
-            _coinCountText.color = 
-                new Color(
-                    _coinCountText.color.r, 
-                    _coinCountText.color.g, 
-                    _coinCountText.color.b, 
-                    1f);
+            Destroy(gameObject);
         });
     }
 

@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Tables;
 
 [RequireComponent (typeof(CanvasGroup))]
 public class UpgradesMenu : Menu, ILevelHandler
@@ -37,16 +39,12 @@ public class UpgradesMenu : Menu, ILevelHandler
 
     public override void CloseMenu()
     {
-        _canvasGroup.alpha = 0;
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.interactable = false;
+        _canvasGroup.Hide();
     }
 
     public override void OpenMenu()
     {
-        _canvasGroup.alpha = 1;
-        _canvasGroup.blocksRaycasts = true;
-        _canvasGroup.interactable = true;
+        _canvasGroup.Show();
 
         UpdateUpgradeCardInfo();
         UpdateModifierInfo();
@@ -63,7 +61,7 @@ public class UpgradesMenu : Menu, ILevelHandler
         _moneyPerSeconsUpgrade.onClick.RemoveAllListeners();
     }
 
-    protected override void Initialized()
+    public override void Initialized()
     {
         Debug.Log("Init Upgrade Menu");
         _unitUpgradesCards = new UnitCard[_gameManager.UnitInfo.Length];

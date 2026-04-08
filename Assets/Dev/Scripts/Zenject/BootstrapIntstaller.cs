@@ -7,6 +7,7 @@ public class BootstrapIntstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        LoadMain();
         LoadSaveData();
     }
 
@@ -22,5 +23,11 @@ public class BootstrapIntstaller : MonoInstaller
 
         LevelData levelData = _saveSystem.LoadData<LevelData>("LevelData");
         Container.BindInstance(levelData).AsSingle().NonLazy();
+    }
+
+    private void LoadMain()
+    {
+        LocalizationSelector localizationSelector = new LocalizationSelector();
+        Container.BindInstance(localizationSelector).AsSingle().NonLazy();
     }
 }

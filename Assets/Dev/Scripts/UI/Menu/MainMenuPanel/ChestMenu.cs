@@ -19,6 +19,7 @@ public class ChestMenu : Menu, IPointerClickHandler
     [SerializeField] private TMP_Text _cardName;
     [SerializeField] private TMP_Text _cardDroppedCount;
 
+    private LocalizationSelector _localizationSelector;
     private LootManager _lootManager;
     private Chest _chestOpen;
     private ChestConfig _config;
@@ -33,10 +34,12 @@ public class ChestMenu : Menu, IPointerClickHandler
     private int _currentDroppedCard;
 
     [Inject]
-    public void Construct(LootManager lootManager)
+    public void Construct(LootManager lootManager, LocalizationSelector localizationSelector)
     {
         _lootManager = lootManager;
         _chestOpen = new Chest(_lootManager.DroppedLoots);
+
+        _localizationSelector = localizationSelector;
     }
 
     public override void CloseMenu()
@@ -175,7 +178,7 @@ public class ChestMenu : Menu, IPointerClickHandler
             .OnComplete(() =>
             {
                 _cardDroppedCount.text = _droppedCardDictianory[droppedItem].ToString();
-                _cardName.text = droppedItem.CardName;
+                _cardName.text = droppedItem.CardName.GetText(_localizationSelector.CurrentLanguage);
             });
 
         AudioManager.PlaySound("DroppedCard");
