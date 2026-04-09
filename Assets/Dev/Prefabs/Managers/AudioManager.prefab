@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2719513615061350103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8832094628686304010}
+  - component: {fileID: 9022819961037654220}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8832094628686304010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719513615061350103}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.29452, y: 3.74152, z: 6.43126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9022819961037654220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719513615061350103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15b2e8287792c64b80eab6d33c726c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _audioMixer: {fileID: 24100000, guid: 45d45c7ae6336d04b94f5434e0f37cd2, type: 2}
+  _startAmbientName: MainAmbient
+  _sounds:
+  - Name: Hit
+    Clip: {fileID: 8300000, guid: 911a700255c505b47b7ed104c2d3137a, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 0
+  - Name: MainAmbient
+    Clip: {fileID: 8300000, guid: ec29fc1587aca3e48970a90140bbb6f1, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 1
+  - Name: BattleAmbient
+    Clip: {fileID: 8300000, guid: e902a4ba3c7fa2b4cb0fd41fb9ad87ed, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 1
+  - Name: Click
+    Clip: {fileID: 8300000, guid: 476d66b607e35d947ad477c6e4c6cb45, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 0
+  - Name: Buy
+    Clip: {fileID: 8300000, guid: 1c4ce85f3f83559498342a4c50fcd35e, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 0
+  - Name: Upgrade
+    Clip: {fileID: 8300000, guid: 805318268aff7f147b463bbc5d6fdb39, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 0
+  - Name: OpenChest
+    Clip: {fileID: 8300000, guid: a20db136948c39b42bdbed99f813ae17, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 2
+  - Name: DroppedCard
+    Clip: {fileID: 8300000, guid: 42b9a31781657d646a8d9c0f2b19691a, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 2
+  - Name: SpinWheel
+    Clip: {fileID: 8300000, guid: d0ba4538774a61a4f915a275f646456e, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 2
+  - Name: SpawnUnit
+    Clip: {fileID: 8300000, guid: 61ad452f40cb43a4791a70d207471869, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 0
+  - Name: Win
+    Clip: {fileID: 8300000, guid: ab024078aa191a545af0529376556763, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 2
+  - Name: Lose
+    Clip: {fileID: 8300000, guid: faa9dccfb441fb04ca1948bc269d9106, type: 3}
+    StartVolume: 1
+    StartPitch: 1
+    Type: 2
+  - Name: Talking
+    Clip: {fileID: 8300000, guid: 82dd201b1686a9f429736e10a9eebef8, type: 3}
+    StartVolume: 1
+    StartPitch: 1.15
+    Type: 0

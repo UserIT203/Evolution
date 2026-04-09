@@ -31,12 +31,6 @@ public class AudioManager : MonoBehaviour, ISaveSystemService
 
         Initialized();
         SetAmbient(_startAmbientName);
-        DontDestroyOnLoad(this);
-    }
-
-    private void Start()
-    {
-        Debug.Log($"<color=red>Load Data</color> {_settingData.SFXVolume}");
     }
 
     public static void PlaySound(string name)
@@ -116,6 +110,8 @@ public class AudioManager : MonoBehaviour, ISaveSystemService
 
     public void LoadData()
     {
+        Debug.Log("<color=yellow>Load data from save</yellow>");
+
         _audioMixer.SetFloat("sfxVolume", _settingData.SFXVolume);
         _audioMixer.SetFloat("musicVolume", _settingData.MusicVolume);
     }
@@ -127,7 +123,7 @@ public class AudioManager : MonoBehaviour, ISaveSystemService
 
         saveSystem.SaveDate(_settingData, "SettingData");
 
-        Debug.Log($"<color=yellow>Save Setting Data</color>\nSave Data {_settingData.SFXVolume}");
+        Debug.Log("<color=yellow>Save data</yellow>");
     }
 
     public float GetVolumeValue(string parametr)

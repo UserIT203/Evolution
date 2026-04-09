@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class TutorialView : MonoBehaviour
 {
+    [Inject] private LocalizationSelector _localizeSelector;
+
     [Header("<color=green>Text Animation Settings</color>")]
     [SerializeField] private float _duration = 1.5f;
     [SerializeField] private Ease _ease = Ease.OutQuad;
@@ -51,7 +54,7 @@ public class TutorialView : MonoBehaviour
     public void SetTutorialInfo(TutorialInfo info)
     {
         PlayAnimationHead();
-        PlayTextAnimatio(info.Description);
+        PlayTextAnimatio(info.Description.GetText(_localizeSelector.CurrentLanguage));
         info.Arrows.ForEach(i => i.enabled = true);
     }
 

@@ -27,7 +27,6 @@ public class LevelInstailer : MonoInstaller
     private void InjectBootableComponent()
     {
         Container.Bind<MenuManager>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<SaveManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GlobalManager>().FromComponentInHierarchy().AsSingle();
     }
 }

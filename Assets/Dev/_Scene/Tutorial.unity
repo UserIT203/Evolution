@@ -2415,7 +2415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardsMenu
   MenuManager: {fileID: 0}
-  _labelName: {fileID: 472839195}
+  _labelNameLocalizeEvent: {fileID: 0}
   _rariteTexture:
   - Rarity: 0
     Sprite: {fileID: 21300000, guid: c6488acfa397d394f99fbbd89a1c6c6f, type: 3}
@@ -2424,11 +2424,15 @@ MonoBehaviour:
   - Rarity: 2
     Sprite: {fileID: 21300000, guid: 9421f6b22b169e849b09808fb3760df0, type: 3}
   _cardsTypes:
-  - Name: "\u041C\u043E\u0434\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u0438"
+  - Name:
+      m_KeyId: 0
+      m_Key: 
     CollectionType: 0
     Popup: {fileID: 639381489}
     OpenButton: {fileID: 1598990069}
-  - Name: "\u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438"
+  - Name:
+      m_KeyId: 0
+      m_Key: 
     CollectionType: 1
     Popup: {fileID: 2052150860}
     OpenButton: {fileID: 982667224}
@@ -4110,6 +4114,7 @@ MonoBehaviour:
   _musicSlider: {fileID: 746289349}
   _sfxSlider: {fileID: 658577138}
   _isHUD: 0
+  _languageButton: []
 --- !u!225 &379716373
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7087,7 +7092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierPopUp
   _icon: {fileID: 1626206896}
-  _levelText: {fileID: 2056893852}
+  _levelTextLocalizeEvent: {fileID: 0}
   _itemNameText: {fileID: 982505478}
   _collectedCardText: {fileID: 47585835}
   _fillImage: {fileID: 1167320432}
@@ -7699,13 +7704,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c29dd98ac51164a893369f99cc55e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  _levelLabel: {fileID: 1455025529}
+  _levelLabelStringEvent: {fileID: 0}
   _coinValueHUDText: {fileID: 88013758}
   _gemValueHUDText: {fileID: 1813225459}
   _pauseButton: {fileID: 836931808}
   _nextLevelButton: {fileID: 1271254789}
   _previousLevelButton: {fileID: 1841705348}
-  _headerText: {fileID: 1989511443}
+  _headerTextStringEvent: {fileID: 0}
   _coinValueUIText: {fileID: 2117043359}
   _gemValueUIText: {fileID: 1598852644}
   _menus:
@@ -7719,13 +7724,7 @@ MonoBehaviour:
   - {fileID: 531757332}
   - {fileID: 1111020265}
   - {fileID: 1783511161}
-  _buttons:
-  - MenuName: "\u0423\u0440\u043E\u0432\u043D\u0438"
-    MenuIndex: 0
-    Button: {fileID: 1350809871}
-  - MenuName: "\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F"
-    MenuIndex: 1
-    Button: {fileID: 1797538}
+  _menuSetting: []
 --- !u!225 &682852195
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -14048,6 +14047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayMenu
   MenuManager: {fileID: 0}
+  _localeEvent: {fileID: 0}
   _eraText: {fileID: 1925181734}
   _levelText: {fileID: 792051469}
   _damageModifierText: {fileID: 59857857}
@@ -15473,6 +15473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentMeatText: {fileID: 478613450}
   _fillImageProgressMoney: {fileID: 1567424961}
+  _abilityFillImage: {fileID: 0}
   _abilityIcon: {fileID: 2003280074}
   _abilityButton: {fileID: 1839558154}
   _unitCardTemplate: {fileID: 5016180291936318821, guid: 2ad11f1dbd0dfba47a5a0dee635620a9, type: 3}
@@ -16929,118 +16930,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478508158}
   m_CullTransparentMesh: 1
---- !u!1 &1489376033
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1489376034}
-  - component: {fileID: 1489376036}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1489376034
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489376033}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.29452, y: 3.74152, z: 6.43126}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1489376036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489376033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c15b2e8287792c64b80eab6d33c726c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  _audioMixer: {fileID: 24100000, guid: 45d45c7ae6336d04b94f5434e0f37cd2, type: 2}
-  _startAmbientName: MainAmbient
-  _sounds:
-  - Name: Hit
-    Clip: {fileID: 8300000, guid: 911a700255c505b47b7ed104c2d3137a, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 0
-  - Name: MainAmbient
-    Clip: {fileID: 8300000, guid: ec29fc1587aca3e48970a90140bbb6f1, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 1
-  - Name: BattleAmbient
-    Clip: {fileID: 8300000, guid: e902a4ba3c7fa2b4cb0fd41fb9ad87ed, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 1
-  - Name: Click
-    Clip: {fileID: 8300000, guid: 476d66b607e35d947ad477c6e4c6cb45, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 0
-  - Name: Buy
-    Clip: {fileID: 8300000, guid: 1c4ce85f3f83559498342a4c50fcd35e, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 0
-  - Name: Upgrade
-    Clip: {fileID: 8300000, guid: 805318268aff7f147b463bbc5d6fdb39, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 0
-  - Name: OpenChest
-    Clip: {fileID: 8300000, guid: a20db136948c39b42bdbed99f813ae17, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 2
-  - Name: DroppedCard
-    Clip: {fileID: 8300000, guid: 42b9a31781657d646a8d9c0f2b19691a, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 2
-  - Name: SpinWheel
-    Clip: {fileID: 8300000, guid: d0ba4538774a61a4f915a275f646456e, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 2
-  - Name: SpawnUnit
-    Clip: {fileID: 8300000, guid: 61ad452f40cb43a4791a70d207471869, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 0
-  - Name: Win
-    Clip: {fileID: 8300000, guid: ab024078aa191a545af0529376556763, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 2
-  - Name: Lose
-    Clip: {fileID: 8300000, guid: faa9dccfb441fb04ca1948bc269d9106, type: 3}
-    StartVolume: 1
-    StartPitch: 1
-    Type: 2
-  - Name: Talking
-    Clip: {fileID: 8300000, guid: 82dd201b1686a9f429736e10a9eebef8, type: 3}
-    StartVolume: 1
-    StartPitch: 1.15
-    Type: 0
 --- !u!1 &1513960626
 GameObject:
   m_ObjectHideFlags: 0
@@ -20659,6 +20548,7 @@ MonoBehaviour:
   _musicSlider: {fileID: 1080472731}
   _sfxSlider: {fileID: 927475624}
   _isHUD: 1
+  _languageButton: []
 --- !u!225 &1783511162
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -22132,96 +22022,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
   _stages:
-  - StageName: "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441"
+  - StageName:
+      _texts: []
     Info:
-    - Description: "\u041F\u0440\u0438\u0432\u0435\u0442, \u043D\u043E\u0432\u044B\u0439
-        \u0438\u0433\u0440\u043E\u043A. "
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-    - Description: "\u0412\u043A\u0440\u0430\u0442\u0446\u0435 \u0440\u0430\u0441\u0441\u043A\u0430\u0436\u0443,
-        \u0432\u0441\u0451 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0435"
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-    - Description: "\u0417\u0434\u0435\u0441\u044C \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u044C
-        \u043D\u043E\u0432\u044B\u0445 \u0441\u043E\u043B\u0434\u0430\u0442. \u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0442\u044C
-        \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0430
-        \u043C\u044F\u0441\u0430"
+    - Description:
+        _texts: []
       HasArrow: 1
       Arrows:
       - {fileID: 2055926389}
-    - Description: "\u0417\u0434\u0435\u0441\u044C \u0442\u0435\u0431\u044F \u0436\u0434\u0443\u0442
-        \u0431\u043E\u0438"
+    - Description:
+        _texts: []
       HasArrow: 1
       Arrows:
       - {fileID: 2046780088}
-    - Description: "\u0412\u043E\u0442 \u0442\u0443\u0442 \u0442\u0432\u043E\u044F
-        \u043A\u043E\u043B\u043B\u0435\u043A\u0446\u0438\u044F \u043A\u0430\u0440\u0442"
+    - Description:
+        _texts: []
       HasArrow: 1
       Arrows:
       - {fileID: 1777595630}
-    - Description: "\u0410 \u0442\u0443\u0442 \u0442\u0432\u043E\u0439 \u043C\u0430\u0433\u0430\u0437\u0438\u043D"
+    - Description:
+        _texts: []
       HasArrow: 1
       Arrows:
       - {fileID: 785940739}
-    - Description: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u0432 \u0431\u043E\u0439"
+    - Description:
+        _texts: []
       HasArrow: 1
       Arrows:
       - {fileID: 2096223156}
-  - StageName: "\u0411\u043E\u0439"
+  - StageName:
+      _texts: []
     Info:
-    - Description: "\u0422\u0430\u043A \u044D\u0442\u043E \u0442\u0432\u043E\u0439
-        \u043F\u0435\u0440\u0432\u044B\u0439 \u0431\u043E\u0439. \u0421\u0435\u0439\u0447\u0430\u0441
-        \u0432\u043A\u0440\u0430\u0442\u0446\u0435"
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-    - Description: "\u0422\u0432\u043E\u044F \u043E\u0441\u043D\u043E\u0432\u043D\u0430\u044F
-        \u0446\u0435\u043B\u044C \u0440\u0430\u0437\u0440\u0443\u0448\u0438\u0442\u044C
-        \u0437\u0434\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430.
-        \u0418 \u043D\u0435 \u0434\u0430\u0442\u044C \u0440\u0430\u0437\u0440\u0443\u0448\u0438\u0442\u044C
-        \u0441\u0432\u043E\u0451"
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-    - Description: "\u0417\u0434\u0435\u0441\u044C \u0443 \u0442\u0435\u0431\u044F
-        \u0432\u0441\u0435 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0435
-        \u0441\u043E\u043B\u0434\u0430\u0442\u044B. \u041D\u0430\u0436\u043C\u0438
-        \u043D\u0430 \u043D\u0438\u0445 \u0438\u043B\u0438 \u0436\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439
-        \u043A\u043D\u043E\u043F\u043A\u0438 \u043D\u0430 \u043A\u043B\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0435(1,
-        2, 3)"
+    - Description:
+        _texts: []
       HasArrow: 1
       Arrows:
       - {fileID: 1440033335}
       - {fileID: 147175910}
       - {fileID: 1186602257}
-    - Description: "\u0418\u0437 \u0441\u0443\u043D\u0434\u0443\u043A\u043E\u0432
-        \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C \u0432\u044B\u0431\u0438\u0442\u044C
-        \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438. "
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-    - Description: "\u0422\u0432\u043E\u044F \u0441\u043F\u043E\u0441\u043D\u043E\u0431\u043D\u043E\u0441\u0442\u044C
-        \u0431\u0443\u0434\u0435\u0442 \u0432\u043E\u0442 \u0437\u0434\u0435\u0441\u044C.
-        \u041D\u0430\u0436\u043C\u0438 \u043D\u0430 \u043D\u0435\u0451 \u0438\u043B\u0438
-        \u043A\u043B\u0430\u0432\u0438\u0430\u0448\u0443 \u043D\u0430 \u043A\u043B\u0430\u0432\u0438\u0442\u0443\u0440\u0435
-        (E)."
+    - Description:
+        _texts: []
       HasArrow: 1
       Arrows:
       - {fileID: 1366901391}
-    - Description: "\u041D\u0430 \u044D\u0442\u043E\u043C \u0432\u0441\u0435. \u0423\u0434\u0430\u0447\u0438."
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-  - StageName: "\u041A\u043E\u043D\u0435\u0446"
+  - StageName:
+      _texts: []
     Info:
-    - Description: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u044E,
-        \u0442\u044B \u0432\u044B\u0438\u0433\u0440\u0430\u043B \u0438\u043B\u0438
-        \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B. \u041D\u0435 \u0437\u043D\u0430\u044E"
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-    - Description: "\u041F\u043E\u0441\u043B\u0435 \u043E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u044F
-        \u0443\u0440\u043E\u0432\u043D\u0435\u0439 \u0442\u0435\u0431\u0435 \u0431\u0443\u0434\u0443\u0442
-        \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B \u0438 \u043F\u0440\u043E\u0448\u043B\u044B\u0435
-        \u0443\u0440\u043E\u0432\u043D\u0438"
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
-    - Description: "\u041D\u0430 \u044D\u0442\u043E\u043C \u0432\u0441\u0435. \u041F\u043E\u043A\u0430"
+    - Description:
+        _texts: []
       HasArrow: 0
       Arrows: []
 --- !u!4 &1900284013
@@ -25175,7 +25055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityPopUp
   _icon: {fileID: 1290470943}
-  _levelText: {fileID: 563788481}
+  _levelTextLocalizeEvent: {fileID: 0}
   _itemNameText: {fileID: 1540264765}
   _collectedCardText: {fileID: 1985401384}
   _fillImage: {fileID: 1079814083}
@@ -26362,7 +26242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04d396d952610a44ae7cb53e6915b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bombExplosionPosition: {fileID: 225231126}
   _unitSpawner: {fileID: 221067893}
 --- !u!1 &4685619819505744891
 GameObject:
@@ -26430,23 +26309,27 @@ MonoBehaviour:
   - Icon: {fileID: 21300000, guid: 3cfe4ba70c5a64a869af65245c952b72, type: 3}
     Price: 150
     UseDonatMoney: 1
-    NameItem: "\u041E\u0431\u044B\u0447."
+    NameItem:
+      _texts: []
     _chestConfig: {fileID: 11400000, guid: e6dd322913ba20b4daf280d902086361, type: 2}
   - Icon: {fileID: 21300000, guid: d00246ab6aac74e39b93f726ce041665, type: 3}
     Price: 250
     UseDonatMoney: 1
-    NameItem: "\u0420\u0435\u0434\u043A\u0438\u0439"
+    NameItem:
+      _texts: []
     _chestConfig: {fileID: 11400000, guid: 94c715e4ce23b8c4abf0fcb8b0a4638b, type: 2}
   _coins:
   - Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     Price: 50
     UseDonatMoney: 1
-    NameItem: 150
+    NameItem:
+      _texts: []
     _getCoins: 150
   - Icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     Price: 100
     UseDonatMoney: 1
-    NameItem: 400
+    NameItem:
+      _texts: []
     _getCoins: 400
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -26469,7 +26352,6 @@ SceneRoots:
   - {fileID: 221067892}
   - {fileID: 2781073177443581671}
   - {fileID: 1350979111}
-  - {fileID: 1489376034}
   - {fileID: 810877293}
   - {fileID: 682852193}
   - {fileID: 2035367462}

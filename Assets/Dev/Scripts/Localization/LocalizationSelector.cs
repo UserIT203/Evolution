@@ -34,7 +34,7 @@ public class LocalizationSelector : ISaveSystemService
 
     public void LoadData()
     {
-        
+        CurrentLanguage = _settingData.LocaleIndex;
     }
 
     public void SaveData(SaveSystem saveSystem)

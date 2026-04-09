@@ -10,6 +10,7 @@ using UnityEngine.Localization.Tables;
 public class CollectionMenu : Menu
 {
     private const string LOCALIZATION_TABLE = "MenuLabels";
+    private const string DEFAULT_ENTRY = "menuLabel.modifierText";
 
     [System.Serializable]
     public struct RariteTexture
@@ -78,7 +79,9 @@ public class CollectionMenu : Menu
             CreateCard(abilityCard, _abilityManager, 0);
 
         foreach (var type in _cardsTypes)
-            type.OpenButton.onClick.AddListener(() => ShowCollectedCards(type.CollectionType));  
+            type.OpenButton.onClick.AddListener(() => ShowCollectedCards(type.CollectionType));
+
+        _labelNameLocalizeEvent.StringReference.SetReference(LOCALIZATION_TABLE, DEFAULT_ENTRY);
 
         ShowCollectedCards(_currentOpenCollectionType);
     }

@@ -6,8 +6,10 @@ using UnityEngine.UI;
 using Zenject;
 
 
-public class TutorialManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour, ISaveSystemService
 {
+    [Inject] private PlayerData _playerData;
+    [Inject] private LocalizationSelector _localizationSelector;
     [Inject] private GameManager _gameManager;
 
     [SerializeField] private List<TutorialStage> _stages;
@@ -69,12 +71,6 @@ public class TutorialManager : MonoBehaviour
 
     private void SetTutorialState(int tutorialIndex)
     {
-        if (tutorialIndex >= _stages.Count)
-        {
-            EndTutorial();
-            return;
-        }
-
         _isTutorial = true;
 
         Debug.Log("<color=green>Set Tutorial Stage</color>");
@@ -83,7 +79,7 @@ public class TutorialManager : MonoBehaviour
         _currentInfoIndex = 0;
         _currentStageIndex = tutorialIndex;
 
-        onSetTitle?.Invoke(_currentStage.StageName);
+        onSetTitle?.Invoke(_currentStage.StageName.GetText(_localizationSelector.CurrentLanguage));
 
         SetDescription();
         Time.timeScale = 0f;
@@ -97,7 +93,13 @@ public class TutorialManager : MonoBehaviour
             Time.timeScale = 1f;
             _isTutorial = false;
             
+            
+
             onEndStage?.Invoke();
+
+            if(_currentStageIndex >= _stages.Count - 1) EndTutorial();
+
+            return;
         }
 
         HideAllArrow();
@@ -108,14 +110,27 @@ public class TutorialManager : MonoBehaviour
 
     private void EndTutorial()
     {
+        Debug.Log("End Tutorial");
+        SaveData(new SaveSystem());
+    }
 
+    public void LoadData()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SaveData(SaveSystem saveSystem)
+    {
+        _playerData.IsNewUser = false;
+
+        saveSystem.SaveDate(_playerData, "PlayerData");
     }
 }
 
 [System.Serializable]
 public class TutorialStage
 {
-    public string StageName;
+    public LocalizeText StageName;
     public List<TutorialInfo> Info; 
 }
 
@@ -123,7 +138,7 @@ public class TutorialStage
 public class TutorialInfo
 {
     [Header("<color=red><b>Descriptions</b></color>")]
-    [TextArea(2, 10)] public string Description;
+    public LocalizeText Description;
     public bool HasArrow;
     public List<Image> Arrows;
 }
