@@ -12,17 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303ade9c1e9e0a84fb085915525637f1, type: 3}
   m_Name: RareChest
   m_EditorClassIdentifier: 
-  <Price>k__BackingField: 150
-  <CloseIcon>k__BackingField: {fileID: 21300000, guid: d00246ab6aac74e39b93f726ce041665, type: 3}
-  <OpenIcon>k__BackingField: {fileID: 21300000, guid: 9c98916e7ca084dbe9990b82e4a8b9f4, type: 3}
-  <UseDonatMoney>k__BackingField: 1
+  <CloseIcon>k__BackingField: {fileID: 21300000, guid: 683c146355dd34a45bd3be755e9adaf7, type: 3}
+  <OpenIcon>k__BackingField: {fileID: 21300000, guid: 4822a1bff2d8e480981aa9cedb418e18, type: 3}
   ChestRarity: 1
-  MinItems: 3
-  MaxItems: 6
+  MinItems: 2
+  MaxItems: 3
   RarityRollWeigth:
   - Rarity: 0
     Weigth: 100
   - Rarity: 1
-    Weigth: 100
+    Weigth: 50
   - Rarity: 2
-    Weigth: 20
+    Weigth: 10

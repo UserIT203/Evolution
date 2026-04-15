@@ -8,6 +8,7 @@ using Zenject;
 
 public class TutorialManager : MonoBehaviour, ISaveSystemService
 {
+    [Inject] private SceneLoader _sceneLoader;
     [Inject] private PlayerData _playerData;
     [Inject] private LocalizationSelector _localizationSelector;
     [Inject] private GameManager _gameManager;
@@ -92,8 +93,6 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
             Debug.Log("<color=red>End Tutorial Stage</color>");
             Time.timeScale = 1f;
             _isTutorial = false;
-            
-            
 
             onEndStage?.Invoke();
 
@@ -111,6 +110,7 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
     private void EndTutorial()
     {
         Debug.Log("End Tutorial");
+        _sceneLoader.SwitchScene(1);
         SaveData(new SaveSystem());
     }
 

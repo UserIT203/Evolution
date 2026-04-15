@@ -93,6 +93,10 @@ MonoBehaviour:
     m_Key: menuLabel.settingLanguage
     m_Metadata:
       m_Items: []
+  - m_Id: 1375404772610048
+    m_Key: menuLabel.shopPopup
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

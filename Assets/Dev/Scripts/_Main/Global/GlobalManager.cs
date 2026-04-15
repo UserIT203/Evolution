@@ -159,6 +159,12 @@ public class GlobalManager : MonoBehaviour, ICollectedCard, ISaveSystemService, 
         return false;
     }
 
+    public void GetOneModifierCard(int price)
+    {
+        if (TryRemoveCoin(price))
+            _lootManager.GetOneModifierCard();
+    }
+
     public void LoadData()
     {
         _gemCount = _globalData.GemCount;

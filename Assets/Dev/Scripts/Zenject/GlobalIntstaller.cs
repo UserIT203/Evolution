@@ -33,6 +33,8 @@ public class GlobalIntstaller : MonoInstaller
 
     private void LoadMain()
     {
+        Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle().NonLazy();
+
         Container.BindInterfacesAndSelfTo<LocalizationSelector>().AsSingle().NonLazy();
 
         AudioManager audioManager = Container.InstantiatePrefabForComponent<AudioManager>

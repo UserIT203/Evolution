@@ -6,8 +6,9 @@ using TMPro;
 using System.Linq;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Tables;
+using System;
 
-public class CollectionMenu : Menu
+public class CollectionMenu : Menu, IDisposable
 {
     private const string LOCALIZATION_TABLE = "MenuLabels";
     private const string DEFAULT_ENTRY = "menuLabel.modifierText";
@@ -20,6 +21,7 @@ public class CollectionMenu : Menu
     }
 
     [Header("UI Links")]
+    [SerializeField] private Button _buyModifierCardButton;
     [SerializeField] private LocalizeStringEvent _labelNameLocalizeEvent;
 
     [SerializeField] private RariteTexture[] _rariteTexture;
@@ -41,12 +43,25 @@ public class CollectionMenu : Menu
         _globalManager = globalManager;
         _globalManager.onLevelUpUpgrade += UpdateInfoIntoCard;
         _globalManager.onAddNewCard += CreateCard;
+        _buyModifierCardButton.onClick.AddListener(() => _globalManager.GetOneModifierCard(100));
 
         _abilityManager = abilityManager;
         _abilityManager.onLevelUpAbility += UpdateInfoIntoCard;
         _abilityManager.onAddNewCard += CreateCard;
 
         _abilityManager.onChangeAbility += ShowEquipmentAbility;
+    }
+
+    public void Dispose()
+    {
+        _globalManager.onLevelUpUpgrade -= UpdateInfoIntoCard;
+        _globalManager.onAddNewCard -= CreateCard;
+        _buyModifierCardButton.onClick.RemoveAllListeners();
+
+        _abilityManager.onLevelUpAbility -= UpdateInfoIntoCard;
+        _abilityManager.onAddNewCard -= CreateCard;
+
+        _abilityManager.onChangeAbility -= ShowEquipmentAbility;
     }
 
     private void OnDestroy()
@@ -92,6 +107,9 @@ public class CollectionMenu : Menu
 
         if (_currentOpenCollectionType == type) return;
 
+        bool isHideButton = type == CollectionType.Modifier ? true : false;
+        _buyModifierCardButton.gameObject.SetActive(isHideButton);
+
         CardType cardType = _cardsTypes.First(i => i.CollectionType == type);
         _labelNameLocalizeEvent.StringReference.SetReference(LOCALIZATION_TABLE, cardType.Name);
 
@@ -107,6 +125,7 @@ public class CollectionMenu : Menu
     private void CreateCard(CardItem cardItem, ICollectedCard handler, int count)
     {
         if (_cardsDictionary.ContainsKey(cardItem.CardID) == true) return;
+
 
         Sprite background = _rariteTexture.First(t => t.Rarity == cardItem.Rarity).Sprite;
 
