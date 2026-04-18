@@ -28,6 +28,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
 
     public void AddCoin(int value)
     {
+        QuestBus.GetInstance().onUpdateCounter?.Invoke(QuestType.CollectMoney, value);
         _coinsCount += value;
         onChangeMoney?.Invoke(_coinsCount);
     }

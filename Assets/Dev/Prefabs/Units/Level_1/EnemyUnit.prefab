@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: -2259451410702411927}
   - component: {fileID: -2302319053728571842}
   - component: {fileID: -5826657350527910682}
+  - component: {fileID: 5066480764744261863}
   m_Layer: 6
   m_Name: EnemyUnit
   m_TagString: Enemy
@@ -231,6 +232,18 @@ MonoBehaviour:
   - Name: hit
     Offset: {x: 0, y: 1, z: 0}
     Particle: {fileID: 2931607104509068050, guid: c48e64fa429d42448b9a7fab5de14c3c, type: 3}
+--- !u!114 &5066480764744261863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085498028106687210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15353e637ef99da408237e4e6b2cc418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestHandler
 --- !u!1 &3089740999063040730
 GameObject:
   m_ObjectHideFlags: 0

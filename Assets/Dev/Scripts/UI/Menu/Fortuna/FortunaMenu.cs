@@ -8,7 +8,7 @@ using System;
 
 public class FortunaMenu : Menu
 {
-    private const float TIME_SPIN = 30f;
+    private const float SPIN_DURATION_HOURS = 50f;
 
     private enum PrizeType
     {
@@ -46,6 +46,27 @@ public class FortunaMenu : Menu
     private GlobalManager _globalManager;
     private LevelUpgrade _levelUpgrade;
 
+    private DateTime? _lastSpinTime
+    {
+        get
+        {
+            string data = PlayerPrefs.GetString("lastSpinTime", null);
+
+            if (string.IsNullOrEmpty(data) == false)
+                return DateTime.Parse(data);
+
+            return null;
+        }
+
+        set
+        {
+            if (value != null)
+                PlayerPrefs.SetString("lastSpinTime", value.ToString());
+            else
+                PlayerPrefs.DeleteKey("lastSpinTime");
+        }
+    }
+
     private float _spinTimer;
     private bool _isSpinning = false;
     private float _currentAngle = 0f;
@@ -69,18 +90,19 @@ public class FortunaMenu : Menu
         _closeButton.onClick.RemoveListener(CloseMenu);
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        _spinTimer -= Time.deltaTime;
-
-        TimeSpan time = TimeSpan.FromSeconds(Mathf.Max(0, _spinTimer));
-        string timeFormat = time.ToString(@"hh\:mm\:ss");
-
-        _timeText.text = timeFormat;
+        if(Time.time - _spinTimer > 3)
+        {
+            _spinTimer = Time.time;
+            UpdateTime();
+        }
     }
 
     public override void Initialized()
     {
+        UpdateTime();
+
         CloseMenu();
 
         if(_prizes.Count > 0)
@@ -116,18 +138,33 @@ public class FortunaMenu : Menu
     {
         if (_isSpinning == true || TrySpeen() == false) return;
 
+        _lastSpinTime = DateTime.UtcNow;
+
         StartCoroutine(SpinWheel());
     }
 
     private bool TrySpeen()
     {
-        if(_spinTimer < 0)
-        {
-            _spinTimer = TIME_SPIN;
-            return true;
-        }
-            
+        if(_lastSpinTime == null) return true;
+
+        var timeSpan = DateTime.UtcNow - _lastSpinTime.Value;
+
+        if (timeSpan.Seconds >= SPIN_DURATION_HOURS) return true;
+
         return false;
+    }
+
+    private void UpdateTime()
+    {
+        if(_lastSpinTime == null)
+        {
+            _timeText.text = TimeSpan.Zero.ToString(@"hh\:mm\:ss");
+            return;
+        }
+
+        var timeRemaing = _lastSpinTime.Value.AddSeconds(SPIN_DURATION_HOURS) - DateTime.UtcNow;
+        var time = timeRemaing > TimeSpan.Zero ? timeRemaing : TimeSpan.Zero;
+        _timeText.text = time.ToString(@"hh\:mm\:ss");
     }
 
     private IEnumerator SpinWheel()

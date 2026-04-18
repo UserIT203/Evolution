@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 3145073323280862910}
   - component: {fileID: 368786909563621056}
   - component: {fileID: 118461614837035458}
+  - component: {fileID: 8181064617746312383}
   m_Layer: 6
   m_Name: EnemyUnit_4_Melle
   m_TagString: Enemy
@@ -352,10 +353,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _coinViewUI: {fileID: 0}
+  _spawnOffset: {x: 0, y: 0, z: 0}
   _effects:
   - Name: hit
     Offset: {x: 0, y: 1, z: 0}
     Particle: {fileID: 2931607104509068050, guid: c48e64fa429d42448b9a7fab5de14c3c, type: 3}
+--- !u!114 &8181064617746312383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241429319909979898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15353e637ef99da408237e4e6b2cc418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestHandler
 --- !u!1 &4247361746470680996
 GameObject:
   m_ObjectHideFlags: 0

@@ -102,6 +102,17 @@ public class UnitSpawner : MonoBehaviour, ILevelHandler
         unit.gameObject.SetActive(true);
 
         TrackedActiveUnit(unit, _activePlayerUnits);
+
+        if (unit.UnitConfig.UnitType == UnitType.Melee)
+            QuestBus.GetInstance().onUpdateCounter?.Invoke(QuestType.SpawnMelleUnits, 1);
+
+        if (unit.UnitConfig.UnitType == UnitType.Ranged)
+            QuestBus.GetInstance().onUpdateCounter?.Invoke(QuestType.SpawnRangedUnits, 1);
+
+        if (unit.UnitConfig.UnitType == UnitType.Heavy)
+            QuestBus.GetInstance().onUpdateCounter?.Invoke(QuestType.SpawnHeavyUnits, 1);
+
+        QuestBus.GetInstance().onUpdateCounter?.Invoke(QuestType.SpawnUnits, 1);
     }
 
     public IReadOnlyList<UnitBase> GetActiveEnemiesList() => _activeEnemiesUnits;

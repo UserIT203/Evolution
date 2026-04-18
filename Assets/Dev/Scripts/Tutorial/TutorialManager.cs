@@ -8,9 +8,9 @@ using Zenject;
 
 public class TutorialManager : MonoBehaviour, ISaveSystemService
 {
+    [Inject] private LocalizationSelector _localizationSelector;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private PlayerData _playerData;
-    [Inject] private LocalizationSelector _localizationSelector;
     [Inject] private GameManager _gameManager;
 
     [SerializeField] private List<TutorialStage> _stages;

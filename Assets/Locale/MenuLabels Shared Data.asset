@@ -97,6 +97,14 @@ MonoBehaviour:
     m_Key: menuLabel.shopPopup
     m_Metadata:
       m_Items: []
+  - m_Id: 3237864127385600
+    m_Key: menuLabel.questLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3302647841214464
+    m_Key: menuLabel.questBottom
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -8,11 +8,13 @@ public class LocalizationSelector : ISaveSystemService
 {
     [Inject] private SettingData _settingData;
 
+
     public int CurrentLanguage { get; private set; }
 
     private bool _isActive = false;
 
     public Action onChangeLocale;
+
 
     public IEnumerator SetLocalization(int localeID)
     {

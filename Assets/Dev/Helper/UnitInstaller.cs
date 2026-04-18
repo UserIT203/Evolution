@@ -27,8 +27,11 @@ public class UnitInstaller : MonoBehaviour
         }
 
         if (_isEnemy == true)
+        {
             gameObject.AddComponent<LootBag>();
-
+            gameObject.AddComponent<QuestHandler>();
+        }
+            
         gameObject.AddComponent<UnitAnimation>();
         gameObject.AddComponent<StatsController>();
         gameObject.AddComponent<UnitEffect>();

@@ -29,6 +29,9 @@ public class GlobalIntstaller : MonoInstaller
 
         PlayerData playerData = _saveSystem.LoadData<PlayerData>("PlayerData");
         Container.BindInstance(playerData).AsSingle().NonLazy();
+
+        QuestSaveData questData = _saveSystem.LoadData<QuestSaveData>("QuestSaveData");
+        Container.BindInstance(questData).AsSingle().NonLazy();
     }
 
     private void LoadMain()

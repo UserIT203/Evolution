@@ -7,7 +7,7 @@ using Zenject;
 
 public class TutorialView : MonoBehaviour
 {
-    [Inject] private LocalizationSelector _localizeSelector;
+    [Inject] private LocalizationSelector _localizationSelector;
 
     [Header("<color=green>Text Animation Settings</color>")]
     [SerializeField] private float _duration = 1.5f;
@@ -54,7 +54,7 @@ public class TutorialView : MonoBehaviour
     public void SetTutorialInfo(TutorialInfo info)
     {
         PlayAnimationHead();
-        PlayTextAnimatio(info.Description.GetText(_localizeSelector.CurrentLanguage));
+        PlayTextAnimatio(info.Description.GetText(_localizationSelector.CurrentLanguage));
         info.Arrows.ForEach(i => i.enabled = true);
     }
 

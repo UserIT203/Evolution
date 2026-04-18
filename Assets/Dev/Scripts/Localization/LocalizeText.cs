@@ -14,5 +14,9 @@ public class LocalizeText
 
     [SerializeField] private List<Localize> _texts;
 
-    public string GetText(int language) => _texts.Find(i => i.LocalizeLabel == language).Text;
+    public string GetText(int localIndex)
+    {
+        return _texts.Find(
+            i => i.LocalizeLabel == localIndex).Text;
+    }
 }

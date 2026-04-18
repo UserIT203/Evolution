@@ -28,5 +28,6 @@ public class LevelInstailer : MonoInstaller
     {
         Container.Bind<MenuManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GlobalManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<QuestPresentation>().FromComponentInHierarchy().AsSingle();
     }
 }

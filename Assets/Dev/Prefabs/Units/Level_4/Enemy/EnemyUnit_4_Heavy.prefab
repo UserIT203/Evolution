@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 3989060194167212820}
   - component: {fileID: 4199204392577040588}
   - component: {fileID: 7389068981989932217}
+  - component: {fileID: 6829451846152141555}
   m_Layer: 6
   m_Name: EnemyUnit_4_Heavy
   m_TagString: Enemy
@@ -383,10 +384,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _coinViewUI: {fileID: 0}
+  _spawnOffset: {x: 0, y: 0, z: 0}
   _effects:
   - Name: hit
     Offset: {x: 0, y: 1, z: 0}
     Particle: {fileID: 3126219559072132613, guid: 12e0c40927107ae48bd977cc6a5ae5fb, type: 3}
+--- !u!114 &6829451846152141555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590473403925811189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15353e637ef99da408237e4e6b2cc418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestHandler
 --- !u!1 &8171343065826222451
 GameObject:
   m_ObjectHideFlags: 0
