@@ -37,7 +37,6 @@ public class UnitSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-
         SpawnBus.GetInstance().onSpawnEnemyUnit += SpawnUnit;
         SpawnBus.GetInstance().onSpawnPlayerUnit += SpawnUnit;
     }

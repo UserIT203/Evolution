@@ -7,6 +7,7 @@ using Zenject;
 
 public class LevelBuilder : MonoBehaviour, IInitialized
 {
+    [Inject] private SceneLoader _sceneLoader;
     [Inject] private AssetProvider _assetProvider;
     [Inject] private DiContainer _DIContainer;
 
@@ -44,11 +45,6 @@ public class LevelBuilder : MonoBehaviour, IInitialized
         GameManager.onEnd -= ClearAll;
     }
 
-    private void OnDestroy()
-    {
-        _assetProvider.UnloadAllAssets().Forget();
-    }
-
     public void Initialized()
     {
         GameManager.onEnd += ClearAll;
@@ -78,15 +74,18 @@ public class LevelBuilder : MonoBehaviour, IInitialized
     {
         if (_levelsRoots.Count <= 0) return;
 
+        _assetProvider.UnloadAllAssets().Forget();
+
         foreach (var levelRoot in _levelsRoots)
         {
-            if(transform.GetChild(0).gameObject != null)
+            if (transform.GetChild(0).gameObject != null)
                 DestroyImmediate(transform.GetChild(0).gameObject, false);
         }
 
-        _assetProvider.UnloadAllAssets().Forget();
         _currentLevelOrder = int.MaxValue;
         _levelsRoots.Clear();
+
+        _sceneLoader.UnloadScene(3).Forget();
     }
 
     public void SetNextLevel()

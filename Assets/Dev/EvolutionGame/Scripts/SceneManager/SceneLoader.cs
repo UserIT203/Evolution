@@ -1,9 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader
@@ -37,6 +35,21 @@ public class SceneLoader
         await bootstraps.FirstOrDefault(i => i.gameObject.scene == targetScene).Initialized(args);
 
         Debug.Log($"<color=black>End Load Scene With Index {sceneIndex}</color>");
+
+        onEndLoadScene?.Invoke();
+    }
+
+    public async UniTask UnloadScene(int sceneIndex)
+    {
+        if (_isSwitch == true) return;
+
+        _isSwitch = true;
+
+        onStartLoadScene?.Invoke();
+
+        await SceneManager.UnloadSceneAsync(sceneIndex);
+
+        _isSwitch = false;
 
         onEndLoadScene?.Invoke();
     }

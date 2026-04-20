@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Linq;
 
 public class AssetProvider
 {
@@ -31,20 +32,21 @@ public class AssetProvider
         if (_assetHandles.TryGetValue(reference, out var handle) == false)
             return;
 
-        Addressables.ReleaseInstance(handle);
         Addressables.Release(handle);
 
-        _assetHandles.Remove(reference);
-        _referenceCount.Remove(reference);
+        //_assetHandles.Remove(reference);
+        //_referenceCount.Remove(reference);
     }
 
     public async UniTask UnloadAllAssets()
     {
         Debug.Log($"<color=black>Asset count {_assetHandles.Count}</color>");
 
-        foreach (var asset in _assetHandles)
+        foreach (KeyValuePair<string,AsyncOperationHandle> loadOperation in _assetHandles.ToList())
         {
-            Unload(asset.Key);
+            Addressables.Release(loadOperation.Value);
+            _assetHandles.Remove(loadOperation.Key);
+            _referenceCount.Remove(loadOperation.Key);
         }
 
         await UniTask.CompletedTask;
