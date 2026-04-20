@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85653adeb830024b81725c37f8b1084, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSpawnConfig
+  _typeObjects:
+  - Type: 0
+    Objects:
+    - m_AssetGUID: 9b3ac4c61bafee845a81648933dc47b0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - Type: 1
+    Objects:
+    - m_AssetGUID: 4d29cb5ec53cc404abf701d3fcc9d456
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - Type: 2
+    Objects:
+    - m_AssetGUID: ec08c44b7a4c4ed4394e4eeee37836b2
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - Type: 3
+    Objects:
+    - m_AssetGUID: 5d511da69d6195546a332dc9891b3239
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 9787bf15c45824143a42835e0537f10b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: f725902d5adb6e2429fbb35220475ee4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: d0637671180e22f4086f09e33a105b89
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 7cd78105d034fb545ba32b93f81d6c00
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: a7b504fc99665aa45b4c46cf9bad28e7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - Type: 4
+    Objects:
+    - m_AssetGUID: 194ecb4be7a1ae2488f3ceec252005be
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0

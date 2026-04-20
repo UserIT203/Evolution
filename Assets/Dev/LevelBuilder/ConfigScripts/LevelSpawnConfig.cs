@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using System.Collections.Generic;
 
 public class LevelSpawnConfig : ScriptableObject
 {
     [SerializeField] private List<GameObjectList> _typeObjects = new List<GameObjectList>();
     
-    public Dictionary<LevelTypeObject, List<GameObject>> TypeObjects
+    public Dictionary<LevelTypeObject, List<AssetReferenceGameObject>> TypeObjects
     {
         get
         {
-            var dict = new Dictionary<LevelTypeObject, List<GameObject>>();
+            var dict = new Dictionary<LevelTypeObject, List<AssetReferenceGameObject>>();
 
             foreach (var obj in _typeObjects)
             {
@@ -20,7 +21,7 @@ public class LevelSpawnConfig : ScriptableObject
         }
     }
 
-    public void SetData( Dictionary<LevelTypeObject, List<GameObject>> typeObjects)
+    public void SetData(Dictionary<LevelTypeObject, List<AssetReferenceGameObject>> typeObjects)
     {
         _typeObjects.Clear();
 
@@ -29,7 +30,7 @@ public class LevelSpawnConfig : ScriptableObject
             _typeObjects.Add(new GameObjectList
             {
                 Type = kvp.Key,
-                Objects = new List<GameObject>(kvp.Value)
+                Objects = new List<AssetReferenceGameObject>(kvp.Value)
             });
         }
     }
@@ -39,5 +40,5 @@ public class LevelSpawnConfig : ScriptableObject
 public class GameObjectList
 {
     public LevelTypeObject Type;
-    public List<GameObject> Objects;
+    public List<AssetReferenceGameObject> Objects;
 }

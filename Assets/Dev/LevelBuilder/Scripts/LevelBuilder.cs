@@ -1,14 +1,17 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
-public class LevelBuilder : MonoBehaviour
+public class LevelBuilder : MonoBehaviour, IInitialized
 {
+    [Inject] private AssetProvider _assetProvider;
     [Inject] private DiContainer _DIContainer;
 
     [Header("Main Settings")]
+    [SerializeField] private NavMeshSurface _meshSurface;
     [SerializeField] private LevelGridConfig _gridConfig;
     [SerializeField] private Vector3 _levelCenter;
     [SerializeField] private List<LevelOptions> _levels;
@@ -19,7 +22,8 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] private int _propsPerCellMax = 5;
     [SerializeField] private float propsScatterRadius = 0.4f;
 
-    private UnitSpawner _unitSpawner;
+    [HideInInspector] public UnitSpawner UnitSpawner;
+    [HideInInspector] public GameManager GameManager;
 
     private int _cellSize;
     private int _currentLevelOrder = int.MaxValue;
@@ -35,15 +39,19 @@ public class LevelBuilder : MonoBehaviour
         }
     }
 
-    [Inject]
-    public void Construct(UnitSpawner unitSpawner)
+    private void OnDisable()
     {
-        _unitSpawner = unitSpawner;
+        GameManager.onEnd -= ClearAll;
+    }
 
-        if (_levelsRoots.Count == 0)
-        {
-            SpawnLevels();
-        }
+    private void OnDestroy()
+    {
+        _assetProvider.UnloadAllAssets().Forget();
+    }
+
+    public void Initialized()
+    {
+        GameManager.onEnd += ClearAll;
     }
 
     public void SetBuildSettings(List<LevelSpawnConfig> levelsConfigs)
@@ -64,8 +72,6 @@ public class LevelBuilder : MonoBehaviour
 
             _levels.Add(newOption);
         }
-
-        SpawnLevels();
     }
 
     public void ClearAll()
@@ -78,6 +84,7 @@ public class LevelBuilder : MonoBehaviour
                 DestroyImmediate(transform.GetChild(0).gameObject, false);
         }
 
+        _assetProvider.UnloadAllAssets().Forget();
         _currentLevelOrder = int.MaxValue;
         _levelsRoots.Clear();
     }
@@ -94,26 +101,26 @@ public class LevelBuilder : MonoBehaviour
         SetActiveLevel(newOrder);
     }
 
-    public void SpawnLevels()
+    public async UniTask SpawnLevel(int levelIndex)
     {
-        foreach (LevelOptions level in _levels)
+        LevelOptions level = _levels[levelIndex];
+
+        GameObject levelRoot = new GameObject($"LevelRoot{level.Order}");
+        levelRoot.transform.SetParent(transform, false);
+
+        LevelRoot newLevelLinks = new LevelRoot
         {
-            GameObject levelRoot = new GameObject($"LevelRoot{level.Order}");
-            levelRoot.transform.SetParent(transform, false);
+            Order = level.Order,
+            ChildIndex = level.Order
+        };
 
-            LevelRoot newLevelLinks = new LevelRoot {
-                Order = level.Order,
-                ChildIndex = level.Order
-            };
+        _levelsRoots.Add(newLevelLinks);
 
-            _levelsRoots.Add(newLevelLinks);
+        await SpawnLevelObjects(level, newLevelLinks);
 
-            SpawnLevelObjects(level, newLevelLinks);
-        }
+        _meshSurface.BuildNavMesh();
 
-        EditorUtility.SetDirty(this);
-
-        SetActiveLevel(0);
+        SetActiveLevel(levelIndex);
     }
 
     public void RebuildSelectedLevel()
@@ -139,9 +146,9 @@ public class LevelBuilder : MonoBehaviour
 
             _levelsRoots.Add(newLevelLinks);
 
-            SpawnLevelObjects(levelOptions, newLevelLinks);
+            SpawnLevelObjects(levelOptions, newLevelLinks).Forget();
 
-            EditorUtility.SetDirty(this);
+            //EditorUtility.SetDirty(this);
         }
     }
 
@@ -157,6 +164,7 @@ public class LevelBuilder : MonoBehaviour
             transform.GetChild(levelLinks.ChildIndex).gameObject.SetActive(true);
 
             SetTowers();
+
         }
     }
 
@@ -170,7 +178,7 @@ public class LevelBuilder : MonoBehaviour
         }
     }
 
-    private void SpawnLevelObjects(LevelOptions levelOptions, LevelRoot levelRoot)
+    private async UniTask SpawnLevelObjects(LevelOptions levelOptions, LevelRoot levelRoot)
     {
         var cell = _gridConfig.GetCellObjects();
         var objectByType = levelOptions.Config.TypeObjects;
@@ -179,7 +187,7 @@ public class LevelBuilder : MonoBehaviour
         int childIndex = _levelsRoots.Find(item => item.Order == levelOptions.Order).ChildIndex;
         Transform root = transform.GetChild(childIndex);
 
-        SpawnPlane(objectByType[LevelTypeObject.Plane][0], root);
+        await SpawnPlane(objectByType[LevelTypeObject.Plane][0], root);
 
         int index = 0;
 
@@ -201,21 +209,21 @@ public class LevelBuilder : MonoBehaviour
                 switch (cell[index])
                 {
                     case LevelTypeObject.Props:
-                        SpawnProps(cellCenter, objectByType[cell[index]], root);
+                        await SpawnProps(cellCenter, objectByType[cell[index]], root);
                         break;
                     
                     case LevelTypeObject.PlayerTower :
                         levelRoot.PlayerTower = 
-                            SpawnTower(index, cell, cellCenter, objectByType[cell[index]][0], root);
+                             await SpawnTower(index, cell, cellCenter, objectByType[cell[index]][0], root);
                         break;
 
                     case LevelTypeObject.EnemyTower:
                         levelRoot.EnemyTower = 
-                            SpawnTower(index, cell, cellCenter, objectByType[cell[index]][0], root);
+                            await SpawnTower(index, cell, cellCenter, objectByType[cell[index]][0], root);
                         break;
 
                     case LevelTypeObject.Road:
-                        SpawnRoad(cellCenter, objectByType[cell[index]], root);
+                        await SpawnRoad(cellCenter, objectByType[cell[index]], root);
                         break;
                 }
 
@@ -224,15 +232,18 @@ public class LevelBuilder : MonoBehaviour
         }
     }
 
-    private void SpawnPlane(GameObject plane, Transform root)
+    private async UniTask SpawnPlane(AssetReferenceGameObject reference, Transform root)
     {
         float totalWidth = _gridConfig.Col * _cellSize;
         float totalDepth = _gridConfig.Row * _cellSize;
 
         Vector3 position = new Vector3(_levelCenter.x, 0f, _levelCenter.z);
 
-        GameObject planeObject = Instantiate(plane, position, Quaternion.identity, root);
-    
+        GameObject planePrefab = await _assetProvider.Load<GameObject>(reference);
+
+        GameObject planeObject = Instantiate(planePrefab, position, Quaternion.identity, root);
+        planeObject.transform.SetParent(root);
+
         Renderer renderer = planeObject.GetComponent<Renderer>();
 
         Vector3 localSize = planeObject.transform.InverseTransformVector(renderer.bounds.size);
@@ -254,26 +265,30 @@ public class LevelBuilder : MonoBehaviour
         planeObject.transform.localScale = new Vector3(scaleX, localSize.y, scaleZ);
     }
 
-    private void SpawnProps(Vector3 cellCenter, List<GameObject> props, Transform root)
+    private async UniTask SpawnProps(Vector3 cellCenter, List<AssetReferenceGameObject> props, Transform root)
     {
         int count = UnityEngine.Random.Range(_propsPerCellMin, _propsPerCellMax + 1);
 
         for (int i = 0; i < count; i++)
         {
-            GameObject prefab = props[UnityEngine.Random.Range(0, props.Count)];
+            AssetReferenceGameObject reference = props[UnityEngine.Random.Range(0, props.Count)];
 
-            if (prefab == null) continue;
+            if (reference == null) continue;
 
             Vector2 offset = UnityEngine.Random.insideUnitCircle * propsScatterRadius;
             Vector3 position = cellCenter + new Vector3(offset.x, 0f, offset.y);
-        
-            Instantiate(prefab, position, Quaternion.identity, root);
+
+            GameObject propPrefab = await _assetProvider.Load<GameObject>(reference);
+
+            if(propPrefab != null) 
+                Instantiate(propPrefab, position, Quaternion.identity, root);
         }
     }
 
-    private void SpawnRoad(Vector3 cellCenter, List<GameObject> road, Transform root)
+    private async UniTask SpawnRoad(Vector3 cellCenter, List<AssetReferenceGameObject> road, Transform root)
     {
-        GameObject roadObject = Instantiate(road[0], cellCenter, Quaternion.identity, root);
+        GameObject roadPrefab = await _assetProvider.Load<GameObject>(road[0]);
+        GameObject roadObject = Instantiate(roadPrefab, cellCenter, Quaternion.identity, root);
 
         Renderer renderer = roadObject.GetComponent<Renderer>();
 
@@ -290,11 +305,11 @@ public class LevelBuilder : MonoBehaviour
         roadObject.transform.localScale = new Vector3(scaleX, roadObject.transform.localScale.y, scaleZ);
     }
 
-    private Transform SpawnTower(
+    private async UniTask<Transform> SpawnTower(
         int index,
         List<LevelTypeObject> grid,
         Vector3 cellCenter, 
-        GameObject tower, 
+        AssetReferenceGameObject refrence, 
         Transform root)
     {
         bool roadOnLeft = grid[index - 1] == LevelTypeObject.Road;
@@ -302,8 +317,10 @@ public class LevelBuilder : MonoBehaviour
 
         float halfCell = _cellSize / 2f;
 
+        GameObject towerPrefab = await _assetProvider.Load<GameObject>(refrence);
+
         Vector3 towerPosition = cellCenter;
-        Vector3 extents = tower.GetComponent<Renderer>().bounds.extents;
+        Vector3 extents = towerPrefab.GetComponent<Renderer>().bounds.extents;
 
         Quaternion towerRotation = Quaternion.identity;
 
@@ -320,7 +337,9 @@ public class LevelBuilder : MonoBehaviour
 
         Debug.Log($"Tower root {root}");
 
-        GameObject towerObject = Instantiate(tower, towerPosition, towerRotation, root);
+        GameObject towerObject = Instantiate(towerPrefab, towerPosition, towerRotation, root);
+
+        towerObject.GetComponent<Tower>().GameManager = GameManager;
         _DIContainer?.Inject(towerObject.GetComponent<Tower>());
 
         return towerObject.transform;
@@ -333,7 +352,7 @@ public class LevelBuilder : MonoBehaviour
         Transform enemyTower = levelRoot.EnemyTower;
         Transform playerTower = levelRoot.PlayerTower;
     
-        _unitSpawner?.SetTowers(enemyTower, playerTower);
+        UnitSpawner.SetTowers(enemyTower, playerTower);
     }
 }
 

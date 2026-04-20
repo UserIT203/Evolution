@@ -10,12 +10,6 @@ public class LevelBuilderEditor : Editor
 
         LevelBuilder levelBuilder = target as LevelBuilder;
 
-        if(GUILayout.Button("Create Levels"))
-        {
-            levelBuilder.SpawnLevels();
-            Debug.Log("Create Levels");
-        }
-
         if(GUILayout.Button("Rebuild Current Level"))
         {
             levelBuilder.RebuildSelectedLevel();

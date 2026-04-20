@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.AddressableAssets;
+using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using static UnityEngine.Rendering.STP;
+using UnityEngine.AddressableAssets;
 
 public class LevelBuilderWindow : EditorWindow
 {
-    private const string LEVEL_CONFIG_PATH = "Assets/Dev/Config/LevelBuilder";
-    private const string GRID_CONFIG_PATH = "Assets/Dev/Config/LevelBuilder/LevelGridConfig.asset";
+    private const string LEVEL_CONFIG_PATH = "Assets/Dev/EvolutionGame/Config/LevelBuilder";
+    private const string GRID_CONFIG_PATH = "Assets/Dev/EvolutionGame/Config/LevelBuilder/LevelGridConfig.asset";
  
     private const float CELL_MULTIPLE = 10;
     private const int CELL_MAX_SIZE = 10;
@@ -30,7 +31,7 @@ public class LevelBuilderWindow : EditorWindow
     private Dictionary<LevelTypeObject, Vector2> _objectScrollPositions = new();
     private Dictionary<LevelTypeObject, bool> _foldoutStates = new();
 
-    private Dictionary<LevelTypeObject, List<GameObject>> _typeObjects;
+    private Dictionary<LevelTypeObject, List<AssetReferenceGameObject>> _typeObjects;
     
     [MenuItem("Window/LevelBuilder")]
     public static void ShowWindow()
@@ -198,8 +199,17 @@ public class LevelBuilderWindow : EditorWindow
 
             if (newObject != null)
             {
-                if (_typeObjects[obj.Key].Contains(newObject) == false)
-                    _typeObjects[obj.Key].Add(newObject);
+                string path = AssetDatabase.GetAssetPath(newObject);
+                AddressableAssetSettings settings = AddressableAssetSettingsDefaultObject.Settings;
+                AddressableAssetEntry entry = settings.FindAssetEntry(AssetDatabase.AssetPathToGUID(path));
+
+                if(entry != null)
+                {
+                    AssetReferenceGameObject asset = new AssetReferenceGameObject(entry.guid);
+
+                    if (_typeObjects[obj.Key].Contains(asset) == false)
+                        _typeObjects[obj.Key].Add(asset);
+                }
             }
 
             if (_foldoutStates.ContainsKey(obj.Key) == false)
@@ -234,7 +244,7 @@ public class LevelBuilderWindow : EditorWindow
                         EditorGUILayout.BeginHorizontal();
 
                         if (item != null)
-                            EditorGUILayout.ObjectField(item, typeof(GameObject), true);
+                            EditorGUILayout.ObjectField(item.editorAsset, typeof(GameObject), true);
                         else
                             EditorGUILayout.LabelField("<null>");
 
@@ -307,13 +317,13 @@ public class LevelBuilderWindow : EditorWindow
     {
         LoadOrCreateGridConfig();
 
-        _typeObjects = new Dictionary<LevelTypeObject, List<GameObject>> ();
+        _typeObjects = new Dictionary<LevelTypeObject, List<AssetReferenceGameObject>> ();
 
-        _typeObjects.Add(LevelTypeObject.Plane, new List<GameObject>());
-        _typeObjects.Add(LevelTypeObject.PlayerTower, new List<GameObject>());
-        _typeObjects.Add(LevelTypeObject.EnemyTower, new List<GameObject>());
-        _typeObjects.Add(LevelTypeObject.Props, new List<GameObject>());
-        _typeObjects.Add(LevelTypeObject.Road, new List<GameObject>());
+        _typeObjects.Add(LevelTypeObject.Plane, new List<AssetReferenceGameObject>());
+        _typeObjects.Add(LevelTypeObject.PlayerTower, new List<AssetReferenceGameObject>());
+        _typeObjects.Add(LevelTypeObject.EnemyTower, new List<AssetReferenceGameObject>());
+        _typeObjects.Add(LevelTypeObject.Props, new List<AssetReferenceGameObject>());
+        _typeObjects.Add(LevelTypeObject.Road, new List<AssetReferenceGameObject>());
     }
 
     private void LoadOrCreateGridConfig()

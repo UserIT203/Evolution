@@ -5,15 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Dev/_MultiScene/Scene/Bootstrap.unity
     guid: 327e108a00dd3cf42bcab4bc75cf5731
   - enabled: 1
-    path: Assets/Dev/_Scene/GamePlay.unity
-    guid: 7f5732cda08e6524e98be003621a631d
+    path: Assets/Dev/EvolutionGame/_Scene/Bootstrap.unity
+    guid: 96eb66c3da1c8234792f198fa262461a
   - enabled: 1
-    path: Assets/Dev/_Scene/Tutotial_New.unity
+    path: Assets/Dev/Addresable/Scenes/GamePlay_2.unity
+    guid: f06174cc9721ffb489a46ed2daf817de
+  - enabled: 1
+    path: Assets/Dev/EvolutionGame/_Scene/Tutotial_New.unity
     guid: a00ffb6300b9cd64794b9a56374ff7d1
+  - enabled: 1
+    path: Assets/Dev/Addresable/Scenes/Enviroument.unity
+    guid: 388cafa69e34b804f8b3c010a938202a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 21e159230adf671459bf6f3fddf49593, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

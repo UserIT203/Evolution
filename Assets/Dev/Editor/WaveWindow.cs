@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class WaveWindow : EditorWindow
 {
-    private const string PATH_TO_SAVE_CONFIG = "Assets/Dev/Config/Levels";
+    private const string PATH_TO_SAVE_CONFIG = "Assets/Dev/EvolutionGame/Config/Levels";
 
     private int _currentWaveIndex = -1;
     private int _curentStageIndex = -1;
