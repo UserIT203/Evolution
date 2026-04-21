@@ -192,6 +192,6 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
             LevelsSettings[_currentSelectLevel]
             );
 
-        _sceneLoader.SwitchScene(3, LoadSceneMode.Additive, args).Forget();
+        _sceneLoader.SwitchScene("GamePlayScene", LoadSceneMode.Additive, args).Forget();
     }
 }

@@ -12,7 +12,6 @@ public class TutorialView : MonoBehaviour
     [Header("<color=green>Text Animation Settings</color>")]
     [SerializeField] private float _duration = 1.5f;
     [SerializeField] private Ease _ease = Ease.OutQuad;
-    [SerializeField] private bool _enableRichText = true;
     [SerializeField] private float _soundInterval;
 
     [Header("<color=green>Talking Animation Settings</color>")]

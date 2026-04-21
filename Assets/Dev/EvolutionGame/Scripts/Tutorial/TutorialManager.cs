@@ -111,7 +111,7 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
     private void EndTutorial()
     {
         Debug.Log("End Tutorial");
-        _sceneLoader.SwitchScene(1).Forget();
+        _sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
         SaveData(new SaveSystem());
     }
 

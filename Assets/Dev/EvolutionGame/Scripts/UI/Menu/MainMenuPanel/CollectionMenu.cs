@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using TMPro;
 using System.Linq;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Tables;
 using System;
+using TMPro;
 
 public class CollectionMenu : Menu, IDisposable
 {
@@ -23,6 +23,13 @@ public class CollectionMenu : Menu, IDisposable
     [Header("UI Links")]
     [SerializeField] private Button _buyModifierCardButton;
     [SerializeField] private LocalizeStringEvent _labelNameLocalizeEvent;
+
+    [Header("Modifier UI Links")]
+    [SerializeField] private TMP_Text _damageModifier;
+    [SerializeField] private TMP_Text _healthModifier;
+    [SerializeField] private TMP_Text _speedModifier;
+
+    [Space(5f)]
 
     [SerializeField] private RariteTexture[] _rariteTexture;
     [SerializeField] private CardType[] _cardsTypes;
@@ -78,6 +85,8 @@ public class CollectionMenu : Menu, IDisposable
     public override void OpenMenu()
     {
         _canvasGroup.Show();
+
+        FillModifierText();
     }
 
     public override void Initialized()
@@ -99,6 +108,13 @@ public class CollectionMenu : Menu, IDisposable
         _labelNameLocalizeEvent.StringReference.SetReference(LOCALIZATION_TABLE, DEFAULT_ENTRY);
 
         ShowCollectedCards(_currentOpenCollectionType);
+    }
+
+    private void FillModifierText()
+    {
+        _damageModifier.text = "x" + _globalManager.DamageMultiplier.GetValue().ToString();
+        _healthModifier.text = "x" + _globalManager.HealthMultiplier.GetValue().ToString();
+        _speedModifier.text = "x" + _globalManager.SpeedMultiplier.GetValue().ToString();
     }
 
     private void ShowCollectedCards(CollectionType type)
@@ -156,6 +172,8 @@ public class CollectionMenu : Menu, IDisposable
 
     private void UpdateInfoIntoCard(CardItem item)
     {
+        FillModifierText();
+
         CardUIView cardView = _cardsDictionary[item.CardID];
         cardView.UpdateInfo();
     }

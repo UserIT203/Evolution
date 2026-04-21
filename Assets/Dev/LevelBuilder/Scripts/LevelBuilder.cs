@@ -85,7 +85,7 @@ public class LevelBuilder : MonoBehaviour, IInitialized
         _currentLevelOrder = int.MaxValue;
         _levelsRoots.Clear();
 
-        _sceneLoader.UnloadScene(3).Forget();
+        _sceneLoader.UnloadScene("GamePlayScene").Forget();
     }
 
     public void SetNextLevel()

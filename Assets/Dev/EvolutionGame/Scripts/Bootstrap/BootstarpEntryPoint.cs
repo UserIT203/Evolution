@@ -29,8 +29,8 @@ public class BootstarpEntryPoint : MonoBehaviour
     private void LoadScene(PlayerData playerData, SceneLoader sceneLoader)
     {
         if (playerData.IsNewUser == true)
-            sceneLoader.SwitchScene(1).Forget();
+            sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
         else
-            sceneLoader.SwitchScene(1).Forget();
+            sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
     }
 }
