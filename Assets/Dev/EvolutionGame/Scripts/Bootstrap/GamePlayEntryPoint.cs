@@ -21,8 +21,10 @@ public class GamePlayEntryPoint : Bootstrap
         _container.Inject(_container.Resolve<SaveManager>());
 
         _questModel.Initialized();
-        _questPresentation.Initialized();
+
         _container.Resolve<SaveManager>().Initialized();
+
+        _questPresentation.Initialized();
 
         _container.Resolve<MenuManager>().Initialized();
         _container.Resolve<AbilityManager>().Initialized();

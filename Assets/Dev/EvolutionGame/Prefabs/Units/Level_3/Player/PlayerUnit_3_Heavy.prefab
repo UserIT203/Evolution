@@ -1349,6 +1349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _coinViewUI: {fileID: 0}
+  _spawnOffset: {x: 0, y: 0, z: 0}
   _effects:
   - Name: hit
     Offset: {x: 0, y: 1, z: 0}

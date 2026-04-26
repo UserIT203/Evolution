@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Era_1_Level_4
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Era_1_Level_4
+  m_GUID: 9e0d237b2e308294f97efe76920097c9
+  m_SerializeEntries:
+  - m_GUID: 068d6066a612d0447a6e247e215debb3
+    m_Address: Prop_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c77490dc326cf74685d7cd01ebef6e5
+    m_Address: Prop_9
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f11a9cb0bcb87e4da3cb29533450bb4
+    m_Address: Prop_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43e8729766fc9a0428d6101cf6fab4d8
+    m_Address: Prop_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85c5fbe16b4ac7c448b33a76a65df37f
+    m_Address: Player_Tower
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ede1d971490cc24b99ab408b63a07e1
+    m_Address: Enemy_Tower
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9049672411800dd44a846e6ec10f001c
+    m_Address: Prop_8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfdde6e6cd9ce4d4f96c9f346d3ec795
+    m_Address: Prop_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee26ac0d6385d844c92f11f785232193
+    m_Address: Prop_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb69906a4aa252f44a70feb9262d4fd6
+    m_Address: Prop_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffdad5ec6e1defe44b9baaf7291fe013
+    m_Address: Prop_7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 26ac34b7e52b09948a527ac94eac4293, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 592f5dd8b3e3b7d428c524f960137a30, type: 2}
+    - {fileID: 11400000, guid: 4bb6a4a5b6dbd684b93da2ec9cfbb69d, type: 2}

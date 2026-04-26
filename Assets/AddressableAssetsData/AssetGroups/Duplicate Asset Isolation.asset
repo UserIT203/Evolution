@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Duplicate Asset Isolation
+  m_GUID: 4ac18089f1584254d8530d0f8cd6e16c
+  m_SerializeEntries:
+  - m_GUID: 0e43ba6668c9bbd4d84e3cec581cf7f7
+    m_Address: Assets/VFXPACK_IMPACT_WALLCOEUR_FreeVersion/03_Texture/ImpactValoPixel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25601e9b14b1d3c4cac8f7e6b4668d2d
+    m_Address: Assets/Dev/EvolutionGame/Items/Coins.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3043af5108c50a9469e236ca25e0b5d5
+    m_Address: Assets/VFXPACK_IMPACT_WALLCOEUR_FreeVersion/01_Material/Pixel/ImpactPixel
+      1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 313fcf3aebc04cf4ab4f8c5f2850be7f
+    m_Address: Assets/ImportPackages/SimpleToon/Shader/ToonLightBase.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36e335017ad71d54fbb10842863188ae
+    m_Address: Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/FallbackShader.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48dede9b49188ad4c8bd79326d50783d
+    m_Address: Assets/VFXPACK_IMPACT_WALLCOEUR_FreeVersion/01_Material/Pixel/ImpactPixel.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ae2ccf01a85b364da21386682eb8574
+    m_Address: Assets/Dev/EvolutionGame/UI/Universal Stylized UI/Atlases/Complete_Stylized_UI_elements_icons_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bd5745d4d52f4d43963d14c70e159f4
+    m_Address: Assets/VFXPACK_IMPACT_WALLCOEUR_FreeVersion/04_Model/ImpactPlane.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d012a4be25423446aa80aea2775f76c
+    m_Address: Assets/Dev/EvolutionGame/Prefabs/Bul.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 772d9d9117eab56479d2738f542c054c
+    m_Address: Assets/ImportPackages/Pandazole_Ultimate_Pack/Pandazole Nature Environment
+      Pack/Materials/PandaMat.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78cac7c1dfe137c4ab5a709bfa74e0f0
+    m_Address: Assets/ImportPackages/Pandazole_Ultimate_Pack/Pandazole Nature Environment
+      Pack/Textures/PandaMat.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 933532a4fcc9baf4fa0491de14d08ed7
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9aec90646ed086c4e95973c9cfd5ab9f
+    m_Address: Assets/Dev/EvolutionGame/Prefabs/ui/StatCanvas.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6d785da3f2394d4bb2bce759e49cd72
+    m_Address: Assets/ImportPackages/Shokubutsu Studio/Free Low Poly Cubic Humans/Textures/Texture_A.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8d030a3aff95b149878cfc7ab08004e
+    m_Address: Assets/VFXPACK_IMPACT_WALLCOEUR_FreeVersion/03_Texture/ImpactValoPixel2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e45e6d80f68f7b849b9340b1493480d6
+    m_Address: Assets/Dev/EvolutionGame/Particle/HitTower.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e9a19c3678ded42a3bc431ebef7dbd
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Utils/FallbackError.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee637c2ee3324df49962661a67e80ed0
+    m_Address: Assets/ImportPackages/Shokubutsu Studio/Free Low Poly Cubic Humans/URP/Materials/Texture_A
+      URP.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd6cb592190e4d0478872c048c13d0cc
+    m_Address: Assets/Dev/EvolutionGame/UI/Universal Stylized UI/Atlases/Complete_Stylized_UI_elements_buttons.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 26ac34b7e52b09948a527ac94eac4293, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 806c6d363143c76469d17112765c99a5, type: 2}
+    - {fileID: 11400000, guid: e7220660e62b6b74984ce0ecddb787d2, type: 2}

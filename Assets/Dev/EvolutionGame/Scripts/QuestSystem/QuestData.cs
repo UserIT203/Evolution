@@ -11,6 +11,7 @@ public class QuestData
 
     public int Progress;
     public bool IsFinished;
+    public bool GetReward;
 
     public QuestData(QuestScriptableObject so, int progress)
     {
@@ -22,5 +23,6 @@ public class QuestData
   
         this.Progress = progress;
         this.IsFinished = false;
+        this.GetReward = false;
     }
 }

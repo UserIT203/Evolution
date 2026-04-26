@@ -19,4 +19,5 @@ public class SpawnBus
 
     public Action<GameManager, UnitType> onSpawnPlayerUnit;
     public Action<WaveManager, UnitType> onSpawnEnemyUnit;
+    public Action onCanSpawn;
 }

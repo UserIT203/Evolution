@@ -282,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5264543524226720670}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.09078026, y: 1.7850001, z: -5.66171}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
@@ -343,7 +343,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5264543524226720670}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.4
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -385,6 +385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aa097697a659d4bbd97b2e8ea99739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimation
+  _animator: {fileID: 0}
+  _unitBase: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!114 &389731036544264176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _coinViewUI: {fileID: 0}
+  _spawnOffset: {x: 0, y: 0, z: 0}
   _effects:
   - Name: hit
     Offset: {x: 0, y: 1, z: 0}

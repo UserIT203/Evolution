@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 2687373860823535610, guid: 7207a87753efdbe4781660df6f3ae384, type: 3}
   - {fileID: 7799069739677079672, guid: bb420fddbe2c06948b5b3711ae6501d2, type: 3}
   WavesConfig: {fileID: 11400000, guid: 8a472ad2709fdca4fae00763cf63bcd6, type: 2}
-  LevelOptions: {fileID: 11400000, guid: e8068a266d700f542a98620dd9d04742, type: 2}
+  LevelOptions: {fileID: 11400000, guid: e1696220222059e4591ee515334acae9, type: 2}

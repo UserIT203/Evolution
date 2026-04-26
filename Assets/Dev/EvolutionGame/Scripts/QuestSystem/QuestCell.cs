@@ -41,6 +41,7 @@ public class QuestCell : MonoBehaviour
             Data.QuestName.GetText(_localizationSelector.CurrentLanguage),
             Data.Goal
             );
+
         _rewardText.text = Data.Reward.ToString();
         _progressText.text = $"{Data.Progress} | {Data.Goal}";
         _progressSlider.fillAmount = (float)Data.Progress / (float)Data.Goal;

@@ -56,7 +56,12 @@ public class QuestModel : MonoBehaviour, IInitialized
     public void OnFinish(QuestData data)
     {
         data.IsFinished = true;
-        _globalManager.GemCount = data.Reward;
+        
+        if(data.GetReward == false)
+        {
+            _globalManager.GemCount = data.Reward;
+            data.GetReward = true;
+        }
     }
 
     public QuestData GetQuestDataFromID(string id) => Data.Find(i => i.QuestID == id);

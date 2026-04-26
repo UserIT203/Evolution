@@ -54,6 +54,8 @@ public class UnitSpawner : MonoBehaviour
     {
         SetEnemyUnit(levelSettings);
         SetPlayerUnit(GameManager.UnitInfo.ToList());
+
+        SpawnBus.GetInstance()?.onCanSpawn.Invoke();
     }
 
     private void CreateUnitDictionary(

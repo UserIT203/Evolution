@@ -491,6 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aa097697a659d4bbd97b2e8ea99739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimation
+  _animator: {fileID: 0}
+  _unitBase: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!114 &7568651179007429009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9955bff0cb6cf384d855b0a083aa330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitEffect
+  _coinViewUI: {fileID: 0}
+  _spawnOffset: {x: 0, y: 0, z: 0}
   _effects:
   - Name: hit
     Offset: {x: 0, y: 1, z: 0}

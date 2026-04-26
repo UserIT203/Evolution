@@ -159,6 +159,8 @@ public class GameManager : MonoBehaviour, ILevelHandler, ISaveSystemService
 
     public void SetEraSettings(LevelSetting levelSettings)
     {
+        Debug.Log("<color=green>Era Settings From Level Manager</color>");
+
         _moneyCountPerSecond.RemoveAllModifier();
 
         UnitInfo = new UnitInfo[levelSettings.PlayerUnits.Length];
@@ -172,8 +174,19 @@ public class GameManager : MonoBehaviour, ILevelHandler, ISaveSystemService
 
     public void LoadData()
     {
+        Debug.Log("<color=red>Load Data In Game Manager</color>");
+
         for (int i = 0; i < _levelData.UnlockUnits.Length; i++)
+        {
+            if (UnitInfo[i].Unit.UnitConfig.IsUnlock == true)
+            {
+                UnitInfo[i].IsUnlock = true;
+                return;
+            }
+                
             UnitInfo[i].IsUnlock = _levelData.UnlockUnits[i];
+        }
+            
     }
 
     public void SaveData(SaveSystem saveSystem)

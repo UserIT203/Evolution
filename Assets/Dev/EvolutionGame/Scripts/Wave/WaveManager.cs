@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using System;
 
-public class WaveManager : MonoBehaviour, ILevelHandler, IDisposable
+public class WaveManager : MonoBehaviour, ILevelHandler
 {
     [SerializeField] private WavesConfig _waveConfig;
 
@@ -23,17 +23,16 @@ public class WaveManager : MonoBehaviour, ILevelHandler, IDisposable
     {
         _gameManager = gameManager;
 
-        _gameManager.onPlay += SetWave;
+        SpawnBus.GetInstance().onCanSpawn += SetWave;
         _gameManager.onEnd += RestartWaves;
     }
 
-
-    public void Dispose()
+    private void OnDestroy()
     {
-        _gameManager.onPlay -= SetWave;
+        SpawnBus.GetInstance().onCanSpawn -= SetWave;
         _gameManager.onEnd -= RestartWaves;
-    }
 
+    }
 
     private IEnumerator SetNextWave()
     {
@@ -67,7 +66,6 @@ public class WaveManager : MonoBehaviour, ILevelHandler, IDisposable
                 for (int i = 0; i < units.Count; i++)
                 {
                     SpawnBus.GetInstance().onSpawnEnemyUnit?.Invoke(this, units.UnitType);
-
                 }
             }
 

@@ -73,6 +73,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
 
         if (quest == null) return;
 
+        _questMenu.FinishQuest(quest);
         _model.OnFinish(quest);
     }
 
@@ -87,7 +88,8 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
         }
 
         if (DateTime.UtcNow.Month >= _model.LastUpdateTime.Value.Month
-            && DateTime.UtcNow.Date > _model.LastUpdateTime.Value.Date)
+            && DateTime.UtcNow.Date > _model.LastUpdateTime.Value.Date
+            && DateTime.UtcNow.Hour >= _model.TimeToUpdateQuests.Hours)
         {
             Debug.Log("<color=red>Update quests</color>");
             _model.LastUpdateTime = DateTime.UtcNow;
@@ -111,6 +113,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
             {
                 q.IsFinished = false;
                 q.Progress = 0;
+                q.GetReward = false; 
             });
 
         _model.ActiveQuest.Clear();
@@ -135,7 +138,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
         }
     }
 
-    private bool CanStartQuest(string id, int progress = 0)
+    private bool CanStartQuest(string id, int progress = 0, bool getReward = false)
     {
         QuestData quest = _model.GetQuestDataFromID(id);
 
@@ -152,6 +155,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
         }
 
         quest.Progress = progress;
+        quest.GetReward = getReward;
         _model.ActiveQuest.Add(quest);
         _questMenu.LoadData(quest);
 
@@ -165,7 +169,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
         if (_saveData.ActiveQuestData.Length > 0)
         {
             foreach (var quest in _saveData.ActiveQuestData)
-                CanStartQuest(quest.ID, quest.Progress);
+                CanStartQuest(quest.ID, quest.Progress, quest.GetReward);
 
             _model.LastUpdateTime = DateTime.UtcNow;
         }
@@ -183,6 +187,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
             {
                 ID = _model.ActiveQuest[i].QuestID,
                 Progress = _model.ActiveQuest[i].Progress,
+                GetReward = _model.ActiveQuest[i].GetReward
             };
         }
 

@@ -183,8 +183,7 @@ public class LevelBuilder : MonoBehaviour, IInitialized
         var objectByType = levelOptions.Config.TypeObjects;
         _cellSize = _gridConfig.CellSize;
 
-        int childIndex = _levelsRoots.Find(item => item.Order == levelOptions.Order).ChildIndex;
-        Transform root = transform.GetChild(childIndex);
+        Transform root = transform;
 
         await SpawnPlane(objectByType[LevelTypeObject.Plane][0], root);
 
@@ -346,7 +345,7 @@ public class LevelBuilder : MonoBehaviour, IInitialized
 
     private void SetTowers()
     {
-        LevelRoot levelRoot = _levelsRoots[_currentLevelOrder];
+        LevelRoot levelRoot = _levelsRoots[0];
 
         Transform enemyTower = levelRoot.EnemyTower;
         Transform playerTower = levelRoot.PlayerTower;

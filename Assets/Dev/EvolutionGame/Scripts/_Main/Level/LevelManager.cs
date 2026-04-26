@@ -166,6 +166,9 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
 
         _maxOpenLevels = _levelData.CurrentOpenLevel;
         _currentSelectLevel = 0;
+
+        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
+        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
     }
 
     public void SaveData(SaveSystem saveSystem)
