@@ -18,6 +18,8 @@ public class WaveManager : MonoBehaviour, ILevelHandler
     public WavesConfig WaveConfig => _waveConfig;
     public List<Wave> Waves => _waveConfig.Waves;
 
+    public Action<int> onStartWave;
+
     [Inject]
     public void Construct(GameManager gameManager)
     {
@@ -31,7 +33,6 @@ public class WaveManager : MonoBehaviour, ILevelHandler
     {
         SpawnBus.GetInstance().onCanSpawn -= SetWave;
         _gameManager.onEnd -= RestartWaves;
-
     }
 
     private IEnumerator SetNextWave()
@@ -81,6 +82,8 @@ public class WaveManager : MonoBehaviour, ILevelHandler
     {
         _currentWave = _waveConfig.Waves[_currentWaveIndex];
         _currentWave.Initialized();
+
+        onStartWave?.Invoke(_currentWaveIndex);
 
         _spawnCoroutine = StartCoroutine(PlayWave());
     }

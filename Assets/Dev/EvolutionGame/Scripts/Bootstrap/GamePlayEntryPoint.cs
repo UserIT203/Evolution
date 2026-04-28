@@ -16,12 +16,12 @@ public class GamePlayEntryPoint : Bootstrap
         Debug.Log("Start Init Gameplay Bootstrap");
 
         _itemManager.Initiliazed(_container.Resolve<LevelUpgrade>());
-        _container.Resolve<LevelManager>().Initialized();
 
         _container.Inject(_container.Resolve<SaveManager>());
 
         _questModel.Initialized();
 
+        _container.Resolve<LevelManager>().Initialized();
         _container.Resolve<SaveManager>().Initialized();
 
         _questPresentation.Initialized();

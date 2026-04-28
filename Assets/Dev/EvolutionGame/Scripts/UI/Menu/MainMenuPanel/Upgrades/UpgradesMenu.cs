@@ -34,7 +34,6 @@ public class UpgradesMenu : Menu, ILevelHandler
         _levelUpgrade = levelUpgrade;
         _globalManager = globalManager;
         _gameManager = gameManager;
-        _levelUpgrade.onUpgradeMoneyPerSecond += UpdateInfoInUpgradeMoneyPerSecondButton;
     }
 
     public override void CloseMenu()
@@ -87,7 +86,9 @@ public class UpgradesMenu : Menu, ILevelHandler
         _moneyPerSeconsUpgrade.GetComponentInChildren<TMP_Text>().text
             = _levelUpgrade.CurrentGameModifier.Cost.ToString();
 
-        _upgradeValue.text = _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue.ToString();
+        _upgradeValue.text = 
+            string.Format("{0:f}",
+            _levelUpgrade.CurrentGameModifier.Modifier.ModifierValue);
     }
 
     private void UpdateUpgradeCardInfo()

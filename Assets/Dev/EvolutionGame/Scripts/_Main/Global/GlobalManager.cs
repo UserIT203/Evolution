@@ -8,6 +8,7 @@ public class GlobalManager : MonoBehaviour, ICollectedCard, ISaveSystemService, 
 {
     [Inject] private LootManager _lootManager;
     [Inject] private GlobalData _globalData;
+    [Inject] private MenuManager _menuManager;
 
     [field: SerializeField] public Stat HealthMultiplier;
     [field: SerializeField] public Stat DamageMultiplier;
@@ -155,6 +156,8 @@ public class GlobalManager : MonoBehaviour, ICollectedCard, ISaveSystemService, 
             AudioManager.PlaySound("Buy");
             return true;
         }
+
+        _menuManager.GetUIMenu<ShopMenu>().OpenShopPopup();
 
         return false;
     }

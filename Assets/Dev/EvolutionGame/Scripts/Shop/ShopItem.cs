@@ -35,7 +35,6 @@ public abstract class ShopItem
 
     protected virtual void Fail()
     {
-        _menuManager.GetUIMenu<ShopMenu>().OpenShopPopup();
         Debug.LogWarning("<color=red>No needed money</color>");
     }
 }

@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour, IInitialized
     [SerializeField] private TMP_Text _coinValueHUDText;
     [SerializeField] private TMP_Text _gemValueHUDText;
     [SerializeField] private Button _pauseButton;
+    [SerializeField] private WaveNotificationMenu _waveNotificationMenu;
 
     [Header("UI Links")]
     [SerializeField] private Button _nextLevelButton;
@@ -45,7 +46,8 @@ public class MenuManager : MonoBehaviour, IInitialized
         GameManager gameManager, 
         GlobalManager globalManager, 
         LevelUpgrade levelUpgrade,
-        LevelManager levelManager)
+        LevelManager levelManager,
+        WaveManager waveManager)
     {
         gameManager.onPlay += CloseAllPanel;
         gameManager.onPlay += CloseUIMenu;
@@ -57,6 +59,8 @@ public class MenuManager : MonoBehaviour, IInitialized
 
         globalManager.onChangeCoin += ChangeGemText;
         levelUpgrade.onChangeMoney += ChangeCointText;
+
+        waveManager.onStartWave += _waveNotificationMenu.ShowNotification;
 
         _nextLevelButton.onClick.AddListener(() => levelManager.SetNextLevel());
         _previousLevelButton.onClick.AddListener(() => levelManager.SetPreviousLevel());

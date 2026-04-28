@@ -142,7 +142,7 @@ MonoBehaviour:
   _hasCreateLootOnTakeDamage: 0
   _items:
   - Item: {fileID: 11400000, guid: 25601e9b14b1d3c4cac8f7e6b4668d2d, type: 2}
-    ItemCount: 6
+    ItemCount: 8
     Probability: 100
 --- !u!114 &5003701137143920907
 MonoBehaviour:

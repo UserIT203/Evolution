@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour, ILevelHandler, ISaveSystemService
             if (UnitInfo[i].Unit.UnitConfig.IsUnlock == true)
             {
                 UnitInfo[i].IsUnlock = true;
-                return;
+                continue;
             }
                 
             UnitInfo[i].IsUnlock = _levelData.UnlockUnits[i];

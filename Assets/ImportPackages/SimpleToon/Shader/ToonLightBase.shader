@@ -1,4 +1,4 @@
-Shader "Lpk/LightModel/ToonLightBase"
+﻿Shader "Lpk/LightModel/ToonLightBase"
 {
     Properties
     {
@@ -217,6 +217,24 @@ Shader "Lpk/LightModel/ToonLightBase"
             
             ENDHLSL
         }
-        UsePass "Universal Render Pipeline/Lit/ShadowCaster"
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags { "LightMode" = "ShadowCaster" }
+    
+            Cull [_Cull]
+            ZWrite On
+            ZTest LEqual
+            ColorMask 0
+
+            HLSLPROGRAM
+            #pragma vertex ShadowPassVertex
+            #pragma fragment ShadowPassFragment
+            #pragma target 3.5  // ⚠️ Критично для WebGL!
+    
+            // ✅ Используем готовую реализацию из URP
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
+            ENDHLSL
+        }
     }
 }

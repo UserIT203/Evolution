@@ -108,6 +108,11 @@ MonoBehaviour:
     m_Localized: New quests
     m_Metadata:
       m_Items: []
+  - m_Id: 7512003692515328
+    m_Localized: Wave {0}
+    m_Metadata:
+      m_Items:
+      - rid: 5315092163408167071
   references:
     version: 2
     RefIds:
@@ -117,3 +122,4 @@ MonoBehaviour:
         m_Entries: 
         m_SharedEntries:
         - id: 38803329044480
+        - id: 7512003692515328

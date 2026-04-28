@@ -6,6 +6,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
 {
     [Inject] private LevelData _levelData;
     [Inject] private GameManager _gameManager;
+    [Inject] private MenuManager _menuManager;
 
     [SerializeField] private GameModifier _startModifier;
     [SerializeField] private int _increasePreviousCost;
@@ -41,6 +42,8 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
             return true;
         }
 
+        _menuManager.GetUIMenu<ShopMenu>().OpenShopPopup();
+
         return false;
     }
 
@@ -49,7 +52,7 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
         if (TryRemoveCoins(CurrentGameModifier.Cost))
         {
             _gameManager.UpgradePerMoneySecond(CurrentGameModifier.Modifier);
-            CurrentGameModifier.SetMultiple(_increasePreviousCost, _increasePreviousModifier);
+            CurrentGameModifier.SetMultiple(_increasePreviousCost, _increasePreviousModifier, _currentUpgradeIndex);
             _currentUpgradeIndex++;
 
             onUpgradeMoneyPerSecond?.Invoke(CurrentGameModifier);
@@ -58,8 +61,9 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
 
     public void SetEraSettings(LevelSetting levelSettings)
     {
+        Debug.Log("<color=yellow>Set Settings in Level U</color>");
         _coinsCount = 0;
-        _currentUpgradeIndex = 1;
+        _currentUpgradeIndex = 0;
         CurrentGameModifier = _startModifier;
     }
 
@@ -70,13 +74,16 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
 
     public void LoadData()
     {
+        Debug.Log($"<color=black>Load Data In Level U {_levelData.Coins}</color>");
+
         _coinsCount = _levelData.Coins;
-        _currentUpgradeIndex = _levelData.LevelUpgradeCount;
 
         for (int i = 0; i < _levelData.LevelUpgradeCount; i++)
         {
             _gameManager.UpgradePerMoneySecond(CurrentGameModifier.Modifier);
-            CurrentGameModifier.SetMultiple(_increasePreviousCost, _increasePreviousModifier);
+            CurrentGameModifier.SetMultiple(_increasePreviousCost, _increasePreviousModifier, _currentUpgradeIndex);
+
+            _currentUpgradeIndex++;
 
             onUpgradeMoneyPerSecond?.Invoke(CurrentGameModifier);
         }
@@ -97,9 +104,9 @@ public class GameModifier
     public int Cost;
     public Modifier Modifier;
 
-    public void SetMultiple(int value, float modifierValue)
+    public void SetMultiple(int value, float modifierValue, int currentLevel)
     {
-        Cost *= value;
+        Cost += value * (currentLevel + 1);
         Modifier.ModifierValue += modifierValue;
     }
 }

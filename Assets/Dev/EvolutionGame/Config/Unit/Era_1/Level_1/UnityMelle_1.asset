@@ -25,7 +25,7 @@ MonoBehaviour:
   <Maxhealth>k__BackingField: 20
   <Armor>k__BackingField: 0
   <Speed>k__BackingField: 0.8
-  <AttackDelay>k__BackingField: 1
+  <AttackDelay>k__BackingField: 1.5
   <AttackRange>k__BackingField: 2
   <Damage>k__BackingField: 5
   <DetectedRange>k__BackingField: 3

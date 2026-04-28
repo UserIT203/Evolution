@@ -69,8 +69,7 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
             _levelsCompleted.Add(LevelsSettings[i], false);
         }
 
-        onSetNewLevelSettings?.Invoke(LevelsSettings[_currentSelectLevel]);
-        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
+        onOpenNewLevel?.Invoke(LevelsSettings[0]);
     }
 
     private void OnDestroy()
@@ -167,7 +166,6 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
         _maxOpenLevels = _levelData.CurrentOpenLevel;
         _currentSelectLevel = 0;
 
-        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
         onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
     }
 
