@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3d224f6eb9503d479650514225f6d41, type: 3}
-  m_Name: Level_3_Wave
-  m_EditorClassIdentifier: 
+  m_Name: Level_4_Wave
+  m_EditorClassIdentifier: Assembly-CSharp::WavesConfig
   Waves:
   - WaveName: Wave 1
     StagesList:
@@ -21,114 +21,102 @@ MonoBehaviour:
       Delay: 10
     - StageUnits:
       - UnitType: 0
-        Count: 1
-      - UnitType: 1
-        Count: 1
-      Delay: 15
-    - StageUnits:
-      - UnitType: 0
-        Count: 3
-      - UnitType: 1
-        Count: 1
-      Delay: 25
+        Count: 2
+      Delay: 10
     - StageUnits:
       - UnitType: 0
         Count: 2
-      - UnitType: 2
+      - UnitType: 1
         Count: 1
-      Delay: 25
+      Delay: 10
+    - StageUnits:
+      - UnitType: 1
+        Count: 2
+      Delay: 15
     - StageUnits:
       - UnitType: 0
-        Count: 4
-      Delay: 10
+        Count: 2
+      - UnitType: 1
+        Count: 3
+      Delay: 20
     Delay: 20
   - WaveName: Wave 2
     StagesList:
     - StageUnits:
       - UnitType: 0
         Count: 2
-      - UnitType: 1
-        Count: 2
+      - UnitType: 2
+        Count: 1
+      Delay: 20
+    - StageUnits:
+      - UnitType: 0
+        Count: 4
       Delay: 10
     - StageUnits:
       - UnitType: 0
-        Count: 5
+        Count: 1
+      - UnitType: 1
+        Count: 2
       Delay: 15
     - StageUnits:
-      - UnitType: 0
-        Count: 4
-      - UnitType: 2
-        Count: 1
-      Delay: 20
-    - StageUnits:
-      - UnitType: 0
-        Count: 2
-      - UnitType: 1
-        Count: 1
-      - UnitType: 2
-        Count: 1
-      Delay: 20
-    - StageUnits:
-      - UnitType: 0
-        Count: 4
       - UnitType: 1
         Count: 2
-      Delay: 10
+      - UnitType: 2
+        Count: 1
+      Delay: 25
+    - StageUnits:
+      - UnitType: 0
+        Count: 3
+      - UnitType: 1
+        Count: 3
+      Delay: 20
     Delay: 20
   - WaveName: Wave 3
     StagesList:
     - StageUnits:
       - UnitType: 0
-        Count: 2
+        Count: 4
+      Delay: 10
+    - StageUnits:
       - UnitType: 1
         Count: 3
       Delay: 10
     - StageUnits:
       - UnitType: 0
-        Count: 6
-      Delay: 15
-    - StageUnits:
-      - UnitType: 2
-        Count: 3
-      Delay: 25
-    - StageUnits:
-      - UnitType: 0
-        Count: 4
+        Count: 2
       - UnitType: 1
         Count: 2
       Delay: 15
     - StageUnits:
       - UnitType: 0
-        Count: 6
+        Count: 3
       - UnitType: 1
-        Count: 5
+        Count: 2
+      - UnitType: 2
+        Count: 1
       Delay: 20
+    - StageUnits:
+      - UnitType: 1
+        Count: 3
+      Delay: 10
     Delay: 20
   - WaveName: Wave 4
     StagesList:
     - StageUnits:
       - UnitType: 0
-        Count: 5
-      - UnitType: 1
-        Count: 2
+        Count: 4
       Delay: 10
     - StageUnits:
       - UnitType: 0
         Count: 3
       - UnitType: 1
-        Count: 3
+        Count: 2
       Delay: 15
     - StageUnits:
-      - UnitType: 1
-        Count: 2
-      - UnitType: 2
-        Count: 3
-      Delay: 25
-    - StageUnits:
       - UnitType: 0
-        Count: 5
-      - UnitType: 1
-        Count: 5
+        Count: 3
+      - UnitType: 2
+        Count: 2
       Delay: 20
     - StageUnits:
       - UnitType: 0
@@ -136,37 +124,35 @@ MonoBehaviour:
       - UnitType: 1
         Count: 3
       Delay: 10
+    - StageUnits:
+      - UnitType: 0
+        Count: 6
+      Delay: 10
     Delay: 20
-  - WaveName: Wave 5
+  - WaveName: 'Wave 5 '
     StagesList:
     - StageUnits:
       - UnitType: 0
-        Count: 4
-      - UnitType: 1
         Count: 2
+      - UnitType: 1
+        Count: 3
       Delay: 15
     - StageUnits:
       - UnitType: 2
-        Count: 4
+        Count: 3
       Delay: 20
     - StageUnits:
       - UnitType: 0
-        Count: 5
-      - UnitType: 1
-        Count: 2
+        Count: 7
       Delay: 15
     - StageUnits:
       - UnitType: 0
         Count: 3
-      - UnitType: 1
-        Count: 3
       - UnitType: 2
-        Count: 2
+        Count: 3
       Delay: 25
     - StageUnits:
-      - UnitType: 0
-        Count: 2
-      - UnitType: 1
-        Count: 3
-      Delay: 10
+      - UnitType: 2
+        Count: 4
+      Delay: 25
     Delay: 20

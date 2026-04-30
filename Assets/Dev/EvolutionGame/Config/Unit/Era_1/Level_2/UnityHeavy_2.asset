@@ -20,9 +20,9 @@ MonoBehaviour:
   <Armor>k__BackingField: 20
   <Speed>k__BackingField: 0.6
   <AttackDelay>k__BackingField: 1
-  <AttackRange>k__BackingField: 3
-  <Damage>k__BackingField: 15
-  <DetectedRange>k__BackingField: 4
+  <AttackRange>k__BackingField: 2
+  <Damage>k__BackingField: 25
+  <DetectedRange>k__BackingField: 3
   <Icon>k__BackingField: {fileID: 21300000, guid: bc709c3280b6354488c769cfecb28031, type: 3}
   <IsUnlock>k__BackingField: 0
   <UnlockCosts>k__BackingField: 450

@@ -14,7 +14,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Sounds
   m_GUID: b43bb4f7e036cb348a2e8906744c0bd8
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 1c4ce85f3f83559498342a4c50fcd35e
+    m_Address: Buy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24e85ff19acfdd348a152c8c53bdadc4
+    m_Address: UnitHit_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42b9a31781657d646a8d9c0f2b19691a
+    m_Address: Card
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 476d66b607e35d947ad477c6e4c6cb45
+    m_Address: ClickSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 595fc1ceedb2b574980c7a6339c87294
+    m_Address: UnitHit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61ad452f40cb43a4791a70d207471869
+    m_Address: UnitSpawn
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 805318268aff7f147b463bbc5d6fdb39
+    m_Address: Upgrade
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82dd201b1686a9f429736e10a9eebef8
+    m_Address: TalkingSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 911a700255c505b47b7ed104c2d3137a
+    m_Address: Hit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a20db136948c39b42bdbed99f813ae17
+    m_Address: OpenBox
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab024078aa191a545af0529376556763
+    m_Address: WinSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0ba4538774a61a4f915a275f646456e
+    m_Address: FortunaSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e902a4ba3c7fa2b4cb0fd41fb9ad87ed
+    m_Address: BattleSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec29fc1587aca3e48970a90140bbb6f1
+    m_Address: MainMenuSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faa9dccfb441fb04ca1948bc269d9106
+    m_Address: LoseSound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 26ac34b7e52b09948a527ac94eac4293, type: 2}
   m_SchemaSet:

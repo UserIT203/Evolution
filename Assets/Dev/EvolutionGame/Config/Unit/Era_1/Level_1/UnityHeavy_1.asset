@@ -28,7 +28,7 @@ MonoBehaviour:
   <AttackDelay>k__BackingField: 1.5
   <AttackRange>k__BackingField: 3
   <Damage>k__BackingField: 20
-  <DetectedRange>k__BackingField: 3
+  <DetectedRange>k__BackingField: 4
   <Icon>k__BackingField: {fileID: 21300000, guid: 31219e66ec780ef4eb3f23298c1a8e45, type: 3}
   <IsUnlock>k__BackingField: 0
   <UnlockCosts>k__BackingField: 200

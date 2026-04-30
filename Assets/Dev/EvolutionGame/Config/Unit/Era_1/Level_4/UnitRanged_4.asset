@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedd8e70dd97ff74fbcc21b823057541, type: 3}
   m_Name: UnitRanged_4
   m_EditorClassIdentifier: Assembly-CSharp::UnitRangedConfig
-  <UnitName>k__BackingField: 
-  <Cost>k__BackingField: 5
+  <UnitName>k__BackingField:
+    _texts: []
+  <Cost>k__BackingField: 15
   <UnitType>k__BackingField: 1
   <Maxhealth>k__BackingField: 75
   <Armor>k__BackingField: 0
   <Speed>k__BackingField: 0.6
   <AttackDelay>k__BackingField: 0.5
-  <AttackRange>k__BackingField: 5
+  <AttackRange>k__BackingField: 7
   <Damage>k__BackingField: 50
-  <DetectedRange>k__BackingField: 6
+  <DetectedRange>k__BackingField: 8
   <Icon>k__BackingField: {fileID: 21300000, guid: 57b72039593e19440981acaf991021ed, type: 3}
   <IsUnlock>k__BackingField: 0
-  <UnlockCosts>k__BackingField: 200
+  <UnlockCosts>k__BackingField: 1000
   <BulletConfig>k__BackingField: {fileID: 11400000, guid: bc3adb71c23a9f847847773033dedb62, type: 2}

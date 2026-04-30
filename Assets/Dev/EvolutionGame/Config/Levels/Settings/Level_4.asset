@@ -22,5 +22,5 @@ MonoBehaviour:
   - {fileID: 6832287162686409943, guid: 805e933208871a94e8463a2c3b016235, type: 3}
   - {fileID: 3878577500840237513, guid: 86f1803361639004599fde047b642476, type: 3}
   - {fileID: 1684162353634312953, guid: 0575f5f914fbcc747bbdbb90ce74049b, type: 3}
-  WavesConfig: {fileID: 11400000, guid: 8a472ad2709fdca4fae00763cf63bcd6, type: 2}
+  WavesConfig: {fileID: 11400000, guid: 7e8130b51edfdeb44974fb637c3bfe41, type: 2}
   LevelOptions: {fileID: 11400000, guid: 48ad9a580f6a37c41a1ce3d319d86fab, type: 2}

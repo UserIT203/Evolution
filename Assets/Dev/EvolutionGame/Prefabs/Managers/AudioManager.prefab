@@ -48,67 +48,132 @@ MonoBehaviour:
   _startAmbientName: MainAmbient
   _sounds:
   - Name: Hit
-    Clip: {fileID: 8300000, guid: 911a700255c505b47b7ed104c2d3137a, type: 3}
+    ClipReference:
+      m_AssetGUID: 911a700255c505b47b7ed104c2d3137a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
     StartVolume: 1
     StartPitch: 1
     Type: 0
   - Name: MainAmbient
-    Clip: {fileID: 8300000, guid: ec29fc1587aca3e48970a90140bbb6f1, type: 3}
+    ClipReference:
+      m_AssetGUID: ec29fc1587aca3e48970a90140bbb6f1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 1
   - Name: BattleAmbient
-    Clip: {fileID: 8300000, guid: e902a4ba3c7fa2b4cb0fd41fb9ad87ed, type: 3}
+    ClipReference:
+      m_AssetGUID: e902a4ba3c7fa2b4cb0fd41fb9ad87ed
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 1
   - Name: Click
-    Clip: {fileID: 8300000, guid: 476d66b607e35d947ad477c6e4c6cb45, type: 3}
+    ClipReference:
+      m_AssetGUID: 476d66b607e35d947ad477c6e4c6cb45
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 0
   - Name: Buy
-    Clip: {fileID: 8300000, guid: 1c4ce85f3f83559498342a4c50fcd35e, type: 3}
+    ClipReference:
+      m_AssetGUID: 1c4ce85f3f83559498342a4c50fcd35e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 0
   - Name: Upgrade
-    Clip: {fileID: 8300000, guid: 805318268aff7f147b463bbc5d6fdb39, type: 3}
+    ClipReference:
+      m_AssetGUID: 805318268aff7f147b463bbc5d6fdb39
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 0
   - Name: OpenChest
-    Clip: {fileID: 8300000, guid: a20db136948c39b42bdbed99f813ae17, type: 3}
+    ClipReference:
+      m_AssetGUID: a20db136948c39b42bdbed99f813ae17
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 2
   - Name: DroppedCard
-    Clip: {fileID: 8300000, guid: 42b9a31781657d646a8d9c0f2b19691a, type: 3}
+    ClipReference:
+      m_AssetGUID: 42b9a31781657d646a8d9c0f2b19691a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 2
   - Name: SpinWheel
-    Clip: {fileID: 8300000, guid: d0ba4538774a61a4f915a275f646456e, type: 3}
+    ClipReference:
+      m_AssetGUID: d0ba4538774a61a4f915a275f646456e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 2
   - Name: SpawnUnit
-    Clip: {fileID: 8300000, guid: 61ad452f40cb43a4791a70d207471869, type: 3}
+    ClipReference:
+      m_AssetGUID: 61ad452f40cb43a4791a70d207471869
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 0
   - Name: Win
-    Clip: {fileID: 8300000, guid: ab024078aa191a545af0529376556763, type: 3}
+    ClipReference:
+      m_AssetGUID: ab024078aa191a545af0529376556763
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 2
   - Name: Lose
-    Clip: {fileID: 8300000, guid: faa9dccfb441fb04ca1948bc269d9106, type: 3}
+    ClipReference:
+      m_AssetGUID: faa9dccfb441fb04ca1948bc269d9106
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1
     Type: 2
   - Name: Talking
-    Clip: {fileID: 8300000, guid: 82dd201b1686a9f429736e10a9eebef8, type: 3}
+    ClipReference:
+      m_AssetGUID: 82dd201b1686a9f429736e10a9eebef8
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
     StartVolume: 1
     StartPitch: 1.15
     Type: 0

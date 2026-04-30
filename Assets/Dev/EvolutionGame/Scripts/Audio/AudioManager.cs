@@ -1,11 +1,13 @@
-using DG.Tweening;
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
 using Zenject;
 
 public class AudioManager : MonoBehaviour, ISaveSystemService
 {
+    [Inject] private AssetProvider _assetProvider;
     [Inject] private SettingData _settingData;
 
     private const string MUSIC_GROUP = "Music";
@@ -28,9 +30,46 @@ public class AudioManager : MonoBehaviour, ISaveSystemService
     {
         if (Instance != null) Destroy(this);
         else Instance = this;
+    }
 
-        Initialized();
-        SetAmbient(_startAmbientName);
+    public async UniTask Initialized()
+    {
+        foreach (var sound in _sounds)
+        {
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            AudioClip clip = await _assetProvider.Load(sound.ClipReference);
+
+            source.clip = clip;
+            source.volume = sound.StartVolume;
+            source.pitch = sound.StartPitch;
+
+            source.playOnAwake = false;
+
+            switch (sound.Type)
+            {
+                case SoundType.Ambient:
+                    source.loop = true;
+                    source.outputAudioMixerGroup =
+                        _audioMixer.FindMatchingGroups(MUSIC_GROUP)[0];
+                    break;
+
+                case SoundType.SFX:
+                    source.outputAudioMixerGroup =
+                        _audioMixer.FindMatchingGroups(SFX_GROUP)[0];
+                    break;
+
+                case SoundType.MenuMusic:
+                    source.outputAudioMixerGroup =
+                        _audioMixer.FindMatchingGroups(MENU_MUSIC_GROUP)[0];
+                    break;
+            }
+
+            source.Stop();
+
+            _audioSources.Add(sound.Name, source);
+        }
+
+        SetAmbient("MainAmbient");
     }
 
     public static void PlaySound(string name)
@@ -71,42 +110,7 @@ public class AudioManager : MonoBehaviour, ISaveSystemService
         _audioMixer.SetFloat(parametr, Mathf.Log10(volume) * 20);
     }
 
-    private void Initialized()
-    {
-        foreach (var sound in _sounds)
-        {
-            AudioSource source = gameObject.AddComponent<AudioSource>();
-            
-            source.clip = sound.Clip;
-            source.volume = sound.StartVolume;
-            source.pitch = sound.StartPitch;
-            
-            source.playOnAwake = false;
-
-            switch (sound.Type)
-            {
-                case SoundType.Ambient:
-                    source.loop = true;
-                    source.outputAudioMixerGroup =
-                        _audioMixer.FindMatchingGroups(MUSIC_GROUP)[0];
-                    break;
-
-                case SoundType.SFX:
-                    source.outputAudioMixerGroup = 
-                        _audioMixer.FindMatchingGroups(SFX_GROUP)[0];
-                    break;
-
-                case SoundType.MenuMusic:
-                    source.outputAudioMixerGroup = 
-                        _audioMixer.FindMatchingGroups(MENU_MUSIC_GROUP)[0];
-                    break;
-            }
-            
-            source.Stop();
-
-            _audioSources.Add(sound.Name, source);
-        }
-    }
+    
 
     public void LoadData()
     {

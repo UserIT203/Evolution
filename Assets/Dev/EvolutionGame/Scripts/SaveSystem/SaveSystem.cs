@@ -5,7 +5,7 @@ public class SaveSystem
 {
     public string GetFullPath(string fileName)
     {
-        return Application.dataPath + Path.AltDirectorySeparatorChar + fileName + ".json";
+        return Application.dataPath + Path.AltDirectorySeparatorChar + "/SaveData/" + fileName + ".json";
     }
 
     public void SaveDate<T>(T saveData, string fileName = null)

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 8f7220e616ad71f489efd06b8ca1e1ef
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 729cfad45422c2cae349de51e4dadb8b
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
       - m_Id: ee2fc477c7a9ff24eaf8223d26709a00
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: f316e26353517804bb1a61fec235c06d
-        m_Value: <undefined>
+        m_Value: 'https://storage.yandexcloud.net/evolutiongame/[BuildTarget]'
       - m_Id: f4d9c08e2ac41fd4bb878e6433e32596
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
     m_ProfileEntryNames:

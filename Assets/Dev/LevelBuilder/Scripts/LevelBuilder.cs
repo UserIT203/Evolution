@@ -21,13 +21,26 @@ public class LevelBuilder : MonoBehaviour, IInitialized
     [Header("Props Settings")]
     [SerializeField] private int _propsPerCellMin = 1;
     [SerializeField] private int _propsPerCellMax = 5;
-    [SerializeField] private float propsScatterRadius = 0.4f;
+    [SerializeField] private float _propsScatterRadius = 0.4f;
+    [SerializeField] private int _maxAttemp = 15;
 
     [HideInInspector] public UnitSpawner UnitSpawner;
     [HideInInspector] public GameManager GameManager;
 
     private int _cellSize;
     private int _currentLevelOrder = int.MaxValue;
+
+    private readonly struct PlacedProps
+    {
+        public readonly Vector3 Position;
+        public readonly float Radius;
+
+        public PlacedProps(Vector3 position, float radius)
+        {
+            Position = position;
+            Radius = radius;
+        }
+    }
 
     public LevelSpawnConfig FocusLevelConfig
     {
@@ -267,20 +280,68 @@ public class LevelBuilder : MonoBehaviour, IInitialized
     {
         int count = UnityEngine.Random.Range(_propsPerCellMin, _propsPerCellMax + 1);
 
+        List<PlacedProps> placedProps = new List<PlacedProps>(count);
+
         for (int i = 0; i < count; i++)
         {
             AssetReferenceGameObject reference = props[UnityEngine.Random.Range(0, props.Count)];
 
             if (reference == null) continue;
 
-            Vector2 offset = UnityEngine.Random.insideUnitCircle * propsScatterRadius;
-            Vector3 position = cellCenter + new Vector3(offset.x, 0f, offset.y);
-
             GameObject propPrefab = await _assetProvider.Load<GameObject>(reference);
+
+            Vector3 position = Vector3.zero;
+            bool isPlaced = false;
+            int attempts = 0;
+
+            while ( attempts < _maxAttemp && isPlaced == false)
+            {
+                Vector2 offset = UnityEngine.Random.insideUnitCircle * _propsScatterRadius;
+                Vector3 tempPosition = cellCenter + new Vector3(offset.x, 0f, offset.y);
+
+                bool collision = false;
+
+                foreach (var p in placedProps)
+                {
+                    float minDistance = GetPropRadius(propPrefab) + p.Radius;
+
+                    if(Vector3.SqrMagnitude(tempPosition - p.Position) < minDistance * minDistance)
+                    {
+                        collision = true;
+                        break;
+                    }
+                }
+            
+                if(collision == false)
+                {
+                    position = tempPosition;
+                    isPlaced = true;
+                }
+
+                attempts++;
+            }
+
+            if (isPlaced == false)
+                continue;
+
+            placedProps.Add(new PlacedProps(position, GetPropRadius(propPrefab)));
 
             if(propPrefab != null) 
                 Instantiate(propPrefab, position, Quaternion.identity, root);
         }
+    }
+
+    private float GetPropRadius(GameObject prefab)
+    {
+        var renderers = prefab.GetComponentsInChildren<Renderer>();
+        if(renderers.Length == 0) return 0.5f;
+
+        Bounds bounds = renderers[0].bounds;
+
+        for (int i = 0; i < renderers.Length; i++)
+            bounds.Encapsulate(renderers[i].bounds);
+
+        return Mathf.Max(bounds.extents.x, bounds.extents.z);
     }
 
     private async UniTask SpawnRoad(Vector3 cellCenter, List<AssetReferenceGameObject> road, Transform root)

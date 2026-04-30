@@ -149,11 +149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _propsPerCellMax
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _propsPerCellMin
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levels.Array.size
@@ -162,6 +162,10 @@ PrefabInstance:
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: propsScatterRadius
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
+      propertyPath: _propsScatterRadius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levelsOrder.Array.size
@@ -186,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levels.Array.data[0].Config
       value: 
-      objectReference: {fileID: 11400000, guid: b5eb1d8f3b16e75488b8f029ac727aa3, type: 2}
+      objectReference: {fileID: 11400000, guid: 48ad9a580f6a37c41a1ce3d319d86fab, type: 2}
     - target: {fileID: 1289467755204707912, guid: 6fdae85efbde46f4cbe963d90f3eed50, type: 3}
       propertyPath: _levels.Array.data[1].Config
       value: 

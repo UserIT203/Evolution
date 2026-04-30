@@ -604,7 +604,7 @@ MonoBehaviour:
   VictimTag: Player
   VictimLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
   _shootPoint: {fileID: 5986110841470711447}
 --- !u!114 &269461560119834527
 MonoBehaviour:
@@ -621,7 +621,7 @@ MonoBehaviour:
   _hasCreateLootOnTakeDamage: 0
   _items:
   - Item: {fileID: 11400000, guid: 25601e9b14b1d3c4cac8f7e6b4668d2d, type: 2}
-    ItemCount: 70
+    ItemCount: 100
     Probability: 100
 --- !u!114 &1650458117914861702
 MonoBehaviour:

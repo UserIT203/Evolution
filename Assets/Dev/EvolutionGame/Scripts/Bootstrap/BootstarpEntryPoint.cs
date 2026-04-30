@@ -23,6 +23,8 @@ public class BootstarpEntryPoint : MonoBehaviour
 
         yield return localizeSelector.SetLocalization(localizeSelector.CurrentLanguage);
 
+        yield return container.Resolve<AudioManager>().Initialized();
+
         LoadScene(container.Resolve<PlayerData>(), container.Resolve<SceneLoader>());
     }
 

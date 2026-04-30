@@ -1,10 +1,11 @@
-using System.Collections.Generic;
+using DG.Tweening;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using TMPro;
-using System;
 
 public class FortunaMenu : Menu
 {
@@ -43,6 +44,20 @@ public class FortunaMenu : Menu
     [SerializeField] private Transform _wheel;
     [SerializeField] private Button _spinButton;
 
+    [Header("<color=yellow>PopUp UI Links</color>")]
+    [SerializeField] private Image _popUpBackground;
+    [SerializeField] private CanvasGroup _prizePopUp;
+    [SerializeField] private Image _prizeIcon;
+    [SerializeField] private TMP_Text _prizeValue;
+
+    [Header("Animation Settings")]
+    [Tooltip("Длительность анимации появления")]
+    [SerializeField] private float _showDuration = 0.5f;
+    [Tooltip("Длительность анимации скрытия")]
+    [SerializeField] private float _hideDuration = 0.4f;
+    [Tooltip("Время, которое окно остаётся видимым")]
+    [SerializeField] private float _stayVisibleTime = 2.0f;
+
     private GlobalManager _globalManager;
     private LevelUpgrade _levelUpgrade;
 
@@ -71,6 +86,9 @@ public class FortunaMenu : Menu
     private bool _isSpinning = false;
     private float _currentAngle = 0f;
 
+    private Sequence _showSeq;
+
+
     [Inject]
     public void Construnt(GlobalManager globalManager, LevelUpgrade levelUpgrade)
     {
@@ -88,6 +106,11 @@ public class FortunaMenu : Menu
     {
         _spinButton.onClick.RemoveListener(OnSpinButton);
         _closeButton.onClick.RemoveListener(CloseMenu);
+    }
+
+    private void OnDestroy()
+    {
+        _showSeq?.Kill();
     }
 
     private void Update()
@@ -124,12 +147,15 @@ public class FortunaMenu : Menu
 
         IsClosed = true;
 
+        _showSeq?.Kill();
+
         MenuManager?.OpenMenu(0);
     }
 
     public override void OpenMenu()
     {
         _canvasGroup.Show();
+        _prizePopUp.Hide();
 
         IsClosed = false;
     }
@@ -216,11 +242,43 @@ public class FortunaMenu : Menu
 
         AudioManager.PlaySound("SpinWheel");
 
+        Sprite sprite = prize.PrizeType == PrizeType.Coin ? _coinImage : _gemImage;
+
         if (prize.PrizeType == PrizeType.Coin)
             _levelUpgrade.AddCoin(prize.Value);
         else if (prize.PrizeType == PrizeType.DonatCoin)
             _globalManager.GemCount = prize.Value;
 
+        OpenPrizePopUp(sprite, prize.Value);
+
         Debug.Log($"Dropped prizes index {index}");
+    }
+
+    private void OpenPrizePopUp(Sprite icon, int value)
+    {
+        _prizeValue.text= value.ToString();
+
+        _prizePopUp.alpha = 0f;
+        _popUpBackground.rectTransform.localScale = Vector3.one * 0.3f;
+        _popUpBackground.rectTransform.anchoredPosition = Vector2.up * 60f;
+
+        _showSeq = DOTween.Sequence().SetId("ShowWinPopup");
+
+        _showSeq.Append(_prizePopUp.DOFade(1f, _showDuration * 0.6f));
+
+        // 2. Масштаб с отскоком
+        _showSeq.Join(_popUpBackground.rectTransform.DOScale(1f, _showDuration).SetEase(Ease.OutBack));
+
+        // 3. Сдвиг в центр
+        _showSeq.Join(_popUpBackground.rectTransform.DOLocalMoveY(0f, _showDuration * 0.8f).SetEase(Ease.OutCubic));
+
+        _showSeq.Join(_prizeIcon.transform.DOScale(1.15f, _showDuration * 0.5f)
+               .SetEase(Ease.OutQuad)
+               .OnComplete(() => _prizeIcon.transform.DOScale(1f, _showDuration * 0.3f).SetEase(Ease.InOutQuad)));
+
+        _showSeq.AppendInterval(_stayVisibleTime);
+
+        _showSeq.Append(_prizePopUp.DOFade(0f, _hideDuration));
+        _showSeq.Join(_popUpBackground.rectTransform.DOScale(0.3f, _hideDuration).SetEase(Ease.InBack));
     }
 }

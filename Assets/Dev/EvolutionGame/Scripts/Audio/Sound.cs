@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 [System.Serializable]
 public struct Sound
@@ -7,7 +8,7 @@ public struct Sound
     
     [Space(10)]
 
-    public AudioClip Clip;
+    public AssetReferenceT<AudioClip> ClipReference;
     public float StartVolume;
     public float StartPitch;
     public SoundType Type;

@@ -36,6 +36,8 @@ public class GlobalIntstaller : MonoInstaller
 
     private void LoadMain()
     {
+        Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle().NonLazy();
+
         Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle().NonLazy();
 
         Container.BindInterfacesAndSelfTo<LocalizationSelector>().AsSingle().NonLazy();
