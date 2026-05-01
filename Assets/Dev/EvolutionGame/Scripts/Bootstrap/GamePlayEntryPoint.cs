@@ -5,6 +5,7 @@ using Zenject;
 
 public class GamePlayEntryPoint : Bootstrap
 {
+    [Inject] private YandexSDK _yandexSDK;
     [Inject] private ItemManager _itemManager;
     [Inject] private DiContainer _container;
 
@@ -32,7 +33,7 @@ public class GamePlayEntryPoint : Bootstrap
         _container.Resolve<LevelUpgrade>().Initialized();
 
         await _container.Resolve<LocalizationSelector>()
-            .SetLocalization(_container.Resolve<LocalizationSelector>().CurrentLanguage);
+            .SetLocalization(_yandexSDK.Language);
 
         Debug.Log("End Init Gameplay Bootstrap");
     }

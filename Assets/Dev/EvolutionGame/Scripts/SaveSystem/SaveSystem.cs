@@ -1,14 +1,14 @@
 using System.IO;
 using UnityEngine;
 
-public class SaveSystem
+public class SaveSystem: ISaveSystem
 {
     public string GetFullPath(string fileName)
     {
         return Application.dataPath + Path.AltDirectorySeparatorChar + "/SaveData/" + fileName + ".json";
     }
 
-    public void SaveDate<T>(T saveData, string fileName = null)
+    public void SaveDate<T>(T saveData, string fileName = null) where T : SaveData
     {
         string json = JsonUtility.ToJson(saveData);
         
@@ -29,6 +29,6 @@ public class SaveSystem
             return data;
         }
 
-        return new();
+        return new T();
     }
 }

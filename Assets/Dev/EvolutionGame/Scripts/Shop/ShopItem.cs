@@ -3,30 +3,16 @@ using Zenject;
 
 public abstract class ShopItem
 {
+    [Inject] private YandexSDK _yandexSDK;
     [Inject] private GlobalManager _globalManager;
     [Inject] protected MenuManager _menuManager;
 
     public Sprite Icon;
     public int Price;
-    public bool UseDonatMoney;
+
     public LocalizeText NameItem;
 
-    public void TryBuy()
-    {
-        if(UseDonatMoney == true)
-        {
-            Debug.Log("Try Buy");
-
-            if (_globalManager.TryRemoveCoin(Price))
-                Success();
-            else
-                Fail();
-        }
-        else
-        {
-            //Внутреигровая покупка
-        }
-    }
+    public abstract void TryBuy();
 
     protected virtual void Success()
     {

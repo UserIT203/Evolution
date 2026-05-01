@@ -1,4 +1,4 @@
-public class QuestSaveData
+public class QuestSaveData : SaveData
 {
     public QuestInfo[] ActiveQuestData;
 }

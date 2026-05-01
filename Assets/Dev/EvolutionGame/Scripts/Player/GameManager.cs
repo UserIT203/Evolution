@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour, ILevelHandler, ISaveSystemService
             
     }
 
-    public void SaveData(SaveSystem saveSystem)
+    public void SaveData(ISaveSystem saveSystem)
     {
         bool[] unlockUnit = new bool[UnitInfo.Length];
 

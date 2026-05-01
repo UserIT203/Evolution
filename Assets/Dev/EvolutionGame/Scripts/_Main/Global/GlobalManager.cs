@@ -195,7 +195,7 @@ public class GlobalManager : MonoBehaviour, ICollectedCard, ISaveSystemService, 
         }
     }
 
-    public void SaveData(SaveSystem saveSystem)
+    public void SaveData(ISaveSystem saveSystem)
     {        
         _globalData.GemCount = _gemCount;
 

@@ -14,11 +14,25 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
     [SerializeField] private int _coinsCount;
 
     private int _currentUpgradeIndex;
+    private bool _isPlay = false;
 
     public GameModifier CurrentGameModifier { get; private set; }
+    public int LevelEarnedCoins { get; private set; }
 
     public event Action<GameModifier> onUpgradeMoneyPerSecond;
     public event Action<int> onChangeMoney;
+
+    private void OnEnable()
+    {
+        _gameManager.onPlay += StartPlay;
+        _gameManager.onEnd += EndPlay;
+    }
+
+    private void OnDisable()
+    {
+        _gameManager.onPlay -= StartPlay;
+        _gameManager.onEnd -= EndPlay;
+    }
 
     public void Initialized()
     {
@@ -29,6 +43,10 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
     {
         QuestBus.GetInstance().onUpdateCounter?.Invoke(QuestType.CollectMoney, value);
         _coinsCount += value;
+
+        if (_isPlay == true)
+            LevelEarnedCoins += value;
+
         onChangeMoney?.Invoke(_coinsCount);
     }
 
@@ -89,12 +107,23 @@ public class LevelUpgrade : MonoBehaviour, IItemHandler, ILevelHandler, ISaveSys
         }
     }
 
-    public void SaveData(SaveSystem saveSystem)
+    public void SaveData(ISaveSystem saveSystem)
     {
         _levelData.Coins = _coinsCount;
         _levelData.LevelUpgradeCount = _currentUpgradeIndex;
 
         saveSystem.SaveDate(_levelData, "LevelData");
+    }
+
+    private void StartPlay() 
+    {
+        LevelEarnedCoins = 0;
+        _isPlay = true;
+    }
+
+    private void EndPlay()
+    {
+        _isPlay = false;
     }
 }
 

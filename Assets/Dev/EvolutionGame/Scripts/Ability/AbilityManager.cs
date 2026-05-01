@@ -182,7 +182,7 @@ public class AbilityManager : MonoBehaviour, ICollectedCard, ISaveSystemService,
         }
     }
 
-    public void SaveData(SaveSystem saveSystem)
+    public void SaveData(ISaveSystem saveSystem)
     {
         CardInfo[] cardInfo = new CardInfo[_collectedCards.Count];
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class SettingData
+[System.Serializable]
+public class SettingData : SaveData
 {
     public float MusicVolume;
     public float SFXVolume;

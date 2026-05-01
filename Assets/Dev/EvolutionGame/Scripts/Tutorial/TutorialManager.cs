@@ -120,7 +120,7 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
         throw new NotImplementedException();
     }
 
-    public void SaveData(SaveSystem saveSystem)
+    public void SaveData(ISaveSystem saveSystem)
     {
         _playerData.IsNewUser = false;
 

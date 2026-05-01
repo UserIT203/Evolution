@@ -74,5 +74,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5bcf6f366075f4889af65e637d6e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootstrapIntstaller
+  _isYandexBuild: 1
   _saveManager: {fileID: 2770926085833456334, guid: 1ac11b51a3064934b819db84d9dbe193, type: 3}
   _audioManager: {fileID: 9022819961037654220, guid: 609d4b0beb2f8874584abcbdc4a5c033, type: 3}

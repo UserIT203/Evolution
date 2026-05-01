@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
 using Zenject;
 
@@ -120,7 +119,7 @@ public class AudioManager : MonoBehaviour, ISaveSystemService
         _audioMixer.SetFloat("musicVolume", _settingData.MusicVolume);
     }
 
-    public void SaveData(SaveSystem saveSystem)
+    public void SaveData(ISaveSystem saveSystem)
     {
         _audioMixer.GetFloat("sfxVolume", out _settingData.SFXVolume);
         _audioMixer.GetFloat("musicVolume", out _settingData.MusicVolume);

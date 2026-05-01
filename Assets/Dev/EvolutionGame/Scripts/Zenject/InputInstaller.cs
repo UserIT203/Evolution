@@ -3,11 +3,11 @@ using Zenject;
 
 public class InputInstaller : MonoInstaller
 {
-    [SerializeField] private bool _isDesktop;
+    [Inject] private YandexSDK _yandexSDK;
 
     public override void InstallBindings()
     {
-        if (_isDesktop == true)
+        if (_yandexSDK.IsDesktop)
             Container.Bind<DesktopInput>().FromNew().AsSingle();
         else
             Container.Bind<DesktopInput>().FromMethod(ctx => null).AsSingle();

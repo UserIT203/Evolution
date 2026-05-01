@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LevelData
+public class LevelData : SaveData
 {
     public int Coins;
     public bool[] OpenLevels;

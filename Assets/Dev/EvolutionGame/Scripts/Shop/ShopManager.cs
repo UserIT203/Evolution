@@ -21,6 +21,7 @@ public class ShopManager : MonoBehaviour
     [Header("Shop Item Info")]
     [SerializeField] private List<ChestShopItem> _chests;
     [SerializeField] private List<CoinShopItem> _coins;
+    [SerializeField] private List<GemShopItem> _gems;
 
     private void Awake()
     {
@@ -39,6 +40,10 @@ public class ShopManager : MonoBehaviour
 
                 case ShopItemType.LevelMoney:
                     InitCoinItems(container);
+                    break;
+
+                case ShopItemType.DonatMoney:
+                    InitGemItems(container);
                     break;
             }
         }
@@ -80,6 +85,17 @@ public class ShopManager : MonoBehaviour
         foreach (var item in _coins)
         {
             _diContainer.Inject(item);  
+            container.Items.Add(item);
+        }
+    }
+
+    private void InitGemItems(Containers container)
+    {
+        container.Items = new List<ShopItem>();
+
+        foreach (var item in _gems)
+        {
+            _diContainer.Inject(item);
             container.Items.Add(item);
         }
     }

@@ -5,8 +5,7 @@ using Zenject;
 public class SaveManager : MonoBehaviour, IInitialized
 {
     [Inject] private List<ISaveSystemService> _services;
-
-    private SaveSystem _saveSystem = new();
+    [Inject] private ISaveSystem _saveSystem;
 
     private void OnDisable()
     {

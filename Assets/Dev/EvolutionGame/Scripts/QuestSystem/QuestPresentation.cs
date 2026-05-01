@@ -177,7 +177,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
         Debug.Log("Load Data In Quest");
     }
 
-    public void SaveData(SaveSystem saveSystem)
+    public void SaveData(ISaveSystem saveSystem)
     {
         _saveData.ActiveQuestData = new QuestInfo[_model.ActiveQuest.Count];
 

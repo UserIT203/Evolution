@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerData
+public class PlayerData : SaveData
 {
     public bool IsNewUser = true;
 }

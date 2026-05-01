@@ -3,10 +3,11 @@ using Zenject;
 
 public class GlobalIntstaller : MonoInstaller
 {
+    [SerializeField] private bool _isYandexBuild;
     [SerializeField] private SaveManager _saveManager;
     [SerializeField] private AudioManager _audioManager;
 
-    private SaveSystem _saveSystem;
+    private ISaveSystem _saveSystem;
 
     public override void InstallBindings()
     {
@@ -16,7 +17,12 @@ public class GlobalIntstaller : MonoInstaller
 
     private void LoadSaveData()
     {
-        _saveSystem = new SaveSystem();
+        if (_isYandexBuild == true)
+            _saveSystem = new YandexSave();
+        else
+            _saveSystem = new SaveSystem();
+
+        Container.BindInstance(_saveSystem).AsSingle().NonLazy();
 
         SettingData settingData = _saveSystem.LoadData<SettingData>("SettingData");
         Container.BindInstance(settingData).AsSingle().NonLazy();
@@ -36,6 +42,8 @@ public class GlobalIntstaller : MonoInstaller
 
     private void LoadMain()
     {
+        Container.BindInterfacesAndSelfTo<YandexSDK>().AsSingle().NonLazy();
+
         Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle().NonLazy();
 
         Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle().NonLazy();

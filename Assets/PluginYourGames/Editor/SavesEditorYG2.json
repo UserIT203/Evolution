@@ -1,0 +1,29 @@
+{
+  "Data": [
+    {
+      "Type": "LevelData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "JsonData": "{\"Coins\":30,\"OpenLevels\":[false,false,false,false],\"LevelUpgradeCount\":5,\"CurrentOpenLevel\":0,\"UnlockUnits\":[true,true,true]}"
+    },
+    {
+      "Type": "GlobalData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "JsonData": "{\"GemCount\":275,\"CardCollection\":[],\"AbilityCardCollection\":[],\"ActiveAbilityID\":\"\"}"
+    },
+    {
+      "Type": "QuestSaveData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "JsonData": "{\"ActiveQuestData\":[]}"
+    },
+    {
+      "Type": "SettingData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "JsonData": "{\"MusicVolume\":-7.182720184326172,\"SFXVolume\":-11.939266204833985,\"LocaleIndex\":1}"
+    }
+  ],
+  "intExample": 5,
+  "strExample": "Hello!",
+  "boolExample": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "idSave": 24
+}

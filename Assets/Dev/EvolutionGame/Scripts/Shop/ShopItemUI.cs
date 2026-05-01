@@ -36,6 +36,11 @@ public class ShopItemUI : MonoBehaviour
         _priceText.text = item.Price.ToString();
         _nameText.text = item.NameItem.GetText(_localizationSelector.CurrentLanguage);
 
+        if(item is GemShopItem gemItem)
+        {
+            gemItem.onShowReward += UpdatePriceText;
+        }
+
         _item = item;
 
         _button.onClick.AddListener(() => item.TryBuy());
@@ -45,6 +50,13 @@ public class ShopItemUI : MonoBehaviour
     {
         Debug.Log("Update Text in Shop");
         _nameText.text = _item.NameItem.GetText(_localizationSelector.CurrentLanguage);
+    }
+
+    private void UpdatePriceText(int count)
+    {
+        Debug.Log($"Show Reward {count}");
+
+        _priceText.text = $"{count} | {_item.Price}";
     }
 }
    

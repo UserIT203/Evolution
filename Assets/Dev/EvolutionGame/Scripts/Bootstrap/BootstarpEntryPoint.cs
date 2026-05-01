@@ -21,8 +21,6 @@ public class BootstarpEntryPoint : MonoBehaviour
 
         LocalizationSelector localizeSelector = container.Resolve<LocalizationSelector>();
 
-        yield return localizeSelector.SetLocalization(localizeSelector.CurrentLanguage);
-
         yield return container.Resolve<AudioManager>().Initialized();
 
         LoadScene(container.Resolve<PlayerData>(), container.Resolve<SceneLoader>());

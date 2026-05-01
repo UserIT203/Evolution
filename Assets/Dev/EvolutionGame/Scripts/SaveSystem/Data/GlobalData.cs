@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-using UnityEngine;
 
-public class GlobalData
+[System.Serializable]
+public class GlobalData : SaveData
 {
     public int GemCount;
     public CardInfo[] CardCollection;

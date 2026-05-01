@@ -11,6 +11,8 @@ using Zenject;
 
 public class SceneLoader
 {
+    [Inject] private YandexSDK _yandex;
+
     public Action<float> onLoadSceneProgress;
     public Action onStartLoadScene;
     public Action onEndLoadScene;
@@ -41,6 +43,8 @@ public class SceneLoader
         
         if(bootstraps.FirstOrDefault(i => i.gameObject.scene == targetScene) != null)
             await bootstraps.FirstOrDefault(i => i.gameObject.scene == targetScene).Initialized(args);
+
+        _yandex.ShowInterstitialADV();
 
         Debug.Log($"<color=black>End Load Scene With Index {sceneName}</color>");
 
