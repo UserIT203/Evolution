@@ -19,7 +19,7 @@ MonoBehaviour:
     - LocalizeLabel: 1
       Text: "\u041A\u0430\u043C\u0435\u043D\u044C"
     - LocalizeLabel: 2
-      Text: 
+      Text: "Ta\u015F"
   <Cost>k__BackingField: 5
   <UnitType>k__BackingField: 1
   <Maxhealth>k__BackingField: 10

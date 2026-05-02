@@ -13,9 +13,19 @@ MonoBehaviour:
   m_Name: AllLootPool
   m_EditorClassIdentifier: 
   DropedLoots:
-  - {fileID: 11400000, guid: 3f01d5b04b332a041b4bf2fd05dac12d, type: 2}
+  - {fileID: 11400000, guid: 572d8c0dae328e44085f66c59c4918d7, type: 2}
+  - {fileID: 11400000, guid: ea0750628590f2744bbc4fed40824b56, type: 2}
+  - {fileID: 11400000, guid: 29490b28143bded4f97a4f33ebc23d28, type: 2}
+  - {fileID: 11400000, guid: 78600b454cab41048b388df3dd7841ae, type: 2}
+  - {fileID: 11400000, guid: e1ca30ca5d04ae44dbddc3fac0d4dc43, type: 2}
   - {fileID: 11400000, guid: 4f1b0252f6d654a4aaa6155220ed9d63, type: 2}
+  - {fileID: 11400000, guid: c5d66f3bf9109aa42bc04bee8a610f07, type: 2}
+  - {fileID: 11400000, guid: ab3028c1d22cd4a4f814d8ae1d02a540, type: 2}
   - {fileID: 11400000, guid: 494261b0d84d8e644a7af69e963d0916, type: 2}
+  - {fileID: 11400000, guid: 94c1a3aaef7f22345b261d87224c5b8f, type: 2}
+  - {fileID: 11400000, guid: 3f01d5b04b332a041b4bf2fd05dac12d, type: 2}
+  - {fileID: 11400000, guid: ed2a16e81e6554f4aa6ce4d97e97a390, type: 2}
+  - {fileID: 11400000, guid: d5260a4c0d055c14d8dd79e488002996, type: 2}
   - {fileID: 11400000, guid: 2c5a043155e3e2948a00b7f4d0b534fe, type: 2}
   - {fileID: 11400000, guid: 6fa3a67ab10f09e458ffa770950cb7bd, type: 2}
   - {fileID: 11400000, guid: 3edc4efd3a822d5499f952fab7fee295, type: 2}

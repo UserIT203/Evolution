@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: UnitMelle_4
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatsConfig
   <UnitName>k__BackingField:
-    _texts: []
+    _texts:
+    - LocalizeLabel: 0
+      Text: Marine
+    - LocalizeLabel: 1
+      Text: "\u041C\u043E\u0440\u043F\u0435\u0445"
+    - LocalizeLabel: 2
+      Text: Deniz
   <Cost>k__BackingField: 5
   <UnitType>k__BackingField: 0
   <Maxhealth>k__BackingField: 80

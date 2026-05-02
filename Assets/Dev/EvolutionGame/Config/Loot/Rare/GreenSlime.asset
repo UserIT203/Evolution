@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7358969175593b047bc14264464dfb5d, type: 3}
-  m_Name: Wine
-  m_EditorClassIdentifier: 
-  <CardID>k__BackingField: 45566
+  m_Name: GreenSlime
+  m_EditorClassIdentifier: Assembly-CSharp::UnitUpradeCardConfig
+  <CardID>k__BackingField: -30380
   CardName:
     _texts:
     - LocalizeLabel: 0
-      Text: Wine
+      Text: Green slime
     - LocalizeLabel: 1
-      Text: "\u0412\u0438\u043D\u043E"
+      Text: "\u0417\u0435\u043B\u0451\u043D\u044B\u0439 \u0441\u043B\u0430\u0439\u043C"
     - LocalizeLabel: 2
-      Text: 
-  Sprite: {fileID: 21300000, guid: 4b5bc52fe973cfe448bdc6c91cef9075, type: 3}
+      Text: "Ye\u015Fil bal\xE7\u0131k"
+  Sprite: {fileID: 21300000, guid: e21a018359c5a934f8c8cb08c5a1572b, type: 3}
   Description:
     _texts: []
   Rarity: 1
@@ -29,10 +29,10 @@ MonoBehaviour:
   CardsRequiredPerLevel: 0200000003000000040000000500000006000000
   BaseHealthModifier:
     ModifierType: 0
-    <ModifierValue>k__BackingField: 0
+    <ModifierValue>k__BackingField: 0.05
   BaseDamageModifier:
-    ModifierType: 1
-    <ModifierValue>k__BackingField: 0.1
+    ModifierType: 0
+    <ModifierValue>k__BackingField: 0
   BaseSpeedModifier:
     ModifierType: 2
-    <ModifierValue>k__BackingField: 0
+    <ModifierValue>k__BackingField: 0.01

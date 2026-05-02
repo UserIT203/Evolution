@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: UnitRanged_2
   m_EditorClassIdentifier: Assembly-CSharp::UnitRangedConfig
   <UnitName>k__BackingField:
-    _texts: []
+    _texts:
+    - LocalizeLabel: 0
+      Text: Archer
+    - LocalizeLabel: 1
+      Text: "\u041B\u0443\u0447\u043D\u0438\u043A"
+    - LocalizeLabel: 2
+      Text: "Ok\xE7u"
   <Cost>k__BackingField: 8
   <UnitType>k__BackingField: 1
   <Maxhealth>k__BackingField: 20

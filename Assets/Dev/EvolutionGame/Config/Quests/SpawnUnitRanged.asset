@@ -17,11 +17,11 @@ MonoBehaviour:
   QuestName:
     _texts:
     - LocalizeLabel: 0
-      Text: 101010
+      Text: Spawns {0} ranged units
     - LocalizeLabel: 1
       Text: "\u0421\u043F\u0430\u0432\u043D\u0438 {0} \u0434\u0430\u043B\u044C\u043D\u0438\u0445
         \u044E\u043D\u0438\u0442\u043E\u0432"
     - LocalizeLabel: 2
-      Text: 
-  Goal: 10
+      Text: "{0} menzilli birim \xFCretir"
+  Goal: 20
   Reward: 25

@@ -1,14 +1,16 @@
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Zenject;
 
 
-public class TutorialManager : MonoBehaviour, ISaveSystemService
+public class TutorialManager : MonoBehaviour, ISaveSystemService, IInitialized
 {
+    [Inject] private ISaveSystem _saveSystem;
     [Inject] private LocalizationSelector _localizationSelector;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private PlayerData _playerData;
@@ -39,7 +41,7 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
         _gameManager.onEnd -= () => SetTutorialState(2);
     }
 
-    private void Awake()
+    public void Initialized()
     {
         foreach (var stage in _stages)
         {
@@ -50,10 +52,7 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
         }
 
         HideAllArrow();
-    }
 
-    private void Start()
-    {
         SetTutorialState(0);
     }
 
@@ -112,7 +111,7 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
     {
         Debug.Log("End Tutorial");
         _sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
-        SaveData(new SaveSystem());
+        SaveData(_saveSystem);
     }
 
     public void LoadData()
@@ -123,7 +122,6 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService
     public void SaveData(ISaveSystem saveSystem)
     {
         _playerData.IsNewUser = false;
-
         saveSystem.SaveDate(_playerData, "PlayerData");
     }
 }

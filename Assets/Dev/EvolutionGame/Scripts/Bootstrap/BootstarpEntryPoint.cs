@@ -21,6 +21,8 @@ public class BootstarpEntryPoint : MonoBehaviour
 
         LocalizationSelector localizeSelector = container.Resolve<LocalizationSelector>();
 
+        yield return localizeSelector.SetLocalization(container.Resolve<YandexSDK>().Language);
+
         yield return container.Resolve<AudioManager>().Initialized();
 
         LoadScene(container.Resolve<PlayerData>(), container.Resolve<SceneLoader>());
@@ -29,7 +31,7 @@ public class BootstarpEntryPoint : MonoBehaviour
     private void LoadScene(PlayerData playerData, SceneLoader sceneLoader)
     {
         if (playerData.IsNewUser == true)
-            sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
+            sceneLoader.SwitchScene("TutotialScene").Forget();
         else
             sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
     }

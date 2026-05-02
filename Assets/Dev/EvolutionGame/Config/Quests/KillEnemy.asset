@@ -17,10 +17,12 @@ MonoBehaviour:
   QuestName:
     _texts:
     - LocalizeLabel: 0
-      Text: 1001
+      Text: '
+
+        Kill {0} enemies'
     - LocalizeLabel: 1
       Text: "\u0423\u0431\u0435\u0439 {0} \u0432\u0440\u0430\u0433\u043E\u0432"
     - LocalizeLabel: 2
-      Text: 
-  Goal: 10
-  Reward: 25
+      Text: "{0} d\xFC\u015Fman\u0131 \xF6ld\xFCr"
+  Goal: 30
+  Reward: 30

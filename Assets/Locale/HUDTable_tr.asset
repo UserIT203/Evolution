@@ -20,10 +20,54 @@ MonoBehaviour:
     - rid: 5315092181419819106
   m_TableData:
   - m_Id: 6918819840
-    m_Localized: 
+    m_Localized: Seviye {0}
     m_Metadata:
       m_Items:
       - rid: 5315092181419819106
+  - m_Id: 3713064554496
+    m_Localized: "Daha \xF6te"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3793565831168
+    m_Localized: Zafer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4118427258880
+    m_Localized: "\xD6d\xFCl"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4363588521984
+    m_Localized: Yeni seviye
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4455343116288
+    m_Localized: "\xC7ift"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4966502944768
+    m_Localized: "Ge\xE7ilen seviye"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5364869550080
+    m_Localized: "\xC7ift"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5558872887296
+    m_Localized: Yenmek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6318356484096
+    m_Localized: Duraklat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6444852498432
+    m_Localized: Devam etmek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6569129725952
+    m_Localized: "Ana men\xFC"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

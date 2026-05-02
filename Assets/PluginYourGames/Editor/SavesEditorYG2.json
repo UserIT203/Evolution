@@ -1,22 +1,38 @@
 {
   "Data": [
     {
+      "Type": "SettingData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "JsonData": "{\"MusicVolume\":0.0,\"SFXVolume\":-0.11335019767284394,\"LocaleIndex\":0}"
+    },
+    {
+      "Type": "PlayerData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "JsonData": "{\"IsNewUser\":false}"
+    },
+    {
       "Type": "LevelData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "JsonData": "{\"Coins\":30,\"OpenLevels\":[false,false,false,false],\"LevelUpgradeCount\":5,\"CurrentOpenLevel\":0,\"UnlockUnits\":[true,true,true]}"
+      "JsonData": "{\"Coins\":1833,\"OpenLevels\":[false,false,false,false],\"LevelUpgradeCount\":17,\"CurrentOpenLevel\":0,\"UnlockUnits\":[true,true,true]}"
     },
     {
       "Type": "GlobalData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "JsonData": "{\"GemCount\":275,\"CardCollection\":[],\"AbilityCardCollection\":[],\"ActiveAbilityID\":\"\"}"
+      "JsonData": "{\"GemCount\":210,\"CardCollection\":[{\"ID\":\"45746\",\"CollectedCardCount\":4,\"CardLevel\":1},{\"ID\":\"45566\",\"CollectedCardCount\":2,\"CardLevel\":0},{\"ID\":\"45686\",\"CollectedCardCount\":4,\"CardLevel\":0},{\"ID\":\"45764\",\"CollectedCardCount\":4,\"CardLevel\":0},{\"ID\":\"-30930\",\"CollectedCardCount\":1,\"CardLevel\":0},{\"ID\":\"-31570\",\"CollectedCardCount\":2,\"CardLevel\":0},{\"ID\":\"-32380\",\"CollectedCardCount\":1,\"CardLevel\":0},{\"ID\":\"-26496\",\"CollectedCardCount\":1,\"CardLevel\":0},{\"ID\":\"-30380\",\"CollectedCardCount\":1,\"CardLevel\":0},{\"ID\":\"-25870\",\"CollectedCardCount\":1,\"CardLevel\":0},{\"ID\":\"-27092\",\"CollectedCardCount\":1,\"CardLevel\":0}],\"AbilityCardCollection\":[{\"ID\":\"-23656\",\"CollectedCardCount\":2,\"CardLevel\":0}],\"ActiveAbilityID\":\"-23656\"}"
     },
     {
       "Type": "QuestSaveData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "JsonData": "{\"ActiveQuestData\":[]}"
-    },
-    {
-      "Type": "SettingData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "JsonData": "{\"MusicVolume\":-7.182720184326172,\"SFXVolume\":-11.939266204833985,\"LocaleIndex\":1}"
+      "JsonData": "{\"ActiveQuestData\":[{\"ID\":\"54814\",\"Progress\":63,\"GetReward\":true},{\"ID\":\"54624\",\"Progress\":9,\"GetReward\":false},{\"ID\":\"55566\",\"Progress\":0,\"GetReward\":false},{\"ID\":\"56190\",\"Progress\":60,\"GetReward\":true}]}"
     }
   ],
+  "stringKeys": [
+    "lastClaimTime",
+    "lastSpinTime"
+  ],
+  "stringValues": [
+    "02.05.2026 15:39:07",
+    "02.05.2026 10:17:33"
+  ],
+  "floatKeys": [],
+  "floatValues": [],
+  "intKeys": [],
+  "intValues": [],
   "intExample": 5,
   "strExample": "Hello!",
   "boolExample": [
@@ -25,5 +41,5 @@
     false,
     false
   ],
-  "idSave": 24
+  "idSave": 2431
 }

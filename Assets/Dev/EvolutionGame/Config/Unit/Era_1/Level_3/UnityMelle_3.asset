@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: UnityMelle_3
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatsConfig
   <UnitName>k__BackingField:
-    _texts: []
+    _texts:
+    - LocalizeLabel: 0
+      Text: Spear
+    - LocalizeLabel: 1
+      Text: "\u041A\u043E\u043F\u044C\u0451"
+    - LocalizeLabel: 2
+      Text: "M\u0131zrak"
   <Cost>k__BackingField: 5
   <UnitType>k__BackingField: 0
   <Maxhealth>k__BackingField: 65

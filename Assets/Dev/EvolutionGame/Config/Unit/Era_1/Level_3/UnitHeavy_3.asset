@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: UnitHeavy_3
   m_EditorClassIdentifier: Assembly-CSharp::UnitRangedConfig
   <UnitName>k__BackingField:
-    _texts: []
+    _texts:
+    - LocalizeLabel: 0
+      Text: Cannon
+    - LocalizeLabel: 1
+      Text: "\u041F\u0443\u0448\u043A\u0430"
+    - LocalizeLabel: 2
+      Text: Silah
   <Cost>k__BackingField: 15
   <UnitType>k__BackingField: 2
   <Maxhealth>k__BackingField: 300

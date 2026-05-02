@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Zenject;
 using System;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class QuestModel : MonoBehaviour, IInitialized
 {

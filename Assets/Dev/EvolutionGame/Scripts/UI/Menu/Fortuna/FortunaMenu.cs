@@ -6,10 +6,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class FortunaMenu : Menu
 {
-    private const float SPIN_DURATION_HOURS = 50f;
+    private const float SPIN_DURATION_HOURS = 2f;
 
     private enum PrizeType
     {
@@ -175,7 +176,7 @@ public class FortunaMenu : Menu
 
         var timeSpan = DateTime.UtcNow - _lastSpinTime.Value;
 
-        if (timeSpan.Seconds >= SPIN_DURATION_HOURS) return true;
+        if (timeSpan.Hours >= SPIN_DURATION_HOURS) return true;
 
         return false;
     }
@@ -188,7 +189,7 @@ public class FortunaMenu : Menu
             return;
         }
 
-        var timeRemaing = _lastSpinTime.Value.AddSeconds(SPIN_DURATION_HOURS) - DateTime.UtcNow;
+        var timeRemaing = _lastSpinTime.Value.AddHours(SPIN_DURATION_HOURS) - DateTime.UtcNow;
         var time = timeRemaing > TimeSpan.Zero ? timeRemaing : TimeSpan.Zero;
         _timeText.text = time.ToString(@"hh\:mm\:ss");
     }
@@ -242,13 +243,19 @@ public class FortunaMenu : Menu
 
         AudioManager.PlaySound("SpinWheel");
 
-        Sprite sprite = prize.PrizeType == PrizeType.Coin ? _coinImage : _gemImage;
+        Sprite sprite = null;
 
         if (prize.PrizeType == PrizeType.Coin)
+        {
             _levelUpgrade.AddCoin(prize.Value);
+            sprite = _coinImage;
+        }         
         else if (prize.PrizeType == PrizeType.DonatCoin)
+        {
             _globalManager.GemCount = prize.Value;
-
+            sprite = _gemImage;
+        }
+            
         OpenPrizePopUp(sprite, prize.Value);
 
         Debug.Log($"Dropped prizes index {index}");
@@ -257,6 +264,7 @@ public class FortunaMenu : Menu
     private void OpenPrizePopUp(Sprite icon, int value)
     {
         _prizeValue.text= value.ToString();
+        _prizeIcon.sprite = icon;
 
         _prizePopUp.alpha = 0f;
         _popUpBackground.rectTransform.localScale = Vector3.one * 0.3f;

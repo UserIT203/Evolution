@@ -45,6 +45,8 @@ public class LootBag : MonoBehaviour
 
     public void CreateItem()
     {
+        if (_context == null) return;
+
         if (_droppedItem == null) return;
 
         foreach (var item in _droppedItem)

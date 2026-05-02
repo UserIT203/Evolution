@@ -17,10 +17,10 @@ MonoBehaviour:
   QuestName:
     _texts:
     - LocalizeLabel: 0
-      Text: 101010
+      Text: Spawn {0} units
     - LocalizeLabel: 1
       Text: "\u0421\u043F\u0430\u0432\u043D\u0438 {0} \u044E\u043D\u0438\u0442\u043E\u0432"
     - LocalizeLabel: 2
-      Text: 
-  Goal: 10
-  Reward: 25
+      Text: "{0} birim \xFCret"
+  Goal: 40
+  Reward: 30

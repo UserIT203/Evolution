@@ -69,6 +69,7 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
             _levelsCompleted.Add(LevelsSettings[i], false);
         }
 
+        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
         onOpenNewLevel?.Invoke(LevelsSettings[0]);
     }
 

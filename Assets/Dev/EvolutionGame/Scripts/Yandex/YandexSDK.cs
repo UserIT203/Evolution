@@ -41,7 +41,6 @@ public class YandexSDK
     public void ShowInterstitialADV()
     {
         YG2.InterstitialAdvShow();
-        
     }
 
     public void ShowRewardADV(string id, Action completedAction = null, int advCount = 0)

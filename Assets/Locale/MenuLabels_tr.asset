@@ -20,15 +20,101 @@ MonoBehaviour:
     - rid: 5315092163408166914
   m_TableData:
   - m_Id: 38803329044480
-    m_Localized: 
+    m_Localized: "\xC7a\u011F {0}"
     m_Metadata:
       m_Items:
       - rid: 5315092163408166914
   - m_Id: 7512003692515328
-    m_Localized: 
+    m_Localized: Dalga {0}
     m_Metadata:
       m_Items:
       - rid: 5315092163408166914
+  - m_Id: 66277844766720
+    m_Localized: Seviye
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68343531098112
+    m_Localized: "Geli\u015Fim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73805454430208
+    m_Localized: "Ma\u011Faza"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73990301601792
+    m_Localized: Koleksiyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74133264453632
+    m_Localized: "\xC7ark\u0131felek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74320636596224
+    m_Localized: Ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75336476053504
+    m_Localized: Oynamak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75650058997760
+    m_Localized: Seviye
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77242845941760
+    m_Localized: "G\u0131da iyile\u015Ftirmeleri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78282299330560
+    m_Localized: "De\u011Fi\u015Fiklikler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78353170485248
+    m_Localized: Yetenekler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329102269927424
+    m_Localized: "B\xFCk\xFCm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329371682656256
+    m_Localized: "Arka plan m\xFCzi\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 329461868580864
+    m_Localized: Efektler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335916277485568
+    m_Localized: Donatmak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336043754967040
+    m_Localized: "Geli\u015Ftirmek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336193571311616
+    m_Localized: Seviye {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374420478939136
+    m_Localized: Dil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1375404772610048
+    m_Localized: '
+
+      Yeterli fon yok'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3237864127385600
+    m_Localized: "\r\nG\xF6revler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3302647841214464
+    m_Localized: "Yeni g\xF6revler"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

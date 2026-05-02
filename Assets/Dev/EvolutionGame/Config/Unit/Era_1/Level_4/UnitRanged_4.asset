@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: UnitRanged_4
   m_EditorClassIdentifier: Assembly-CSharp::UnitRangedConfig
   <UnitName>k__BackingField:
-    _texts: []
+    _texts:
+    - LocalizeLabel: 0
+      Text: Machine
+    - LocalizeLabel: 1
+      Text: "\u0410\u0432\u0442\u043E\u043C\u0430\u0442"
+    - LocalizeLabel: 2
+      Text: Makine
   <Cost>k__BackingField: 15
   <UnitType>k__BackingField: 1
   <Maxhealth>k__BackingField: 75
   <Armor>k__BackingField: 0
   <Speed>k__BackingField: 0.6
-  <AttackDelay>k__BackingField: 0.5
+  <AttackDelay>k__BackingField: 0.8
   <AttackRange>k__BackingField: 7
   <Damage>k__BackingField: 50
   <DetectedRange>k__BackingField: 8
