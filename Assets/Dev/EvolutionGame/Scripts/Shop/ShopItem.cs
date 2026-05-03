@@ -3,8 +3,6 @@ using Zenject;
 
 public abstract class ShopItem
 {
-    [Inject] private YandexSDK _yandexSDK;
-    [Inject] private GlobalManager _globalManager;
     [Inject] protected MenuManager _menuManager;
 
     public Sprite Icon;
@@ -13,6 +11,11 @@ public abstract class ShopItem
     public LocalizeText NameItem;
 
     public abstract void TryBuy();
+
+    public virtual void Initialized()
+    {
+
+    }
 
     protected virtual void Success()
     {

@@ -4,7 +4,7 @@ using Zenject;
 
 public class SaveManager : MonoBehaviour, IInitialized
 {
-    private const float TIME_TO_SAVE = 60;
+    private const float TIME_TO_SAVE = 20;
 
     [Inject] private List<ISaveSystemService> _services;
     [Inject] private ISaveSystem _saveSystem;

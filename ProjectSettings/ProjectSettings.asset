@@ -543,7 +543,7 @@ PlayerSettings:
     m_Automatic: 0
   - m_BuildTarget: WindowsStandaloneSupport
     m_APIs: 0200000012000000
-    m_Automatic: 0
+    m_Automatic: 1
   - m_BuildTarget: WebGLSupport
     m_APIs: 0b000000
     m_Automatic: 1
@@ -813,14 +813,14 @@ PlayerSettings:
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
   webGLMemorySize: 32
-  webGLExceptionSupport: 1
+  webGLExceptionSupport: 2
   webGLNameFilesAsHashes: 0
   webGLShowDiagnostics: 0
   webGLDataCaching: 1
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: PROJECT:YandexGames
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
@@ -841,24 +841,24 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
+    Android: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
     EmbeddedLinux: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
     GameCoreScarlett: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
     GameCoreXboxOne: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
     Kepler: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    LinuxHeadlessSimulation: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    Nintendo Switch: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
+    LinuxHeadlessSimulation: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
+    Nintendo Switch: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
     Nintendo Switch 2: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    PS4: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    PS5: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
+    PS4: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
+    PS5: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
     QNX: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    Standalone: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
+    Standalone: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
     VisionOS: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    WebGL: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    Windows Store Apps: DOTWEEN
-    XboxOne: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
-    iPhone: DOTWEEN
-    tvOS: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
+    WebGL: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
+    Windows Store Apps: DOTWEEN;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
+    XboxOne: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
+    iPhone: DOTWEEN;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
+    tvOS: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2;PLUGIN_YG_2;Authorization_yg;EnvirData_yg;InterstitialAdv_yg;QuitGameEvent_yg;RedefinePlayerPrefs_yg;RewardedAdv_yg;Storage_yg;TMP_YG2;NJSON_YG2;YandexGamesPlatform_yg
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -866,7 +866,8 @@ PlayerSettings:
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   il2cppStacktraceInformation: {}
-  managedStrippingLevel: {}
+  managedStrippingLevel:
+    Standalone: 4
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
   allowUnsafeCode: 0

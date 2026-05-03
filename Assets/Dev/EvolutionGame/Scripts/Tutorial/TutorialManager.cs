@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -86,7 +85,15 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService, IInitialized
         Time.timeScale = 0f;
     }
 
-    private void SetDescription()
+    private void EndTutorial()
+    {
+        Debug.Log("End Tutorial");
+        _sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
+        SaveData(_saveSystem);
+    }
+
+
+    public void SetDescription()
     {
         if (_currentInfoIndex >= _currentStage.Info.Count && _isTutorial == true)
         {
@@ -96,22 +103,15 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService, IInitialized
 
             onEndStage?.Invoke();
 
-            if(_currentStageIndex >= _stages.Count - 1) EndTutorial();
+            if (_currentStageIndex >= _stages.Count - 1) EndTutorial();
 
             return;
         }
 
         HideAllArrow();
-            
+
         onSetInfo?.Invoke(_currentStage.Info[_currentInfoIndex]);
         _currentInfoIndex = Mathf.Clamp(_currentInfoIndex + 1, 0, _currentStage.Info.Count);
-    }
-
-    private void EndTutorial()
-    {
-        Debug.Log("End Tutorial");
-        _sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
-        SaveData(_saveSystem);
     }
 
     public void LoadData()

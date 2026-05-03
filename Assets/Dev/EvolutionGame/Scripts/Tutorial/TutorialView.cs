@@ -63,7 +63,11 @@ public class TutorialView : MonoBehaviour
         _canvasGroup.Show();
     }
 
-    public void HideTutorialCanvas() => _canvasGroup.Hide();
+    public void HideTutorialCanvas()
+    {
+        _currentTextTween?.Kill();
+        _canvasGroup.Hide();
+    }
 
     private void PlayTextAnimatio(string text)
     {

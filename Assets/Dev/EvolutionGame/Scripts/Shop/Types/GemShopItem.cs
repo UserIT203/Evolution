@@ -11,16 +11,26 @@ public class GemShopItem : ShopItem
     [SerializeField] private string _rewardID;
     [SerializeField] private int _getGems;
 
-    public Action<int> onShowReward;
+    public Action<int> onShowReward; 
+
+    public override void Initialized()
+    {
+        _yandexSDK.onSuccessReward += SuccessRewardShow;
+        onShowReward?.Invoke(_yandexSDK.GetRewardInfo(_rewardID));
+    }
 
     public override void TryBuy()
     {
         _yandexSDK.ShowRewardADV(id: _rewardID, completedAction: Success, advCount: Price);
-        onShowReward?.Invoke(_yandexSDK.GetRewardInfo(_rewardID));
     }
 
     protected override void Success()
     {
         _globalManager.GemCount = _getGems;
+    }
+
+    private void SuccessRewardShow()
+    {
+        onShowReward?.Invoke(_yandexSDK.GetRewardInfo(_rewardID));
     }
 }

@@ -7,7 +7,7 @@ public class BootstarpEntryPoint : MonoBehaviour
 {
     [SerializeField] private SceneLoaderView _sceneLoaderView;
 
-    private IEnumerator Start()
+    private async UniTask Start()
     {
         SceneLoaderView sceneView = Instantiate(_sceneLoaderView);
 
@@ -21,9 +21,9 @@ public class BootstarpEntryPoint : MonoBehaviour
 
         LocalizationSelector localizeSelector = container.Resolve<LocalizationSelector>();
 
-        yield return localizeSelector.SetLocalization(container.Resolve<YandexSDK>().Language);
+        await localizeSelector.SetLocalization(container.Resolve<YandexSDK>().Language);
 
-        yield return container.Resolve<AudioManager>().Initialized();
+        await container.Resolve<AudioManager>().Initialized();
 
         LoadScene(container.Resolve<PlayerData>(), container.Resolve<SceneLoader>());
     }
