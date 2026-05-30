@@ -79,17 +79,7 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
 
     private void CheackUpdateQuests()
     {
-        if (_model.LastUpdateTime == null)
-        {
-            Debug.Log("<color=red>Don't Found Time</color>");
-            _model.LastUpdateTime = DateTime.UtcNow;
-            InitializedQuests();
-            return;
-        }
-
-        if (DateTime.UtcNow.Month >= _model.LastUpdateTime.Value.Month
-            && DateTime.UtcNow.Date > _model.LastUpdateTime.Value.Date
-            && DateTime.UtcNow.Hour >= _model.TimeToUpdateQuests.Hours)
+        if (ShouldRefresh(_model.LastUpdateTime, _model.TimeToUpdateQuests)) 
         {
             Debug.Log("<color=red>Update quests</color>");
             _model.LastUpdateTime = DateTime.UtcNow;
@@ -102,6 +92,19 @@ public class QuestPresentation : MonoBehaviour, IInitialized, ISaveSystemService
         var timeRemain = nextUpdateTime - DateTime.UtcNow;
 
         _questMenu.UpdateTimer(timeRemain);
+    }
+
+    private bool ShouldRefresh(DateTime? lastUpdate, TimeSpan resetTime) 
+    {
+        if(lastUpdate == null)
+            return true;
+
+        DateTime nowUtc = DateTime.UtcNow;
+        DateTime todayReset = nowUtc.Date + resetTime;
+
+        DateTime lastReset = nowUtc < todayReset ? todayReset.AddDays(-1) : todayReset;
+
+        return lastUpdate < lastReset;
     }
 
     private void InitializedQuests()

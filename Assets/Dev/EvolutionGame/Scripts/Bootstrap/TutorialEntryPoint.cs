@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using Zenject;
 using UnityEngine;
+using YG;
 
 public class TutorialEntryPoint : Bootstrap
 {
@@ -16,7 +17,7 @@ public class TutorialEntryPoint : Bootstrap
     {
         Debug.Log("[INIT] Tutorial Scene");
 
-        _levelManager.Initialized();
+        _levelManager.InitializedTutotial();
         _globalManager.Initialized();
         _levelUpgrade.Initialized();
 
@@ -24,6 +25,7 @@ public class TutorialEntryPoint : Bootstrap
 
         await _localizationSelector.SetLocalization(_localizationSelector.CurrentLanguage);
 
+        YG2.GameReadyAPI();
         _tutorialManager.Initialized();
     }
 }

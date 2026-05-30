@@ -8,7 +8,6 @@ using Zenject;
 public class LocalizationSelector : ISaveSystemService
 {
     [Inject] private SettingData _settingData;
-    [Inject] private YandexSDK _yandexSDK;
 
     public int CurrentLanguage { get; private set; }
 

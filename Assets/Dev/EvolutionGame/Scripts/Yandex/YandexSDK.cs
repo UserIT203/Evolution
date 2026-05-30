@@ -2,13 +2,28 @@ using System;
 using System.Collections.Generic;
 using YG;
 using UnityEngine;
+using PaymentModels;
+using YG.Utils.Pay;
+using System.Linq;
 
 public class YandexSDK
 {
     private Dictionary<string, int> _rewardedDict = new();
     private Dictionary<string, (int, Action)> _rewardedActionDict = new();
 
+    private Dictionary<string, StartKit> _paymentItemDict = new();
+    private Dictionary<string, Action> _paymentActionDict = new();
+
     public Action onSuccessReward;
+    public Action onSuccessPayment;
+
+    public StartKit[] PaymentsItem
+    {
+        get
+        {
+            return _paymentItemDict.Values.ToArray();
+        }
+    }
 
     public bool IsDesktop
     {
@@ -17,7 +32,6 @@ public class YandexSDK
             return YG2.envir.isDesktop;
         }
     }
-
     public int Language
     {
         get
@@ -43,6 +57,11 @@ public class YandexSDK
         YG2.onRewardAdv += HandleRewardedSuccess;
         YG2.onErrorRewardedAdv += HandleRewardedFailed;
         YG2.onCloseRewardedAdv += HandleRewardedClose;
+
+        YG2.onPurchaseSuccess += SuccessPurchase;
+        YG2.onPurchaseFailed += FailedPurchase;
+
+        InitializedPaymentItem();
     }
 
     public void ShowInterstitialADV()
@@ -76,10 +95,48 @@ public class YandexSDK
 
     public int GetRewardInfo(string id)
     {
-        if (_rewardedDict.TryGetValue(id, out var count) == true)
-            return count;
+        try
+        {
+            if (_rewardedDict.TryGetValue(id, out var count) == true)
+                return count;
+        }
+        catch (Exception ex)
+        {
+            Debug.Log($"[REWARD ADV INFO] Error {ex}");
+            _rewardedDict = new();
+            _rewardedDict.Add(id, 0);
+        }
+        
             
         return 0;
+    }
+
+    public void RegisterPaymentAction(string id, Action action)
+    {
+        if (_paymentActionDict.ContainsKey(id)) return;
+        _paymentActionDict.Add(id, action);
+    }
+
+    public void UnregisterPaymentActio(string id)
+    {
+        if (_paymentActionDict.ContainsKey(id) == false) return;
+        _paymentActionDict.Remove(id);
+    }
+
+    public StartKit GetPaymentReward(string id)
+    {
+        return _paymentItemDict[id];
+    }
+
+    private void InitializedPaymentItem()
+    {
+        Purchase[] purchases = YG2.purchases;
+
+        foreach (Purchase purchase in purchases)
+        {
+            _paymentItemDict.Add(purchase.id, new StartKit(purchase.id));
+            Debug.Log($"[PAYMENTS] Purchases ID {purchase.id}");
+        }  
     }
 
     private void HandleRewardedSuccess(string rewardID)
@@ -112,5 +169,20 @@ public class YandexSDK
     private void HandleRewardedClose()
     {
         Debug.Log("[REWARD] Close Reward ADV");
+    }
+
+    private void SuccessPurchase(string id)
+    {
+        Debug.Log($"[INAP] Success payment with id {id}");
+
+        YG2.SetState(id, 1);
+        _paymentActionDict[id]?.Invoke();
+        
+        onSuccessPayment?.Invoke();    
+    }
+
+    private void FailedPurchase(string id)
+    {
+        Debug.Log($"[INAP] Failed payment with id {id}");
     }
 }

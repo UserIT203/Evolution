@@ -55,7 +55,7 @@ public class MenuManager : MonoBehaviour, IInitialized
         gameManager.onLoseLevel += () => GetHUDPanel<LosePanel>().OpenMenu();
 
         levelManager.onEraCompleted += () => GetHUDPanel<WinEraPanel>().OpenMenu();
-        levelManager.onLevelCompleted += () => GetHUDPanel<WinPanel>().OpenMenu();
+        gameManager.onWinLevel += () => GetHUDPanel<WinPanel>().OpenMenu();
 
         globalManager.onChangeCoin += ChangeGemText;
         levelUpgrade.onChangeMoney += ChangeCointText;

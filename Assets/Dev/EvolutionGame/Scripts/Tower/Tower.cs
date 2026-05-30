@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using System;
 using UnityEngine;
 using Zenject;
@@ -10,9 +11,9 @@ public class Tower : MonoBehaviour, IDamagaeble
     private LootBag _lootBag;
     private float _currentHealth;
 
+    private UnitEffect _effect;
     private ItemManager _itemManager;
     
-
     public Transform Transform { get => transform; set => Transform = value; }
     public GameManager GameManager { get; set; }
 
@@ -33,6 +34,7 @@ public class Tower : MonoBehaviour, IDamagaeble
 
     private void Start()
     {
+        _effect = GetComponent<UnitEffect>();
         Initialized();
 
         if(_type == TowerType.EnemyTower)
@@ -69,7 +71,7 @@ public class Tower : MonoBehaviour, IDamagaeble
     public void Die()
     {
         Debug.Log($"Tower defend {transform.name}");
-        GameManager.EndGame(_type);
+        _effect.PlayTowerDefeat(() => GameManager.EndGame(_type));
         onDie?.Invoke();
     }
 }

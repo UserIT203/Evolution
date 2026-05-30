@@ -2,10 +2,10 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Zenject;
-
 
 public class TutorialManager : MonoBehaviour, ISaveSystemService, IInitialized
 {
@@ -88,8 +88,8 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService, IInitialized
     private void EndTutorial()
     {
         Debug.Log("End Tutorial");
-        _sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
         SaveData(_saveSystem);
+        _sceneLoader.SwitchScene("UI_Manager_Scene").Forget();
     }
 
 
@@ -104,6 +104,8 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService, IInitialized
             onEndStage?.Invoke();
 
             if (_currentStageIndex >= _stages.Count - 1) EndTutorial();
+
+            _currentStage?.EndEvent?.Invoke();
 
             return;
         }
@@ -130,7 +132,8 @@ public class TutorialManager : MonoBehaviour, ISaveSystemService, IInitialized
 public class TutorialStage
 {
     public LocalizeText StageName;
-    public List<TutorialInfo> Info; 
+    public List<TutorialInfo> Info;
+    public UnityEvent EndEvent;
 }
 
 [System.Serializable]

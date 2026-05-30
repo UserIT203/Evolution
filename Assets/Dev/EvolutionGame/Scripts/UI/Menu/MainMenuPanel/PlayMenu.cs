@@ -67,13 +67,13 @@ public class PlayMenu : Menu, ILevelHandler
         _speedModifierText.text = "x" + _globalManager.SpeedMultiplier.GetValue().ToString();
     }
 
-    public void SetLevelSettings(LevelSetting levelSettings)
+    public void SetLevelSettings(LevelSetting levelSettings, bool isLoadData)
     {
         _levelText.text = $"{_levelManager.CurrentOpenLevels}/{_levelManager.MaxLevel}";
         _levelIcon.sprite = _levelManager.CurentLevelIcon;
     }
 
-    public void SetEraSettings(LevelSetting levelSettings)
+    public void SetEraSettings(LevelSetting levelSettings, bool isLoadData)
     {
 
         if (_localeEvent.StringReference.Arguments == null)

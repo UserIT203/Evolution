@@ -21,7 +21,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8669517367038235175
 Transform:
@@ -176,3 +176,13 @@ MonoBehaviour:
   - Name: hit
     Offset: {x: 0, y: 4, z: 0}
     Particle: {fileID: 4831766335027363736, guid: e45e6d80f68f7b849b9340b1493480d6, type: 3}
+  _fallDuration: 2
+  _tiltAngle: 30
+  _tiltAxis: {x: 0, y: 0, z: 1}
+  _dropHeight: 1
+  _impactSquash: {x: 1.4, y: 0.25, z: 1.4}
+  _squashDuration: 0.3
+  _settleDuration: 0.5
+  _impactSound: 
+  _shakeDuration: 0.5
+  shakeStrength: 1

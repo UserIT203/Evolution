@@ -114,12 +114,12 @@ public class UpgradesMenu : Menu, ILevelHandler
         _speedModifier.text = $"x{_globalManager.SpeedMultiplier.GetValue()}";
     }
 
-    public void SetLevelSettings(LevelSetting levelSettings)
+    public void SetLevelSettings(LevelSetting levelSettings, bool isLoadData)
     {
         
     }
 
-    public void SetEraSettings(LevelSetting levelSettings)
+    public void SetEraSettings(LevelSetting levelSettings, bool isLoadData)
     {
         Initialized();
     }

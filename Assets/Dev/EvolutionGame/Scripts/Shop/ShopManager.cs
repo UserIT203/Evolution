@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Zenject;
+using PaymentModels;
 
 public class ShopManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ShopManager : MonoBehaviour
         public List<ShopItem> Items;
     }
 
+    [Inject] private YandexSDK _yandexSDK;
     [Inject] private LocalizationSelector _localizationSelector;
     [Inject] private DiContainer _diContainer;
 
@@ -27,7 +29,7 @@ public class ShopManager : MonoBehaviour
     {
         InitializedShopItem();
     }
-
+      
     private void InitializedShopItem()
     {
         foreach (var container in _containers)
@@ -45,6 +47,10 @@ public class ShopManager : MonoBehaviour
                 case ShopItemType.DonatMoney:
                     InitGemItems(container);
                     break;
+
+                case ShopItemType.GamePass:
+                    InitKitItems(container);
+                    break;
             }
         }
 
@@ -61,6 +67,8 @@ public class ShopManager : MonoBehaviour
                     container.Visualization,
                     container.Container) 
                     as ShopItemUI;
+
+                _diContainer.Inject(shopUI);
 
                 shopUI.Initialized(item, _localizationSelector);
             }
@@ -96,6 +104,19 @@ public class ShopManager : MonoBehaviour
         foreach (var item in _gems)
         {
             _diContainer.Inject(item);
+            container.Items.Add(item);
+        }
+    }
+
+    private void InitKitItems(Containers container)
+    {
+        container.Items = new List<ShopItem>();
+
+        foreach (StartKit payment in _yandexSDK.PaymentsItem)
+        {
+            StartKitItem item = new StartKitItem(payment);
+            _diContainer.Inject(item);
+            item.Initialized();
             container.Items.Add(item);
         }
     }

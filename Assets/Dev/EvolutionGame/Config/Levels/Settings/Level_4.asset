@@ -16,8 +16,8 @@ MonoBehaviour:
   LevelIcon: {fileID: 21300000, guid: 25ff1ad0fbfbf504f8c41abee409d527, type: 3}
   PlayerUnits:
   - {fileID: 2274729380952362785, guid: 38582326808427c4fa1bc4dffbdc045e, type: 3}
-  - {fileID: 796205688025059025, guid: c0083ba8baa3e4648a1acb7705c28ef1, type: 3}
   - {fileID: 6811170344297397080, guid: 419ed69f13b1e9046a2b47423b18dcee, type: 3}
+  - {fileID: 796205688025059025, guid: c0083ba8baa3e4648a1acb7705c28ef1, type: 3}
   EnemyUnits:
   - {fileID: 6832287162686409943, guid: 805e933208871a94e8463a2c3b016235, type: 3}
   - {fileID: 3878577500840237513, guid: 86f1803361639004599fde047b642476, type: 3}

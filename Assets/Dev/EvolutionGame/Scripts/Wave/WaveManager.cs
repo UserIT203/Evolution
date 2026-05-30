@@ -101,12 +101,12 @@ public class WaveManager : MonoBehaviour, ILevelHandler
         _waveConfig = config;
     }
 
-    public void SetLevelSettings(LevelSetting levelSettings)
+    public void SetLevelSettings(LevelSetting levelSettings, bool isLoadData)
     {
         _waveConfig = levelSettings.WavesConfig;
     }
 
-    public void SetEraSettings(LevelSetting levelSettings)
+    public void SetEraSettings(LevelSetting levelSettings, bool isLoadData)
     {
         
     }

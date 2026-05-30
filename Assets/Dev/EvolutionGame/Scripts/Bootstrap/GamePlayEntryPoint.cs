@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using UnityEngine;
+using YG;
 using Zenject;
 
 public class GamePlayEntryPoint : Bootstrap
@@ -35,6 +36,9 @@ public class GamePlayEntryPoint : Bootstrap
         await _container.Resolve<LocalizationSelector>()
             .SetLocalization(_yandexSDK.Language);
 
+        if (YG2.isSDKEnabled == false) YG2.GameReadyAPI();
+
+        YG2.ConsumePurchases();
         Debug.Log("End Init Gameplay Bootstrap");
     }
 }

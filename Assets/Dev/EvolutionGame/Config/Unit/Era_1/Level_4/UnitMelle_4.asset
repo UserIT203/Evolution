@@ -22,12 +22,12 @@ MonoBehaviour:
       Text: Deniz
   <Cost>k__BackingField: 5
   <UnitType>k__BackingField: 0
-  <Maxhealth>k__BackingField: 80
+  <Maxhealth>k__BackingField: 120
   <Armor>k__BackingField: 0
   <Speed>k__BackingField: 0.8
   <AttackDelay>k__BackingField: 1
   <AttackRange>k__BackingField: 2
-  <Damage>k__BackingField: 25
+  <Damage>k__BackingField: 55
   <DetectedRange>k__BackingField: 3
   <Icon>k__BackingField: {fileID: 21300000, guid: 0527c9b801a54bc4b85310c98f1cc9a3, type: 3}
   <IsUnlock>k__BackingField: 1

@@ -15,6 +15,7 @@ public class GemShopItem : ShopItem
 
     public override void Initialized()
     {
+        Debug.Log($"[SHOP MANAGER IN WEB] Gem Shop {_yandexSDK}");
         _yandexSDK.onSuccessReward += SuccessRewardShow;
         onShowReward?.Invoke(_yandexSDK.GetRewardInfo(_rewardID));
     }

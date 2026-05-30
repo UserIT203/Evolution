@@ -10,7 +10,7 @@ public class QuestModel : MonoBehaviour, IInitialized
 
     [Header("<color=green>Main Settings</color>")]
     [SerializeField] private QuestScriptableObject[] _questList;
-    public TimeSpan TimeToUpdateQuests = new TimeSpan(0, 0, 0);
+    public TimeSpan TimeToUpdateQuests = new TimeSpan(5, 0, 0);
 
     public Dictionary<QuestType, List<QuestData>> TypeQuestDictionary;
     public List<QuestData> ActiveQuest { get; set; }

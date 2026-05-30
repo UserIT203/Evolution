@@ -16,12 +16,12 @@ MonoBehaviour:
     _texts: []
   <Cost>k__BackingField: 21
   <UnitType>k__BackingField: 2
-  <Maxhealth>k__BackingField: 400
+  <Maxhealth>k__BackingField: 450
   <Armor>k__BackingField: 100
   <Speed>k__BackingField: 0.6
   <AttackDelay>k__BackingField: 4
   <AttackRange>k__BackingField: 9
-  <Damage>k__BackingField: 150
+  <Damage>k__BackingField: 100
   <DetectedRange>k__BackingField: 11
   <Icon>k__BackingField: {fileID: 21300000, guid: f6d5c23f43e02f34b8d66b6d891e1cfe, type: 3}
   <IsUnlock>k__BackingField: 0

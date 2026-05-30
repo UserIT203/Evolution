@@ -22,7 +22,7 @@ MonoBehaviour:
       Text: Silah
   <Cost>k__BackingField: 15
   <UnitType>k__BackingField: 2
-  <Maxhealth>k__BackingField: 300
+  <Maxhealth>k__BackingField: 400
   <Armor>k__BackingField: 50
   <Speed>k__BackingField: 0.6
   <AttackDelay>k__BackingField: 4

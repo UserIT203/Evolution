@@ -11,6 +11,12 @@ public class SaveManager : MonoBehaviour, IInitialized
 
     private float _lastTimeSave;
 
+    [Inject]
+    public void Construct(YandexSDK yandex)
+    {
+        yandex.onSuccessPayment += SaveAllData;
+    }
+
     private void OnDisable()
     {
         SaveAllData();
@@ -38,7 +44,7 @@ public class SaveManager : MonoBehaviour, IInitialized
 
     public void SaveAllData()
     {
-        Debug.Log("<color=red>Save All Data</color>");
         _services.ForEach(s => s.SaveData(_saveSystem));
+        Debug.Log("<color=red>Save All Data</color>");
     }
 }

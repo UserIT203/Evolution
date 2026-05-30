@@ -22,13 +22,13 @@ MonoBehaviour:
       Text: "\u015E\xF6valye"
   <Cost>k__BackingField: 12
   <UnitType>k__BackingField: 2
-  <Maxhealth>k__BackingField: 150
+  <Maxhealth>k__BackingField: 250
   <Armor>k__BackingField: 20
   <Speed>k__BackingField: 0.6
   <AttackDelay>k__BackingField: 1
-  <AttackRange>k__BackingField: 2
-  <Damage>k__BackingField: 25
-  <DetectedRange>k__BackingField: 3
+  <AttackRange>k__BackingField: 3
+  <Damage>k__BackingField: 50
+  <DetectedRange>k__BackingField: 4
   <Icon>k__BackingField: {fileID: 21300000, guid: bc709c3280b6354488c769cfecb28031, type: 3}
   <IsUnlock>k__BackingField: 0
   <UnlockCosts>k__BackingField: 450

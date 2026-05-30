@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class ShopItemUI : MonoBehaviour
 {
     [Header("UI Links")]
-    [SerializeField] private TMP_Text _nameText;
-    [SerializeField] private TMP_Text _priceText;
+    [SerializeField] protected TMP_Text _nameText;
+    [SerializeField] protected TMP_Text _priceText;
     [SerializeField] private Image _icon;
 
     private ShopItem _item;
-    private LocalizationSelector _localizationSelector;
-    private Button _button;
+    protected LocalizationSelector _localizationSelector;
+    protected Button _button;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class ShopItemUI : MonoBehaviour
         _button.onClick.RemoveAllListeners();
     }
 
-    public void Initialized(ShopItem item, LocalizationSelector selector)
+    public virtual void Initialized(ShopItem item, LocalizationSelector selector)
     {
         _localizationSelector = selector;
         _localizationSelector.onChangeLocale += UpdateLocaleText;
@@ -47,13 +47,13 @@ public class ShopItemUI : MonoBehaviour
         _button.onClick.AddListener(() => item.TryBuy());
     }
 
-    private void UpdateLocaleText()
+    protected void UpdateLocaleText()
     {
         Debug.Log("Update Text in Shop");
         _nameText.text = _item.NameItem.GetText(_localizationSelector.CurrentLanguage);
     }
 
-    private void UpdatePriceText(int count)
+    protected void UpdatePriceText(int count)
     {
         _priceText.text = $"{count} | {_item.Price}";
     }

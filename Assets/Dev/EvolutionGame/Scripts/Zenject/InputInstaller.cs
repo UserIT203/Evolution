@@ -11,5 +11,7 @@ public class InputInstaller : MonoInstaller
             Container.Bind<DesktopInput>().FromNew().AsSingle();
         else
             Container.Bind<DesktopInput>().FromMethod(ctx => null).AsSingle();
+
+        Debug.Log("[DEBUG IN WEB] Load Input Inject");
     }
 }

@@ -20,8 +20,8 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
     private List<ILevelHandler> _registerHandlers = new();
     private GameManager _gameManager;
 
-    private event Action<LevelSetting> onSetNewLevelSettings;
-    private event Action<LevelSetting> onOpenNewLevel;
+    private event Action<LevelSetting, bool> onSetNewLevelSettings;
+    private event Action<LevelSetting, bool> onOpenNewLevel;
 
     public List<LevelSetting> LevelsSettings { get; set; }
 
@@ -68,9 +68,19 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
         {
             _levelsCompleted.Add(LevelsSettings[i], false);
         }
+    }
 
-        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
-        onOpenNewLevel?.Invoke(LevelsSettings[0]);
+    public void InitializedTutotial()
+    {
+        _levelsCompleted = new Dictionary<LevelSetting, bool>();
+
+        for (int i = 0; i < LevelsSettings.Count; i++)
+        {
+            _levelsCompleted.Add(LevelsSettings[i], false);
+        }
+
+        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels], false);
+        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels], false);
     }
 
     private void OnDestroy()
@@ -89,8 +99,7 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
         if (_currentSelectLevel != newIndex)
         {
             _currentSelectLevel = newIndex;
-
-            onSetNewLevelSettings?.Invoke(LevelsSettings[_currentSelectLevel]);
+            onSetNewLevelSettings?.Invoke(LevelsSettings[_currentSelectLevel], true);
         }
     }
 
@@ -102,7 +111,7 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
         if(_currentSelectLevel != newIndex)
         {
             _currentSelectLevel = newIndex;
-            onSetNewLevelSettings?.Invoke(LevelsSettings[_currentSelectLevel]);
+            onSetNewLevelSettings?.Invoke(LevelsSettings[_currentSelectLevel], true);
         }
     }
 
@@ -121,8 +130,8 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
         else
             onLevelCompleted?.Invoke();
 
-        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels]);
-        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
+        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels], false);
+        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels], false);
     }
 
     public void RegisterToChange(ILevelHandler levelHandler)
@@ -167,7 +176,8 @@ public class LevelManager : MonoBehaviour, ISaveSystemService, IInitialized
         _maxOpenLevels = _levelData.CurrentOpenLevel;
         _currentSelectLevel = 0;
 
-        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels]);
+        onSetNewLevelSettings?.Invoke(LevelsSettings[_maxOpenLevels], true);
+        onOpenNewLevel?.Invoke(LevelsSettings[_maxOpenLevels], true);
     }
 
     public void SaveData(ISaveSystem saveSystem)

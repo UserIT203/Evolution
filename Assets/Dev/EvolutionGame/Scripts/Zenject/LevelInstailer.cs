@@ -1,3 +1,4 @@
+using UnityEngine;
 using Zenject;
 
 public class LevelInstailer : MonoInstaller
@@ -10,13 +11,14 @@ public class LevelInstailer : MonoInstaller
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<WaveManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelUpgrade>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<ChestManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LootManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<AbilityManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<UpgradesMenu>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelManager>().FromComponentInHierarchy().AsSingle();
         
         Container.Bind<ISaveSystemService>().FromComponentsInHierarchy().AsCached();
+
+        Debug.Log("[DEBUG IN WEB] Load Level Inject");
     }
 
     private void InjectBootableComponent()

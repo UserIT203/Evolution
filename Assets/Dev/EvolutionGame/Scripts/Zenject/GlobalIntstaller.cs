@@ -12,7 +12,7 @@ public class GlobalIntstaller : MonoInstaller
     public override void InstallBindings()
     {
         LoadSaveData();
-        LoadMain();
+        LoadManagers();
     }
 
     private void LoadSaveData()
@@ -40,7 +40,7 @@ public class GlobalIntstaller : MonoInstaller
         Container.BindInstance(questData).AsSingle().NonLazy();
     }
 
-    private void LoadMain()
+    private void LoadManagers()
     {
         Container.BindInterfacesAndSelfTo<YandexSDK>().AsSingle().NonLazy();
 
@@ -69,7 +69,6 @@ public class GlobalIntstaller : MonoInstaller
         Container.BindInstance(saveManager).AsSingle().NonLazy();
 
         Container.BindInterfacesAndSelfTo<ItemManager>().AsSingle().NonLazy();
-
         Debug.Log("<color=red>Create SaveManager</color>");
     }
 }
