@@ -6,8 +6,15 @@
 
 ### 📹 Видео-геймплей
 *[Замените ссылку ниже на ваш YouTube-ролик, RuTube или GIF-анимацию]*
-[![Ссылка на видео-демонстрацию](https://img.youtube.com/vi/ВАШ_ID_ВИДЕО/maxresdefault.jpg)](https://www.youtube.com/watch?v=ВАШ_ID_ВИДЕО)
-
+<video 
+  src="https://github.com/user-attachments/assets/e84c9c4d-648f-40a2-8388-002a234ab180"
+  controls 
+  width="640" 
+  height="360"
+  autoplay 
+  loop 
+  muted>
+</video>
 ### 🌐 Играть в браузере
 Попробуйте игру прямо сейчас без установки!  
 🔗 **[Играть в браузере (Yandex Games / itch.io / GitHub Pages)](https://ВАША_ССЫЛКА_НА_ИГРУ)**
