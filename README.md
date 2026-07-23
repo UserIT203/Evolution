@@ -44,3 +44,10 @@
    - Автонастройка юнитов (вражеских/игрока)
 
 ---
+
+## 📬 Контакты
+
+Открыт к интересным предложениям о работе в команде и совместным проектам! Свяжитесь со мной:
+
+- 📧 **Email**: [sharipovamir2003@gmail.com](mailto:sharipovamir2003@gmail.com)
+- ✈️ **Telegram**: [@sbwtshrek](https://t.me/sbwtshrek)
